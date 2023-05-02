@@ -9,9 +9,11 @@ bookdown::gitbook:
     edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
+  base_format: rmarkdown::pdf_document
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
+  output_dir: 'book'
 bookdown::epub_book: default
