@@ -1,0 +1,107 @@
+# Data Exploration
+
+Exploratory data analysis (EDA) is the first step in the getting insights from a dataset. In this section we will see look at our cleaned dataset and perform some summary statistics and visualizations to see what would be a good destinations for our travellers to head to. 
+
+## Summary statistics
+
+We can make use of the **summary( )** function that was introduced in Chapter 4 to determine the mean and mean costs for **meals** and **one way ticket** costs. We can make use of indexing to select just these two columns. 
+
+```{r summary}
+summary(travel_full_clean_subset[3:4])
+```
+We can see that the **median** costs for a meal \$10.53 CAD, and the **mean** costs is \$11.84 CAD. The lowest priced meals are shown as **min** \$2.05 CAD, and the most expensive is **max** \$26.72 CAD. 
+
+We can use this information to filter out countries that we want to visit based on food or ticket costs. Lets consider filtering out food by the interquartile range (**IQR**). Knowing that the 1st quartile is \$6.32 CAD and the 3rd quartile is \$17.49 we can use the **filter( )** function and the **between( )** function to select only those countries in this range.
+
+```{r filter meal low}
+travel_full_clean_subset %>%
+  filter(between(Meal_Inexpensive_Restaurant,6.32,17.49)) %>%
+  select(c(Country,Meal_Inexpensive_Restaurant)) %>%
+  arrange(Meal_Inexpensive_Restaurant) %>%
+  head(5)
+```
+
+If we want to rank the previous countries based on meals from least expensive to most expensive we can use the **arrange( )** function. If we would like to go from most expensive to least expensive, we can add the **desc( )** function. 
+
+<h3> Note </h3>
+
+> We can also use the **tail( )** function instead of the **head( )** function to get the most expensive.
+
+
+```{r filter meal high}
+travel_full_clean_subset %>%
+  filter(between(Meal_Inexpensive_Restaurant,6.32,17.49)) %>%
+  select(c(Country,Meal_Inexpensive_Restaurant)) %>%
+  arrange(desc(Meal_Inexpensive_Restaurant)) %>%
+  head(5)
+```
+
+On the lower meal price end we have 
+
+* Ethiopia
+ 
+* Jamaica
+
+* Ukraine
+
+* Jordon
+
+* Albania
+
+
+and the higher end we have 
+
+* Puerto Rico
+
+* Sweden
+
+* Latvia
+
+* Solenia
+
+* Georgia
+
+We combining what we the data wrangling from the previous section, we can determine what the average number of arrivals for each country is from the lat 5 years using the functions **mutate( )** and **arrange( )**
+```{r most travelled 5year}
+travel_full_clean_subset %>%
+  mutate(
+    mean5year = rowMeans(select(., "2015":"2020"))) %>%
+  select(c(Country,mean5year)) %>%
+  arrange(desc(mean5year)) %>%
+  head(5)
+
+```
+
+## Standard deviation and variance 
+
+We can easily calculate the dispersion of the data using standard deviaton and variance that are built in functions with R. 
+
+### Standard deviation 
+
+Standard deviation explains how far away a group of numbers is from the mean. If we wanted to find the standard deviation for our meals, we can just the **sd( )** function.
+
+<h3> Note </h3>
+
+> The **sd( )** function will generate the sample standard deviation. 
+
+> To calculate the population standard deivation we would need to multiple the standard deviation by sqrt((n-1)/n) * sd(x)
+
+```{r standard deivation meal}
+sd(travel_full_clean_subset$Meal_Inexpensive_Restaurant)
+```
+
+### Varience 
+
+Variance is how spread out the data is around the mean. To calculate variance the meals variable we can use the **var( )** function. 
+
+<h3> Note </h3>
+
+> The **var( )** function will generate the sample varience. 
+> If you ever need to calculate the population varience we would need to multiple the varience by (n-1)/n * var(x)
+
+```{r varience meal}
+var(travel_full_clean_subset$Meal_Inexpensive_Restaurant)
+```
+
+Although it is easy to perform these functions, it is important to understand what you are calculating and if it is appropriate to use that calculation. 
+

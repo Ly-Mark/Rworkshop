@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Data visualization |  Intro to R Workshop</title>
+  <meta name="description" content="This is a book created for the CHI workshop on R for data analysis." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Data visualization |  Intro to R Workshop" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a book created for the CHI workshop on R for data analysis." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Data visualization |  Intro to R Workshop" />
+  
+  <meta name="twitter:description" content="This is a book created for the CHI workshop on R for data analysis." />
+  
+
+<meta name="author" content="Dr. Na Li, Mark Ly" />
+
+
+<meta name="date" content="2023-04-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-exploration.html"/>
+<link rel="next" href="regression.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CHI R Workshop 2023 - Intro to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About the workshop</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#audience"><i class="fa fa-check"></i><b>1.1</b> Audience</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i><b>1.2</b> Learning objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> R and R studio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#getting-started-desktop"><i class="fa fa-check"></i><b>2.1</b> Getting Started (Desktop)</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#installation"><i class="fa fa-check"></i><b>2.1.1</b> Installation</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-a-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating a Project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-.rmd-file"><i class="fa fa-check"></i><b>2.1.3</b> Creating .RMD file</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#getting-started-cloud"><i class="fa fa-check"></i><b>2.2</b> Getting Started (Cloud)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-.rmd-file-1"><i class="fa fa-check"></i><b>2.2.1</b> Creating .RMD File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>3</b> Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basics.html"><a href="basics.html#basic-operations"><i class="fa fa-check"></i><b>3.1</b> Basic Operations</a></li>
+<li class="chapter" data-level="3.2" data-path="basics.html"><a href="basics.html#code-chunk"><i class="fa fa-check"></i><b>3.2</b> Code Chunk</a></li>
+<li class="chapter" data-level="3.3" data-path="basics.html"><a href="basics.html#storing-variables"><i class="fa fa-check"></i><b>3.3</b> Storing Variables</a></li>
+<li class="chapter" data-level="3.4" data-path="basics.html"><a href="basics.html#using-variables"><i class="fa fa-check"></i><b>3.4</b> Using Variables</a></li>
+<li class="chapter" data-level="3.5" data-path="basics.html"><a href="basics.html#logical-operators"><i class="fa fa-check"></i><b>3.5</b> Logical operators</a></li>
+<li class="chapter" data-level="3.6" data-path="basics.html"><a href="basics.html#data-types"><i class="fa fa-check"></i><b>3.6</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.1</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-structures.html"><a href="data-structures.html#creating-simple-vectors"><i class="fa fa-check"></i><b>4.1.1</b> Creating simple vectors</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-structures.html"><a href="data-structures.html#simple-vector-operations"><i class="fa fa-check"></i><b>4.1.2</b> Simple vector operations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.2</b> Lists</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-list-of-vectors"><i class="fa fa-check"></i><b>4.2.1</b> Creating a list of vectors</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-structures.html"><a href="data-structures.html#accessing-elements-in-the-list"><i class="fa fa-check"></i><b>4.2.2</b> Accessing elements in the list</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-structures.html"><a href="data-structures.html#adding-items-to-lists"><i class="fa fa-check"></i><b>4.2.3</b> Adding items to lists</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-structures.html"><a href="data-structures.html#labeling-items-within-lists"><i class="fa fa-check"></i><b>4.2.4</b> Labeling items within lists</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.3</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-matrix"><i class="fa fa-check"></i><b>4.3.1</b> Creating a matrix</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-structures.html"><a href="data-structures.html#navigating-the-matrix"><i class="fa fa-check"></i><b>4.3.2</b> Navigating the matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>4.4</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-dataframe"><i class="fa fa-check"></i><b>4.4.1</b> Creating a dataframe</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-structures.html"><a href="data-structures.html#using-the-a-dataframe"><i class="fa fa-check"></i><b>4.4.2</b> Using the a dataframe</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>5</b> Data Wrangling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#r-packages"><i class="fa fa-check"></i><b>5.1</b> R Packages</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#installing-packages"><i class="fa fa-check"></i><b>5.1.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#using-packages"><i class="fa fa-check"></i><b>5.1.2</b> Using Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#pipe-function"><i class="fa fa-check"></i><b>5.2.1</b> Pipe function (%&gt;%)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling.html"><a href="data-wrangling.html#loading-datasets"><i class="fa fa-check"></i><b>5.3</b> Loading datasets</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling.html"><a href="data-wrangling.html#understanding-your-dataset"><i class="fa fa-check"></i><b>5.4</b> Understanding your dataset</a></li>
+<li class="chapter" data-level="5.5" data-path="data-wrangling.html"><a href="data-wrangling.html#combining-your-dataset"><i class="fa fa-check"></i><b>5.5</b> Combining your dataset</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#binds"><i class="fa fa-check"></i><b>5.5.1</b> Binds</a></li>
+<li class="chapter" data-level="5.5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>5.5.2</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="data-wrangling.html"><a href="data-wrangling.html#missing-values"><i class="fa fa-check"></i><b>5.6</b> Missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#summary-statistics"><i class="fa fa-check"></i><b>6.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#standard-deviation-and-variance"><i class="fa fa-check"></i><b>6.2</b> Standard deviation and variance</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-exploration.html"><a href="data-exploration.html#standard-deviation"><i class="fa fa-check"></i><b>6.2.1</b> Standard deviation</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-exploration.html"><a href="data-exploration.html#varience"><i class="fa fa-check"></i><b>6.2.2</b> Varience</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>7</b> Data visualization</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-visualization.html"><a href="data-visualization.html#plots"><i class="fa fa-check"></i><b>7.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplots"><i class="fa fa-check"></i><b>7.1.1</b> Boxplots</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>7.1.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplots"><i class="fa fa-check"></i><b>7.1.3</b> Scatterplots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>7.2</b> ggplot2</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>7.2.1</b> Boxplot</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram-1"><i class="fa fa-check"></i><b>7.2.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>7.2.3</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-visualization.html"><a href="data-visualization.html#exporting-plots"><i class="fa fa-check"></i><b>7.2.4</b> Exporting plots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-visualization.html"><a href="data-visualization.html#gtsummary"><i class="fa fa-check"></i><b>7.3</b> gtsummary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Regression</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>8.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="regression.html"><a href="regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>8.1.1</b> Assumptions of Linear Regression</a></li>
+<li class="chapter" data-level="8.1.2" data-path="regression.html"><a href="regression.html#residuals"><i class="fa fa-check"></i><b>8.1.2</b> Residuals</a></li>
+<li class="chapter" data-level="8.1.3" data-path="regression.html"><a href="regression.html#creating-our-intial-model"><i class="fa fa-check"></i><b>8.1.3</b> Creating our intial model</a></li>
+<li class="chapter" data-level="8.1.4" data-path="regression.html"><a href="regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>8.1.4</b> Interpretation of results</a></li>
+<li class="chapter" data-level="8.1.5" data-path="regression.html"><a href="regression.html#assumption-checking"><i class="fa fa-check"></i><b>8.1.5</b> Assumption checking</a></li>
+<li class="chapter" data-level="8.1.6" data-path="regression.html"><a href="regression.html#summary"><i class="fa fa-check"></i><b>8.1.6</b> Summary</a></li>
+<li class="chapter" data-level="8.1.7" data-path="regression.html"><a href="regression.html#next-steps"><i class="fa fa-check"></i><b>8.1.7</b> Next steps</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="other-capabilties.html"><a href="other-capabilties.html"><i class="fa fa-check"></i><b>9</b> Other capabilties</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="other-capabilties.html"><a href="other-capabilties.html#r-bookdown"><i class="fa fa-check"></i><b>9.1</b> R-bookdown</a></li>
+<li class="chapter" data-level="9.2" data-path="other-capabilties.html"><a href="other-capabilties.html#r-shiny"><i class="fa fa-check"></i><b>9.2</b> R-Shiny</a></li>
+<li class="chapter" data-level="9.3" data-path="other-capabilties.html"><a href="other-capabilties.html#r-markdown"><i class="fa fa-check"></i><b>9.3</b> R-markdown</a></li>
+<li class="chapter" data-level="9.4" data-path="other-capabilties.html"><a href="other-capabilties.html#machine-learning"><i class="fa fa-check"></i><b>9.4</b> Machine learning</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="RStudio-Logo-Flat.png" style="width:2in" /><br />
+Intro to R Workshop</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-visualization" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Data visualization<a href="data-visualization.html#data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Another way we can represent our insights is through data visualization through different graphs. Visualizations can be important tool in exploratory data analysis for identify patterns in our data. Creating meaningful visualization can help communicate your findings and ideas to a wide audience.</p>
+<div id="plots" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Plots<a href="data-visualization.html#plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There a few basic plots that can be used for exploratory analysis. In R, we can build most plots using the base R but we will also be exploring a package called <strong>ggplot2</strong>. We will use the display the previous summary statistics using:</p>
+<ul>
+<li><p>Boxplots</p></li>
+<li><p>Histograms</p></li>
+<li><p>Scatterplots</p></li>
+</ul>
+<div id="boxplots" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Boxplots<a href="data-visualization.html#boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Boxplots are used to summarize the same 5 number summary as the <strong>summary( )</strong> function. They are also a great way to quickly detect outliers in your dataset. To create a basic boxplot with base R, we can use the <strong>boxplot( )</strong> function.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-visualization.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant)</span></code></pre></div>
+<p><img src="_main_files/figure-html/boxplot%20meals%20base-1.png" width="672" /></p>
+<p>With the basic boxplot we can quickly see that no outliers are present in our data and that our data is slight right skewed with the median is below the center of the boxplot. To label our boxplot, we can add the following arguments.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-visualization.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant,</span>
+<span id="cb92-2"><a href="data-visualization.html#cb92-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Average price of resturant meals&quot;</span>, <span class="co"># Title of the graph</span></span>
+<span id="cb92-3"><a href="data-visualization.html#cb92-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="co"># x-axis label</span></span>
+<span id="cb92-4"><a href="data-visualization.html#cb92-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span> <span class="st">&quot;Dollar amount (CAD)&quot;</span>, <span class="co"># y-axis label</span></span>
+<span id="cb92-5"><a href="data-visualization.html#cb92-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;white&quot;</span>) <span class="co"># color of the boxplot</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/boxplot%20with%20labels%20base-1.png" width="672" /></p>
+</div>
+<div id="histogram" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Histogram<a href="data-visualization.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Histograms can show the how our data is distributed. We can use the <strong>hist( )</strong> function to do this.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-visualization.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant, </span>
+<span id="cb93-2"><a href="data-visualization.html#cb93-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks=</span> <span class="dv">30</span>, <span class="co"># number of breaks </span></span>
+<span id="cb93-3"><a href="data-visualization.html#cb93-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">6</span>),</span>
+<span id="cb93-4"><a href="data-visualization.html#cb93-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribution of Average meal cost (CAD)&quot;</span>,</span>
+<span id="cb93-5"><a href="data-visualization.html#cb93-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>) <span class="co"># y-axis limit</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/distribution%20of%20cost%20base-1.png" width="672" /></p>
+</div>
+<div id="scatterplots" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Scatterplots<a href="data-visualization.html#scatterplots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Scatterplots are useful to show a relationship between two different variables. For example, we can plot the the arrivals over time. Let’s examine how Finland has changed over time. There are a few steps we need to take</p>
+<ul>
+<li><p>Filter our dataset to show data for Finland</p></li>
+<li><p>Select the columns related to arrival (1995-2020)</p></li>
+<li><p>Pivot our data from wide format to long format</p></li>
+<li><p>Rename our columns to meaningful columns</p></li>
+<li><p>Draw the scatterplot</p></li>
+</ul>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-visualization.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb94-2"><a href="data-visualization.html#cb94-2" aria-hidden="true" tabindex="-1"></a>sweden_travel <span class="ot">&lt;-</span> travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb94-3"><a href="data-visualization.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country_code<span class="sc">==</span><span class="st">&quot;SWE&quot;</span> ) <span class="sc">%&gt;%</span></span>
+<span id="cb94-4"><a href="data-visualization.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;1995&quot;</span><span class="sc">:</span><span class="st">&quot;2020&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb94-5"><a href="data-visualization.html#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb94-6"><a href="data-visualization.html#cb94-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">years=</span> key,</span>
+<span id="cb94-7"><a href="data-visualization.html#cb94-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">arrivals=</span> value)</span>
+<span id="cb94-8"><a href="data-visualization.html#cb94-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-9"><a href="data-visualization.html#cb94-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sweden_travel<span class="sc">$</span>years, sweden_travel<span class="sc">$</span>arrivals<span class="sc">/</span><span class="dv">100000</span>,</span>
+<span id="cb94-10"><a href="data-visualization.html#cb94-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
+<span id="cb94-11"><a href="data-visualization.html#cb94-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>,</span>
+<span id="cb94-12"><a href="data-visualization.html#cb94-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Number of arrivals (x100,000)&quot;</span>) </span></code></pre></div>
+<p><img src="_main_files/figure-html/scatterplot%20base-1.png" width="672" /></p>
+<p>From the scatterplot, we see a steady increase in arrivals to sweeden over the years. We do see a few years between 2010, and 2015 with a high spike in arrivals which could indicate a few outliers in our data. To check we can run another boxplot on the arrivals data.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-visualization.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(sweden_travel<span class="sc">$</span>arrivals<span class="sc">/</span><span class="dv">100000</span>,</span>
+<span id="cb95-2"><a href="data-visualization.html#cb95-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Number of arrivals from 1995 - 2020 (Sweden)&quot;</span>, <span class="co"># Title of the graph</span></span>
+<span id="cb95-3"><a href="data-visualization.html#cb95-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="co"># x-axis label</span></span>
+<span id="cb95-4"><a href="data-visualization.html#cb95-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span> <span class="st">&quot;Number of arrivals (x100,000)&quot;</span>, <span class="co"># y-axis label</span></span>
+<span id="cb95-5"><a href="data-visualization.html#cb95-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;white&quot;</span>) <span class="co"># color of the boxplot)</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/boxplot%20arrival%20base-1.png" width="672" /></p>
+<p>From the boxplot, we can see that there is at least 1 point that is an outlier in the data indicated by the circle above the maximum value</p>
+</div>
+</div>
+<div id="ggplot2" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> ggplot2<a href="data-visualization.html#ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can use the <strong>ggplot2</strong> package to create plots and figures instead of using the base R. It gives you more control over your plots to specify how you want it to look. Let’s remake the previous 3 plots using <strong>ggplot2</strong></p>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>You can refer to the <strong>ggplot2</strong> <a href="https://ggplot2.tidyverse.org/reference/index.html" class="uri">https://ggplot2.tidyverse.org/reference/index.html</a> to find all the possible plots that you can build with ggplot2</p>
+</blockquote>
+<p>First, we will need to install the package and then load the pack using the <strong>library( )</strong> function.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-visualization.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div id="boxplot" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Boxplot<a href="data-visualization.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The basic structure for using <strong>ggplot( )</strong> is</p>
+<p><strong>ggplot(data = x, aes(x = x-axis, y = y-axis)) + geom_typeOfPlot() </strong></p>
+<p>where <em>aes</em> stands for aesthetic. This defines what variables you want to plot. For our boxplot, we want look at the meal prices as a whole so we only need to declare the y-variable.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-visualization.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> travel_full_clean_subset, <span class="fu">aes</span>(<span class="at">y=</span>Meal_Inexpensive_Restaurant)) <span class="sc">+</span> </span>
+<span id="cb97-2"><a href="data-visualization.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/boxplot%20ggplot2-1.png" width="672" /></p>
+<p>We can also rename our axis in a simliar way to our base R plot by using the <strong>labs( )</strong> argument</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-visualization.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> travel_full_clean_subset, <span class="fu">aes</span>(<span class="at">y=</span>Meal_Inexpensive_Restaurant)) <span class="sc">+</span> </span>
+<span id="cb98-2"><a href="data-visualization.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb98-3"><a href="data-visualization.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Average price of resturant meals&quot;</span>,</span>
+<span id="cb98-4"><a href="data-visualization.html#cb98-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>, </span>
+<span id="cb98-5"><a href="data-visualization.html#cb98-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Dollar amount (CAD)&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/boxplot%20ggplot2%20clean-1.png" width="672" /></p>
+<p>From here, we can customize the look of our boxplot with other arguments.</p>
+</div>
+<div id="histogram-1" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Histogram<a href="data-visualization.html#histogram-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can do the same with our histogram. Instead of using <strong>geom_boxplot( )</strong> we will use <strong>geom_histogram( )</strong></p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-visualization.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> travel_full_clean_subset, <span class="fu">aes</span>(<span class="at">x=</span>Meal_Inexpensive_Restaurant)) <span class="sc">+</span> </span>
+<span id="cb99-2"><a href="data-visualization.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb99-3"><a href="data-visualization.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Distribution of Average meal cost (CAD)&quot;</span>,</span>
+<span id="cb99-4"><a href="data-visualization.html#cb99-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;Frequency&quot;</span>,</span>
+<span id="cb99-5"><a href="data-visualization.html#cb99-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/distribution%20of%20cost%20ggplot2-1.png" width="672" /></p>
+</div>
+<div id="scatterplot" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> Scatterplot<a href="data-visualization.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Similarly with the scatterplot, we can use <strong>geom_point( )</strong></p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-visualization.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">x=</span>years, <span class="at">y =</span> arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
+<span id="cb100-2"><a href="data-visualization.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb100-3"><a href="data-visualization.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
+<span id="cb100-4"><a href="data-visualization.html#cb100-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">x=</span><span class="st">&quot;Years&quot;</span>,</span>
+<span id="cb100-5"><a href="data-visualization.html#cb100-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span><span class="st">&quot;Number of arrivals (x100,000)&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/scatter%20ggplot2%20base-1.png" width="672" /></p>
+<p>We can see that the scatterplot has the same trend but looks a little different. We can easily adjust the graph so it matches our previous one.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-visualization.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">x=</span>years, <span class="at">y =</span> arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
+<span id="cb101-2"><a href="data-visualization.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">1</span>,</span>
+<span id="cb101-3"><a href="data-visualization.html#cb101-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb101-4"><a href="data-visualization.html#cb101-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
+<span id="cb101-5"><a href="data-visualization.html#cb101-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">x=</span><span class="st">&quot;Years&quot;</span>,</span>
+<span id="cb101-6"><a href="data-visualization.html#cb101-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span><span class="st">&quot;Number of arrivals (x100,000)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb101-7"><a href="data-visualization.html#cb101-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">check.overlap =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
+<span id="cb101-8"><a href="data-visualization.html#cb101-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/scatter%20ggplot2%20clean-1.png" width="672" /></p>
+<p>By adding a few arguments we can create clean and meaningful graphs using <strong>ggplot2</strong></p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-visualization.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">y=</span>arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
+<span id="cb102-2"><a href="data-visualization.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">outlier.shape =</span> <span class="dv">1</span>, <span class="at">outlier.size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb102-3"><a href="data-visualization.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
+<span id="cb102-4"><a href="data-visualization.html#cb102-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>, </span>
+<span id="cb102-5"><a href="data-visualization.html#cb102-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Arrivals&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/boxplot%20travel%20outlier%20ggplot2-1.png" width="672" /></p>
+</div>
+<div id="exporting-plots" class="section level3 hasAnchor" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> Exporting plots<a href="data-visualization.html#exporting-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Once you are finished with creating your desired graph, you can export the file as a pdf or other vector image formats for journals. Let’s use our last boxplot on the number of arrivals as a example. First we need to save the boxplot as a variable.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-visualization.html#cb103-1" aria-hidden="true" tabindex="-1"></a>boxplot_arrivals_swe <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">y=</span>arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
+<span id="cb103-2"><a href="data-visualization.html#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">outlier.shape =</span> <span class="dv">1</span>, <span class="at">outlier.size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb103-3"><a href="data-visualization.html#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
+<span id="cb103-4"><a href="data-visualization.html#cb103-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>, </span>
+<span id="cb103-5"><a href="data-visualization.html#cb103-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Arrivals&quot;</span>)</span></code></pre></div>
+<p>Next, we will use the <strong>ggsave( )</strong> function and specify the location, the format, and the height and width we want to save the image as.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-visualization.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;/Users/markly/boxplot_swe_arrival.pdf&quot;</span>, <span class="at">plot =</span> boxplot_arrivals_swe, <span class="at">device =</span> <span class="st">&quot;pdf&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">6</span>, <span class="at">dpi=</span><span class="dv">150</span>)</span></code></pre></div>
+<h3>
+Note:
+</h3>
+<blockquote>
+<p>We can save images in different formats including</p>
+</blockquote>
+<ul>
+<li>png, eps, ps, tex, jpeg, tiff, bmp, svg or wmf</li>
+</ul>
+</div>
+</div>
+<div id="gtsummary" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> gtsummary<a href="data-visualization.html#gtsummary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Another powerful package that helps with data visulizuation is <strong>gtsummary</strong> which can quickly generate summary tables. We will need to install the package and load the package using the <strong>library( )</strong> function.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-visualization.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span></code></pre></div>
+<pre><code>## #BlackLivesMatter</code></pre>
+<p>Let’s say we are interested in summarizing the meal and ticket costs in a table. First, we will need to subset that from our dataset and then pass that into the <strong>tbl_summary()</strong> function.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="data-visualization.html#cb107-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb107-2"><a href="data-visualization.html#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local)) <span class="sc">%&gt;%</span></span>
+<span id="cb107-3"><a href="data-visualization.html#cb107-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
+<div id="gshzourihw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#gshzourihw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#gshzourihw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gshzourihw .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#gshzourihw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#gshzourihw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#gshzourihw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gshzourihw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gshzourihw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#gshzourihw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#gshzourihw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#gshzourihw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#gshzourihw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#gshzourihw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#gshzourihw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gshzourihw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#gshzourihw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#gshzourihw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#gshzourihw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gshzourihw .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#gshzourihw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#gshzourihw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gshzourihw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#gshzourihw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#gshzourihw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gshzourihw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gshzourihw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#gshzourihw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#gshzourihw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gshzourihw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gshzourihw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gshzourihw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gshzourihw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gshzourihw .gt_left {
+  text-align: left;
+}
+
+#gshzourihw .gt_center {
+  text-align: center;
+}
+
+#gshzourihw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#gshzourihw .gt_font_normal {
+  font-weight: normal;
+}
+
+#gshzourihw .gt_font_bold {
+  font-weight: bold;
+}
+
+#gshzourihw .gt_font_italic {
+  font-style: italic;
+}
+
+#gshzourihw .gt_super {
+  font-size: 65%;
+}
+
+#gshzourihw .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#gshzourihw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#gshzourihw .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#gshzourihw .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#gshzourihw .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#gshzourihw .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#gshzourihw .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 55&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>N = 55</strong><sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Meal_Inexpensive_Restaurant</td>
+<td headers="stat_0" class="gt_row gt_center">11 (6, 17)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">one_way_ticket_local</td>
+<td headers="stat_0" class="gt_row gt_center">1.20 (0.50, 2.20)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="2"><sup class="gt_footnote_marks">1</sup> Median (IQR)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<p>This produced a summary table of all the meals and ticket information giving us the <strong>median</strong> and <strong>IQR</strong> without any additional steps. We can customize this table a bit further by adding a few arguments.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="data-visualization.html#cb108-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb108-2"><a href="data-visualization.html#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local)) <span class="sc">%&gt;%</span></span>
+<span id="cb108-3"><a href="data-visualization.html#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">label =</span> <span class="fu">list</span>(<span class="st">&quot;Meal_Inexpensive_Restaurant&quot;</span><span class="sc">~</span><span class="st">&quot;Meal Price&quot;</span>,</span>
+<span id="cb108-4"><a href="data-visualization.html#cb108-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;one_way_ticket_local&quot;</span><span class="sc">~</span><span class="st">&quot;One-way Ticket Price&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb108-5"><a href="data-visualization.html#cb108-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">&quot;**Variable**&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
+<span id="cb108-6"><a href="data-visualization.html#cb108-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() </span></code></pre></div>
+<div id="qgikjryopq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#qgikjryopq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#qgikjryopq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qgikjryopq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#qgikjryopq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#qgikjryopq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#qgikjryopq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qgikjryopq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#qgikjryopq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#qgikjryopq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#qgikjryopq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#qgikjryopq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#qgikjryopq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#qgikjryopq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#qgikjryopq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#qgikjryopq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#qgikjryopq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#qgikjryopq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#qgikjryopq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qgikjryopq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#qgikjryopq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#qgikjryopq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qgikjryopq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#qgikjryopq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#qgikjryopq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qgikjryopq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qgikjryopq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#qgikjryopq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#qgikjryopq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#qgikjryopq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qgikjryopq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qgikjryopq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#qgikjryopq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#qgikjryopq .gt_left {
+  text-align: left;
+}
+
+#qgikjryopq .gt_center {
+  text-align: center;
+}
+
+#qgikjryopq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#qgikjryopq .gt_font_normal {
+  font-weight: normal;
+}
+
+#qgikjryopq .gt_font_bold {
+  font-weight: bold;
+}
+
+#qgikjryopq .gt_font_italic {
+  font-style: italic;
+}
+
+#qgikjryopq .gt_super {
+  font-size: 65%;
+}
+
+#qgikjryopq .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#qgikjryopq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#qgikjryopq .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#qgikjryopq .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#qgikjryopq .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#qgikjryopq .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#qgikjryopq .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Variable&lt;/strong&gt;"><strong>Variable</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 55&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>N = 55</strong><sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Meal Price</td>
+<td headers="stat_0" class="gt_row gt_center">11 (6, 17)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">One-way Ticket Price</td>
+<td headers="stat_0" class="gt_row gt_center">1.20 (0.50, 2.20)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="2"><sup class="gt_footnote_marks">1</sup> Median (IQR)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<p><strong>gtsummary</strong> is also great for separating and summarizing groups in the same table. We can add region information to our data set using a left join. After saving our new dataframe, we can select only the variables needed, region, meal price, and ticket price, and apply the <strong>gtsummary( )</strong> function to output a table based on region.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="data-visualization.html#cb109-1" aria-hidden="true" tabindex="-1"></a>region<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/csv_region.csv&quot;</span>)</span>
+<span id="cb109-2"><a href="data-visualization.html#cb109-2" aria-hidden="true" tabindex="-1"></a>region_select <span class="ot">&lt;-</span>region <span class="sc">%&gt;%</span></span>
+<span id="cb109-3"><a href="data-visualization.html#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(alpha<span class="fl">.3</span>,region)) <span class="sc">%&gt;%</span></span>
+<span id="cb109-4"><a href="data-visualization.html#cb109-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">country_code =</span> alpha<span class="fl">.3</span>)</span>
+<span id="cb109-5"><a href="data-visualization.html#cb109-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="data-visualization.html#cb109-6" aria-hidden="true" tabindex="-1"></a>travel_region <span class="ot">&lt;-</span> travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb109-7"><a href="data-visualization.html#cb109-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb109-8"><a href="data-visualization.html#cb109-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(.,region_select,<span class="at">by=</span><span class="st">&quot;country_code&quot;</span>)</span>
+<span id="cb109-9"><a href="data-visualization.html#cb109-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-10"><a href="data-visualization.html#cb109-10" aria-hidden="true" tabindex="-1"></a>travel_region <span class="sc">%&gt;%</span> </span>
+<span id="cb109-11"><a href="data-visualization.html#cb109-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Country,country_code))<span class="sc">%&gt;%</span></span>
+<span id="cb109-12"><a href="data-visualization.html#cb109-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>region,</span>
+<span id="cb109-13"><a href="data-visualization.html#cb109-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="fu">list</span>(<span class="st">&quot;Meal_Inexpensive_Restaurant&quot;</span><span class="sc">~</span><span class="st">&quot;Meal Price&quot;</span>,</span>
+<span id="cb109-14"><a href="data-visualization.html#cb109-14" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;one_way_ticket_local&quot;</span><span class="sc">~</span><span class="st">&quot;One-way Ticket Price&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb109-15"><a href="data-visualization.html#cb109-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">&quot;**Variable**&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
+<span id="cb109-16"><a href="data-visualization.html#cb109-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>()</span></code></pre></div>
+<div id="nuheomwgjl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#nuheomwgjl .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nuheomwgjl .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nuheomwgjl .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#nuheomwgjl .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nuheomwgjl .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nuheomwgjl .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nuheomwgjl .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nuheomwgjl .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nuheomwgjl .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nuheomwgjl .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nuheomwgjl .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nuheomwgjl .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nuheomwgjl .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#nuheomwgjl .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nuheomwgjl .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nuheomwgjl .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nuheomwgjl .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nuheomwgjl .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nuheomwgjl .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#nuheomwgjl .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#nuheomwgjl .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nuheomwgjl .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#nuheomwgjl .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#nuheomwgjl .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nuheomwgjl .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nuheomwgjl .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nuheomwgjl .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nuheomwgjl .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nuheomwgjl .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nuheomwgjl .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nuheomwgjl .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nuheomwgjl .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nuheomwgjl .gt_left {
+  text-align: left;
+}
+
+#nuheomwgjl .gt_center {
+  text-align: center;
+}
+
+#nuheomwgjl .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nuheomwgjl .gt_font_normal {
+  font-weight: normal;
+}
+
+#nuheomwgjl .gt_font_bold {
+  font-weight: bold;
+}
+
+#nuheomwgjl .gt_font_italic {
+  font-style: italic;
+}
+
+#nuheomwgjl .gt_super {
+  font-size: 65%;
+}
+
+#nuheomwgjl .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#nuheomwgjl .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#nuheomwgjl .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#nuheomwgjl .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#nuheomwgjl .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#nuheomwgjl .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#nuheomwgjl .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Variable&lt;/strong&gt;"><strong>Variable</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Africa&lt;/strong&gt;, N = 6&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Africa</strong>, N = 6<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Americas&lt;/strong&gt;, N = 10&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Americas</strong>, N = 10<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Asia&lt;/strong&gt;, N = 14&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Asia</strong>, N = 14<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Europe&lt;/strong&gt;, N = 23&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Europe</strong>, N = 23<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Oceania&lt;/strong&gt;, N = 2&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Oceania</strong>, N = 2<sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Meal Price</td>
+<td headers="stat_1" class="gt_row gt_center">5 (4, 8)</td>
+<td headers="stat_2" class="gt_row gt_center">10 (6, 12)</td>
+<td headers="stat_3" class="gt_row gt_center">6 (3, 10)</td>
+<td headers="stat_4" class="gt_row gt_center">16 (12, 22)</td>
+<td headers="stat_5" class="gt_row gt_center">22 (21, 22)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">One-way Ticket Price</td>
+<td headers="stat_1" class="gt_row gt_center">0.49 (0.33, 1.01)</td>
+<td headers="stat_2" class="gt_row gt_center">0.85 (0.76, 1.29)</td>
+<td headers="stat_3" class="gt_row gt_center">0.49 (0.35, 0.93)</td>
+<td headers="stat_4" class="gt_row gt_center">2.20 (1.29, 4.20)</td>
+<td headers="stat_5" class="gt_row gt_center">3.46 (3.18, 3.75)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="6"><sup class="gt_footnote_marks">1</sup> Median (IQR)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="data-visualization.html#cb110-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb110-2"><a href="data-visualization.html#cb110-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(.,region_select,<span class="at">by=</span><span class="st">&quot;country_code&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb110-3"><a href="data-visualization.html#cb110-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local,<span class="st">&quot;2015&quot;</span><span class="sc">:</span><span class="st">&quot;2020&quot;</span>,region)) <span class="sc">%&gt;%</span></span>
+<span id="cb110-4"><a href="data-visualization.html#cb110-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>region)</span></code></pre></div>
+<div id="izypxwwirz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#izypxwwirz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#izypxwwirz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#izypxwwirz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#izypxwwirz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#izypxwwirz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#izypxwwirz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#izypxwwirz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#izypxwwirz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#izypxwwirz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#izypxwwirz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#izypxwwirz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#izypxwwirz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#izypxwwirz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#izypxwwirz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#izypxwwirz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#izypxwwirz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#izypxwwirz .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#izypxwwirz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#izypxwwirz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#izypxwwirz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#izypxwwirz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#izypxwwirz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#izypxwwirz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#izypxwwirz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#izypxwwirz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#izypxwwirz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#izypxwwirz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#izypxwwirz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#izypxwwirz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#izypxwwirz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#izypxwwirz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#izypxwwirz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#izypxwwirz .gt_left {
+  text-align: left;
+}
+
+#izypxwwirz .gt_center {
+  text-align: center;
+}
+
+#izypxwwirz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#izypxwwirz .gt_font_normal {
+  font-weight: normal;
+}
+
+#izypxwwirz .gt_font_bold {
+  font-weight: bold;
+}
+
+#izypxwwirz .gt_font_italic {
+  font-style: italic;
+}
+
+#izypxwwirz .gt_super {
+  font-size: 65%;
+}
+
+#izypxwwirz .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#izypxwwirz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#izypxwwirz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#izypxwwirz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#izypxwwirz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#izypxwwirz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#izypxwwirz .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Africa&lt;/strong&gt;, N = 6&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Africa</strong>, N = 6<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Americas&lt;/strong&gt;, N = 10&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Americas</strong>, N = 10<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Asia&lt;/strong&gt;, N = 14&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Asia</strong>, N = 14<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Europe&lt;/strong&gt;, N = 23&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Europe</strong>, N = 23<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Oceania&lt;/strong&gt;, N = 2&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Oceania</strong>, N = 2<sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">Meal_Inexpensive_Restaurant</td>
+<td headers="stat_1" class="gt_row gt_center">5 (4, 8)</td>
+<td headers="stat_2" class="gt_row gt_center">10 (6, 12)</td>
+<td headers="stat_3" class="gt_row gt_center">6 (3, 10)</td>
+<td headers="stat_4" class="gt_row gt_center">16 (12, 22)</td>
+<td headers="stat_5" class="gt_row gt_center">22 (21, 22)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">one_way_ticket_local</td>
+<td headers="stat_1" class="gt_row gt_center">0.49 (0.33, 1.01)</td>
+<td headers="stat_2" class="gt_row gt_center">0.85 (0.76, 1.29)</td>
+<td headers="stat_3" class="gt_row gt_center">0.49 (0.35, 0.93)</td>
+<td headers="stat_4" class="gt_row gt_center">2.20 (1.29, 4.20)</td>
+<td headers="stat_5" class="gt_row gt_center">3.46 (3.18, 3.75)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">2015</td>
+<td headers="stat_1" class="gt_row gt_center">3,534,500 (1,308,000, 9,246,250)</td>
+<td headers="stat_2" class="gt_row gt_center">3,531,500 (2,639,500, 5,859,500)</td>
+<td headers="stat_3" class="gt_row gt_center">6,151,000 (2,706,750, 14,025,375)</td>
+<td headers="stat_4" class="gt_row gt_center">9,317,000 (3,576,500, 30,849,000)</td>
+<td headers="stat_5" class="gt_row gt_center">5,289,000 (4,209,000, 6,369,000)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">2016</td>
+<td headers="stat_1" class="gt_row gt_center">3,881,500 (1,490,000, 9,438,750)</td>
+<td headers="stat_2" class="gt_row gt_center">3,756,000 (2,585,250, 6,327,500)</td>
+<td headers="stat_3" class="gt_row gt_center">6,511,000 (2,745,750, 15,182,000)</td>
+<td headers="stat_4" class="gt_row gt_center">10,223,000 (4,066,500, 31,838,000)</td>
+<td headers="stat_5" class="gt_row gt_center">5,881,500 (4,687,750, 7,075,250)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">2017</td>
+<td headers="stat_1" class="gt_row gt_center">4,751,500 (1,641,000, 10,418,000)</td>
+<td headers="stat_2" class="gt_row gt_center">4,166,000 (2,695,500, 6,703,750)</td>
+<td headers="stat_3" class="gt_row gt_center">7,014,000 (3,164,000, 16,578,750)</td>
+<td headers="stat_4" class="gt_row gt_center">10,926,000 (4,554,500, 33,456,000)</td>
+<td headers="stat_5" class="gt_row gt_center">6,269,000 (4,996,000, 7,542,000)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">2018</td>
+<td headers="stat_1" class="gt_row gt_center">5,478,000 (1,737,500, 11,441,500)</td>
+<td headers="stat_2" class="gt_row gt_center">4,289,500 (2,693,500, 6,762,500)</td>
+<td headers="stat_3" class="gt_row gt_center">7,855,500 (3,368,000, 17,833,500)</td>
+<td headers="stat_4" class="gt_row gt_center">11,720,000 (5,056,500, 34,848,500)</td>
+<td headers="stat_5" class="gt_row gt_center">6,552,000 (5,205,000, 7,899,000)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">2019</td>
+<td headers="stat_1" class="gt_row gt_center">5,900,000 (1,656,250, 12,189,000)</td>
+<td headers="stat_2" class="gt_row gt_center">4,382,000 (2,761,500, 6,895,250)</td>
+<td headers="stat_3" class="gt_row gt_center">8,413,000 (3,717,750, 18,839,250)</td>
+<td headers="stat_4" class="gt_row gt_center">12,552,000 (5,290,500, 35,723,500)</td>
+<td headers="stat_5" class="gt_row gt_center">6,677,000 (5,282,500, 8,071,500)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">2020</td>
+<td headers="stat_1" class="gt_row gt_center">1,301,500 (536,250, 2,604,500)</td>
+<td headers="stat_2" class="gt_row gt_center">1,362,850 (771,875, 3,598,500)</td>
+<td headers="stat_3" class="gt_row gt_center">1,837,000 (907,000, 3,999,000)</td>
+<td headers="stat_4" class="gt_row gt_center">3,382,000 (1,306,500, 11,775,000)</td>
+<td headers="stat_5" class="gt_row gt_center">1,412,000 (1,204,000, 1,620,000)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="6"><sup class="gt_footnote_marks">1</sup> Median (IQR)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<p>With both <strong>ggplot2</strong> and <strong>gtsummary</strong>, we have lots of tools to use to display and communicate our data.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-exploration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/06-data-visualization.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

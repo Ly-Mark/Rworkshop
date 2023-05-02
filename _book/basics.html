@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Basics |  Intro to R Workshop</title>
+  <meta name="description" content="This is a book created for the CHI workshop on R for data analysis." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Basics |  Intro to R Workshop" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a book created for the CHI workshop on R for data analysis." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Basics |  Intro to R Workshop" />
+  
+  <meta name="twitter:description" content="This is a book created for the CHI workshop on R for data analysis." />
+  
+
+<meta name="author" content="Dr. Na Li, Mark Ly" />
+
+
+<meta name="date" content="2023-04-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-and-r-studio.html"/>
+<link rel="next" href="data-structures.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CHI R Workshop 2023 - Intro to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About the workshop</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#audience"><i class="fa fa-check"></i><b>1.1</b> Audience</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i><b>1.2</b> Learning objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> R and R studio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#getting-started-desktop"><i class="fa fa-check"></i><b>2.1</b> Getting Started (Desktop)</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#installation"><i class="fa fa-check"></i><b>2.1.1</b> Installation</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-a-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating a Project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-.rmd-file"><i class="fa fa-check"></i><b>2.1.3</b> Creating .RMD file</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#getting-started-cloud"><i class="fa fa-check"></i><b>2.2</b> Getting Started (Cloud)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-.rmd-file-1"><i class="fa fa-check"></i><b>2.2.1</b> Creating .RMD File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>3</b> Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basics.html"><a href="basics.html#basic-operations"><i class="fa fa-check"></i><b>3.1</b> Basic Operations</a></li>
+<li class="chapter" data-level="3.2" data-path="basics.html"><a href="basics.html#code-chunk"><i class="fa fa-check"></i><b>3.2</b> Code Chunk</a></li>
+<li class="chapter" data-level="3.3" data-path="basics.html"><a href="basics.html#storing-variables"><i class="fa fa-check"></i><b>3.3</b> Storing Variables</a></li>
+<li class="chapter" data-level="3.4" data-path="basics.html"><a href="basics.html#using-variables"><i class="fa fa-check"></i><b>3.4</b> Using Variables</a></li>
+<li class="chapter" data-level="3.5" data-path="basics.html"><a href="basics.html#logical-operators"><i class="fa fa-check"></i><b>3.5</b> Logical operators</a></li>
+<li class="chapter" data-level="3.6" data-path="basics.html"><a href="basics.html#data-types"><i class="fa fa-check"></i><b>3.6</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.1</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-structures.html"><a href="data-structures.html#creating-simple-vectors"><i class="fa fa-check"></i><b>4.1.1</b> Creating simple vectors</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-structures.html"><a href="data-structures.html#simple-vector-operations"><i class="fa fa-check"></i><b>4.1.2</b> Simple vector operations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.2</b> Lists</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-list-of-vectors"><i class="fa fa-check"></i><b>4.2.1</b> Creating a list of vectors</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-structures.html"><a href="data-structures.html#accessing-elements-in-the-list"><i class="fa fa-check"></i><b>4.2.2</b> Accessing elements in the list</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-structures.html"><a href="data-structures.html#adding-items-to-lists"><i class="fa fa-check"></i><b>4.2.3</b> Adding items to lists</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-structures.html"><a href="data-structures.html#labeling-items-within-lists"><i class="fa fa-check"></i><b>4.2.4</b> Labeling items within lists</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.3</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-matrix"><i class="fa fa-check"></i><b>4.3.1</b> Creating a matrix</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-structures.html"><a href="data-structures.html#navigating-the-matrix"><i class="fa fa-check"></i><b>4.3.2</b> Navigating the matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>4.4</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-dataframe"><i class="fa fa-check"></i><b>4.4.1</b> Creating a dataframe</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-structures.html"><a href="data-structures.html#using-the-a-dataframe"><i class="fa fa-check"></i><b>4.4.2</b> Using the a dataframe</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>5</b> Data Wrangling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#r-packages"><i class="fa fa-check"></i><b>5.1</b> R Packages</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#installing-packages"><i class="fa fa-check"></i><b>5.1.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#using-packages"><i class="fa fa-check"></i><b>5.1.2</b> Using Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#pipe-function"><i class="fa fa-check"></i><b>5.2.1</b> Pipe function (%&gt;%)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling.html"><a href="data-wrangling.html#loading-datasets"><i class="fa fa-check"></i><b>5.3</b> Loading datasets</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling.html"><a href="data-wrangling.html#understanding-your-dataset"><i class="fa fa-check"></i><b>5.4</b> Understanding your dataset</a></li>
+<li class="chapter" data-level="5.5" data-path="data-wrangling.html"><a href="data-wrangling.html#combining-your-dataset"><i class="fa fa-check"></i><b>5.5</b> Combining your dataset</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#binds"><i class="fa fa-check"></i><b>5.5.1</b> Binds</a></li>
+<li class="chapter" data-level="5.5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>5.5.2</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="data-wrangling.html"><a href="data-wrangling.html#missing-values"><i class="fa fa-check"></i><b>5.6</b> Missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#summary-statistics"><i class="fa fa-check"></i><b>6.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#standard-deviation-and-variance"><i class="fa fa-check"></i><b>6.2</b> Standard deviation and variance</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-exploration.html"><a href="data-exploration.html#standard-deviation"><i class="fa fa-check"></i><b>6.2.1</b> Standard deviation</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-exploration.html"><a href="data-exploration.html#varience"><i class="fa fa-check"></i><b>6.2.2</b> Varience</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>7</b> Data visualization</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-visualization.html"><a href="data-visualization.html#plots"><i class="fa fa-check"></i><b>7.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplots"><i class="fa fa-check"></i><b>7.1.1</b> Boxplots</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>7.1.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplots"><i class="fa fa-check"></i><b>7.1.3</b> Scatterplots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>7.2</b> ggplot2</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>7.2.1</b> Boxplot</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram-1"><i class="fa fa-check"></i><b>7.2.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>7.2.3</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-visualization.html"><a href="data-visualization.html#exporting-plots"><i class="fa fa-check"></i><b>7.2.4</b> Exporting plots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-visualization.html"><a href="data-visualization.html#gtsummary"><i class="fa fa-check"></i><b>7.3</b> gtsummary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Regression</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>8.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="regression.html"><a href="regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>8.1.1</b> Assumptions of Linear Regression</a></li>
+<li class="chapter" data-level="8.1.2" data-path="regression.html"><a href="regression.html#residuals"><i class="fa fa-check"></i><b>8.1.2</b> Residuals</a></li>
+<li class="chapter" data-level="8.1.3" data-path="regression.html"><a href="regression.html#creating-our-intial-model"><i class="fa fa-check"></i><b>8.1.3</b> Creating our intial model</a></li>
+<li class="chapter" data-level="8.1.4" data-path="regression.html"><a href="regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>8.1.4</b> Interpretation of results</a></li>
+<li class="chapter" data-level="8.1.5" data-path="regression.html"><a href="regression.html#assumption-checking"><i class="fa fa-check"></i><b>8.1.5</b> Assumption checking</a></li>
+<li class="chapter" data-level="8.1.6" data-path="regression.html"><a href="regression.html#summary"><i class="fa fa-check"></i><b>8.1.6</b> Summary</a></li>
+<li class="chapter" data-level="8.1.7" data-path="regression.html"><a href="regression.html#next-steps"><i class="fa fa-check"></i><b>8.1.7</b> Next steps</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="other-capabilties.html"><a href="other-capabilties.html"><i class="fa fa-check"></i><b>9</b> Other capabilties</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="other-capabilties.html"><a href="other-capabilties.html#r-bookdown"><i class="fa fa-check"></i><b>9.1</b> R-bookdown</a></li>
+<li class="chapter" data-level="9.2" data-path="other-capabilties.html"><a href="other-capabilties.html#r-shiny"><i class="fa fa-check"></i><b>9.2</b> R-Shiny</a></li>
+<li class="chapter" data-level="9.3" data-path="other-capabilties.html"><a href="other-capabilties.html#r-markdown"><i class="fa fa-check"></i><b>9.3</b> R-markdown</a></li>
+<li class="chapter" data-level="9.4" data-path="other-capabilties.html"><a href="other-capabilties.html#machine-learning"><i class="fa fa-check"></i><b>9.4</b> Machine learning</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="RStudio-Logo-Flat.png" style="width:2in" /><br />
+Intro to R Workshop</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basics" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Basics<a href="basics.html#basics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Now that we set-up our <strong>R Markdown</strong> file we can start exploring what we can do with <strong>R</strong></p>
+<p>The examples will be shown on <strong>R Desktop</strong> but will work the same if you are using <strong>R Cloud</strong>. Differences will be highlighted if they occur later on in the workshop.</p>
+<p>In this section, we will learn about some simple coding operations you can perform with <strong>R</strong>, learn about different data types and, how to create and manipulate variables.</p>
+<div id="basic-operations" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Basic Operations<a href="basics.html#basic-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>All the basic arithmetic operators can be done in using <strong>R</strong> which includes</p>
+<ul>
+<li>Addition: <code>+</code></li>
+<li>Subtraction: <code>-</code></li>
+<li>Multiplication: <code>*</code></li>
+<li>Division: <code>/</code></li>
+<li>Exponentiation: <code>^</code></li>
+<li>Modulo: <code>%%</code></li>
+</ul>
+<p>Modulo is an operation that will return the remainder of the division. For example;</p>
+<p><span class="math display">\[
+11 \bmod 4 = 3
+\]</span>
+This is because 11 divides by 4 (twice) and you are left with 3 remaining.
+<span class="math display">\[
+25 \bmod 5 = 0
+\]</span>
+Alternatively, 25 divides into 5 evenly into 5 so you are left with no remainder.</p>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>You can try out the following operations in the <strong>Console</strong> window in R studio.</p>
+</blockquote>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="basics.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">5</span></span>
+<span id="cb1-2"><a href="basics.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">24</span> <span class="sc">-</span> <span class="dv">8</span></span>
+<span id="cb1-3"><a href="basics.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">*</span> <span class="dv">4</span></span>
+<span id="cb1-4"><a href="basics.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span> <span class="sc">/</span> <span class="dv">3</span></span>
+<span id="cb1-5"><a href="basics.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span> <span class="sc">%%</span> <span class="dv">3</span></span></code></pre></div>
+<p>Alternatively, we can use our <strong>R Markdown</strong> file we created to do these operations as well.</p>
+</div>
+<div id="code-chunk" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Code Chunk<a href="basics.html#code-chunk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To use the <strong>R Markdown</strong> file we will need to create a <strong><em>Code Chunk</em></strong>. For <strong>R Markdown</strong> files, each line outside of a code chunk will be text. To execute and run your code, it will need to be inside a code chunk.</p>
+<p>To create a code chunk you can go to the top and find <code>Code</code> and then click on <code>Insert Chunk</code>.</p>
+<h3>
+NOTE
+</h3>
+<p>For Mac users the shortcut for inserting a code chunk is:</p>
+<blockquote>
+<p><code>Command + Option + i</code></p>
+</blockquote>
+<p>For Windows users the shortcut for inserting a code chunk is:</p>
+<blockquote>
+<p><code>Ctrl + Alt + i</code></p>
+</blockquote>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>Try to create a code chunk using either the menu at the top to insert or keyboard shortcuts in the source window where your <em>R Markdown</em> file is. You should see a new section appear like the image below</p>
+</blockquote>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-14"></span>
+<img src="images/3.1codechunk.png" alt="RStudio code chunk" width="326" />
+<p class="caption">
+Figure 3.1: RStudio code chunk
+</p>
+</div>
+<p>You we can re-run the same operations from before in this code chunk instead of running it in the console. When you are ready, you can click on the green arrow at the top right of the code chunk to execute the entire chunk. The answers will be evaluated in order right beneath the code chunk.</p>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>Try running the same equations as before but this time in the code chunk. Use the green arrow on the top right of code chunk to evaluate all the equations in the chunk.</p>
+</blockquote>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<img src="images/3.2codechunkgreen.png" alt="RStudio code chunk evaluated" width="326" />
+<p class="caption">
+Figure 3.2: RStudio code chunk evaluated
+</p>
+</div>
+</div>
+<div id="storing-variables" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Storing Variables<a href="basics.html#storing-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can use the code chunk to help us store variables we might want to reuse later on instead of having to type it out each time.</p>
+<p>To assign a value of 8 to the variable <code>var1</code>, you can use the following commands</p>
+<blockquote>
+<p>var1 &lt;- 4</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>var1 = 4</p>
+</blockquote>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>Create a new code chunk and try storing our previous results to the variables a-e</p>
+</blockquote>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="basics.html#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">5</span></span>
+<span id="cb2-2"><a href="basics.html#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">24</span> <span class="sc">-</span> <span class="dv">8</span></span>
+<span id="cb2-3"><a href="basics.html#cb2-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">*</span> <span class="dv">4</span></span>
+<span id="cb2-4"><a href="basics.html#cb2-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="dv">11</span> <span class="sc">/</span> <span class="dv">3</span></span>
+<span id="cb2-5"><a href="basics.html#cb2-5" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="dv">11</span> <span class="sc">%%</span> <span class="dv">3</span></span></code></pre></div>
+<blockquote>
+<p>Note: When you assign a variable, RStudio will store it in the environment panel.</p>
+</blockquote>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<img src="images/3.3variableenvironment.png" alt="Updated environemnt" width="458" />
+<p class="caption">
+Figure 3.3: Updated environemnt
+</p>
+</div>
+<p>Once your variable is assigned you can recall the result by calling the variable. We can use the use these variables directly in the console or together in the <em>R Markdown</em> file.</p>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>Try recalling the new variables in both the <strong>console</strong> and in a <strong>code chunk</strong>. Create another new code chunk and just type in the variable name. Click on the green arrow when you are ready to evaluate</p>
+</blockquote>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<img src="images/3.4variablesconsole.png" alt="Using variables console" width="364" />
+<p class="caption">
+Figure 3.4: Using variables console
+</p>
+</div>
+</div>
+<div id="using-variables" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Using Variables<a href="basics.html#using-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can also perform the same mathematical operations using stored variables instead of needing to write out.</p>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>Using a <strong>code chunk</strong> or just in the <strong>console</strong>, perform the following operations.</p>
+</blockquote>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="basics.html#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> a</span>
+<span id="cb3-2"><a href="basics.html#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="sc">-</span> c</span>
+<span id="cb3-3"><a href="basics.html#cb3-3" aria-hidden="true" tabindex="-1"></a>a <span class="sc">*</span> d</span>
+<span id="cb3-4"><a href="basics.html#cb3-4" aria-hidden="true" tabindex="-1"></a>b <span class="sc">%%</span> c</span></code></pre></div>
+</div>
+<div id="logical-operators" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Logical operators<a href="basics.html#logical-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>R</strong> can also perform logical operations as well that include</p>
+<ul>
+<li><p>Less than: <code>&lt;</code></p></li>
+<li><p>Less than or equal to: <code>&lt;=</code></p></li>
+<li><p>Greater than: <code>&gt;</code></p></li>
+<li><p>Greater than or equal to: <code>&gt;=</code></p></li>
+<li><p>Exactly Equal to: <code>==</code></p></li>
+<li><p>Not equal to: <code>!=</code></p></li>
+<li><p>OR: <code>|</code></p></li>
+<li><p>AND: <code>&amp;</code></p></li>
+</ul>
+<p>In any type of programming you do, you will likely run into these logical operations. You will commonly see these types of operators when we are cleaning and preparing data sets for analysis. For health data, we can use logical operators to help us determine disease status or help us separate age groups.</p>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>Try using the following logical operators on the variables that we created in the <em>console</em> or in a <em>code chunk</em></p>
+</blockquote>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="basics.html#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">&gt;</span> b</span>
+<span id="cb4-2"><a href="basics.html#cb4-2" aria-hidden="true" tabindex="-1"></a>b <span class="sc">==</span> c</span>
+<span id="cb4-3"><a href="basics.html#cb4-3" aria-hidden="true" tabindex="-1"></a>e <span class="sc">&lt;=</span> b</span></code></pre></div>
+</div>
+<div id="data-types" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Data types<a href="basics.html#data-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are different data types you will run into while you are working on a data set including</p>
+<ul>
+<li><p><strong>Numeric</strong>: All real numbers with or without decimals <code>8.4</code></p></li>
+<li><p><strong>Integers</strong>: Whole numbers <code>29</code></p></li>
+<li><p><strong>Logical</strong>: Boolean values <code>TRUE or FALSE</code></p></li>
+<li><p><strong>Characters</strong>: Characters or String values. A single letter is a character <code>A</code>. A word or a sentence would be a string <code>Orange</code></p></li>
+</ul>
+<p>It is important to know the data type you are working with since some of the common mistakes in cleaning and working with a data set is trying to combine data types that are not compatible.</p>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>Let’s create a new code chunk and create one of each variable time and try to perform some arithmetic operations on them to see what happens.</p>
+</blockquote>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>Logical variables: The proper syntax is all caps TRUE or FALSE</p>
+</blockquote>
+<blockquote>
+<p>Characters: For strings and characters, you need to surround the word or the letter with single or double quotations. “Apple” “Orange” ‘Cat’</p>
+</blockquote>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basics.html#cb5-1" aria-hidden="true" tabindex="-1"></a>new_num <span class="ot">&lt;-</span> <span class="fl">8.4</span></span>
+<span id="cb5-2"><a href="basics.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="basics.html#cb5-3" aria-hidden="true" tabindex="-1"></a>new_int <span class="ot">&lt;-</span> <span class="dv">29</span></span>
+<span id="cb5-4"><a href="basics.html#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="basics.html#cb5-5" aria-hidden="true" tabindex="-1"></a>new_logi <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb5-6"><a href="basics.html#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="basics.html#cb5-7" aria-hidden="true" tabindex="-1"></a>new_stringA <span class="ot">&lt;-</span> <span class="st">&quot;R Workshop&quot;</span></span>
+<span id="cb5-8"><a href="basics.html#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="basics.html#cb5-9" aria-hidden="true" tabindex="-1"></a>new_stringB <span class="ot">&lt;-</span> <span class="st">&quot;2023&quot;</span></span></code></pre></div>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>A quick way to check what type of variable you are dealing with is to use the class function. i.e., class(new_num)</p>
+</blockquote>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="basics.html#cb6-1" aria-hidden="true" tabindex="-1"></a>new_num <span class="sc">+</span> new_int</span>
+<span id="cb6-2"><a href="basics.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="basics.html#cb6-3" aria-hidden="true" tabindex="-1"></a>new_stringA <span class="sc">==</span> new_stringB</span></code></pre></div>
+<p>To combine strings together we want to use the <code>paste()</code> function</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basics.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(new_stringA, new_stringB)</span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-and-r-studio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-structures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-basic-programing.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

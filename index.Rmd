@@ -1,0 +1,57 @@
+--- 
+title: |
+  ![](RStudio-Logo-Flat.png){width=2in}  
+  Intro to R Workshop
+author: "Dr. Na Li, Mark Ly"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is a book created for the CHI workshop on R for data analysis.
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+# About the workshop
+
+Introduction to R is a 6-hour workshop, split into two 3-hour in-person sessions, introducing basic programming concepts in R and learning to execute data manipulations, calculations, basic statistical analyses, and produce useful figures and tables. Participants will also learn to write simple functions that can be used to automate analyses, practical statistical computing, and general programming concepts.
+
+## Audience
+
+This workshop is targeted towards researchers who are interested in learning R programming for data analysis within the University of Calgary and AHS.
+
+No prior programming knowledge is required. 
+
+Having previous research experience or working in a research setting is preferred.
+
+
+## Learning objectives
+
+By the end of the workshop, participants will be able to:
+
+1. Install and configure R and R studio
+
+2. Be familiar with the R studio IDE 
+
+3. Clean and prepare a dataset for analysis with common packages and functions 
+
+4. Manipulate a data set to create meaningful tables and figures
+
+5. Perform some common statistical analysis 
+
+6. Learn about some other advanced capabilities that R has to offer. 
+
+
+
+
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
