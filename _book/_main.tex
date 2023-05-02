@@ -118,7 +118,7 @@
 \title{\includegraphics[width=2in,height=\textheight]{RStudio-Logo-Flat.png}\\
 Intro to R Workshop}
 \author{Dr.~Na Li, Mark Ly}
-\date{2023-04-24}
+\date{2023-05-02}
 
 \begin{document}
 \maketitle
@@ -189,16 +189,43 @@ You can get both from a quick Google search or from the website. \url{https://po
 
 We want to install \textbf{R} before we install \textbf{RStudio}
 
-\hypertarget{creating-.rmd-file}{%
-\subsection{Creating .RMD file}\label{creating-.rmd-file}}
-
 Once you have downloaded both \textbf{R} and \textbf{RStudio} you can load up the \textbf{RStudio IDE} and it will come up with something like this.
 
 \begin{figure}
 \includegraphics[width=50in]{images/2.3rstudio} \caption{RStudio IDE}\label{fig:unnamed-chunk-3}
 \end{figure}
 
-From here we want create a \textbf{R Markdown} file by going to \texttt{File\ -\textgreater{}\ New\ File\ -\textgreater{}\ R\ Markdown}
+\hypertarget{creating-a-project}{%
+\subsection{Creating a Project}\label{creating-a-project}}
+
+Every time we want to work on something new, we should make a \texttt{New\ Project} to keep things organized. This will be a folder where all your code and output will be stored.
+
+To create a new project we will go to `\texttt{File\ -\textgreater{}\ New\ Project}
+
+\begin{figure}
+\includegraphics[width=49.83in]{images/2.10newproject} \caption{New}\label{fig:unnamed-chunk-4}
+\end{figure}
+
+After selecting \textbf{New Project}, select \textbf{New Directory} and then select \textbf{New Project}. You will then get a window that lets you type in a directory name and allows you to select a location for this folder.
+
+\begin{figure}
+\includegraphics[width=16.31in]{images/2.11newproject1} \caption{Creating new project}\label{fig:unnamed-chunk-5-1}
+\end{figure}
+\begin{figure}
+\includegraphics[width=16.33in]{images/2.12newproject2} \caption{Creating new project}\label{fig:unnamed-chunk-5-2}
+\end{figure}
+\begin{figure}
+\includegraphics[width=16.33in]{images/2.13newproject3} \caption{Creating new project}\label{fig:unnamed-chunk-5-3}
+\end{figure}
+
+Once we created the new project folder, we can create a new folder in there to hold our data. This will be more clear when we start loading our datasets.
+
+Now that everything is set up, we will start by making our first R-markdown file, which is a file format that allows you to write reports and as well with chunks of code.
+
+\hypertarget{creating-.rmd-file}{%
+\subsection{Creating .RMD file}\label{creating-.rmd-file}}
+
+Now that we have created our new project and added our data to the folder, we can create our first \textbf{R Markdown} file by going to \texttt{File\ -\textgreater{}\ New\ File\ -\textgreater{}\ R\ Markdown}
 
 \textbf{R Markdown} files are unique to R which is document that combines both text and code and allows you to format your document for HTML, PDF, MS Word. You can tell it is a \textbf{R Markdown} file when it has the extension \textbf{\emph{.rmd}}
 
@@ -207,13 +234,13 @@ A popup window should come up and we need to title our \textbf{R Markdown} file.
 You can type in \textbf{\emph{2023 Rworkshop}} for the title and then click on ok to create the \textbf{\emph{.rmd}} file.
 
 \begin{figure}
-\includegraphics[width=16.14in]{images/2.4rmarkdown} \caption{RStudio markdown creation}\label{fig:unnamed-chunk-4}
+\includegraphics[width=16.14in]{images/2.4rmarkdown} \caption{RStudio markdown creation}\label{fig:unnamed-chunk-6}
 \end{figure}
 
 Once you hit \texttt{OK}, you should see a tab at the top that says \texttt{Untitled1} and your \textbf{RStudio IDE} should have 4 distinct panels.
 
 \begin{figure}
-\includegraphics[width=50in]{images/2.5newrmdfile} \caption{New .rmd file}\label{fig:unnamed-chunk-5}
+\includegraphics[width=50in]{images/2.5newrmdfile} \caption{New .rmd file}\label{fig:unnamed-chunk-7}
 \end{figure}
 
 \begin{enumerate}
@@ -236,7 +263,7 @@ If you would like to use the cloud version of \textbf{RStudio} you can sign up f
 \url{https://posit.cloud/plans/free}
 
 \begin{figure}
-\includegraphics[width=17.6in]{images/2.2rcloud} \caption{Sign up for RStudio cloud}\label{fig:unnamed-chunk-6}
+\includegraphics[width=17.6in]{images/2.2rcloud} \caption{Sign up for RStudio cloud}\label{fig:unnamed-chunk-8}
 \end{figure}
 
 If you are just planning to use R occasionally and don't need heavy computing, then the free version of RStudio cloud will work just fine.
@@ -247,25 +274,25 @@ If you are just planning to use R occasionally and don't need heavy computing, t
 After logging in to the free account, you can click on \texttt{New\ Project} on the right hand side and select \texttt{New\ RStudio\ Project}
 
 \begin{figure}
-\includegraphics[width=50in]{images/2.6rmarkdowncloud} \caption{RStudio Cloud Creating a new project}\label{fig:unnamed-chunk-7}
+\includegraphics[width=50in]{images/2.6rmarkdowncloud} \caption{RStudio Cloud Creating a new project}\label{fig:unnamed-chunk-9}
 \end{figure}
 
 Once you open the new project, you will get a screen similar to this.
 
 \begin{figure}
-\includegraphics[width=50in]{images/2.7rstudiocloud} \caption{RStudio Cloud Creating a new project}\label{fig:unnamed-chunk-8}
+\includegraphics[width=50in]{images/2.7rstudiocloud} \caption{RStudio Cloud Creating a new project}\label{fig:unnamed-chunk-10}
 \end{figure}
 
 From here we want create a \textbf{R Markdown} file by going to \texttt{File\ -\textgreater{}\ New\ File\ -\textgreater{}\ R\ Markdown}
 
 \begin{figure}
-\includegraphics[width=50in]{images/2.8rmarkdowncloudnew} \caption{RStudio Cloud new markdown file}\label{fig:unnamed-chunk-9}
+\includegraphics[width=50in]{images/2.8rmarkdowncloudnew} \caption{RStudio Cloud new markdown file}\label{fig:unnamed-chunk-11}
 \end{figure}
 
 A pop-up will appear saying it will need to install some packages to create a \textbf{R Markdown} file. You can install these by selecting \texttt{Yes}
 
 \begin{figure}
-\includegraphics[width=10.33in]{images/2.9rmarkdownpackages} \caption{RStudio cloud markdown packages}\label{fig:unnamed-chunk-10}
+\includegraphics[width=10.33in]{images/2.9rmarkdownpackages} \caption{RStudio cloud markdown packages}\label{fig:unnamed-chunk-12}
 \end{figure}
 
 Another popup window should come up and we need to title our \textbf{R Markdown} file.
@@ -273,7 +300,7 @@ Another popup window should come up and we need to title our \textbf{R Markdown}
 You can type in \textbf{\emph{2023 Rworkshop}} for the title and then click on ok to create the \textbf{\emph{.rmd}} file.
 
 \begin{figure}
-\includegraphics[width=16.14in]{images/2.4rmarkdown} \caption{RStudio cloud markdown name}\label{fig:unnamed-chunk-11}
+\includegraphics[width=16.14in]{images/2.4rmarkdown} \caption{RStudio cloud markdown name}\label{fig:unnamed-chunk-13}
 \end{figure}
 
 Once you hit \texttt{OK}, you should see a tab at the top that says \texttt{Untitled1} and your \textbf{RStudio IDE} should have 4 distinct panels.
@@ -367,7 +394,7 @@ Try to create a code chunk using either the menu at the top to insert or keyboar
 \end{quote}
 
 \begin{figure}
-\includegraphics[width=9.04in]{images/3.1codechunk} \caption{RStudio code chunk}\label{fig:unnamed-chunk-12}
+\includegraphics[width=9.04in]{images/3.1codechunk} \caption{RStudio code chunk}\label{fig:unnamed-chunk-14}
 \end{figure}
 
 You we can re-run the same operations from before in this code chunk instead of running it in the console. When you are ready, you can click on the green arrow at the top right of the code chunk to execute the entire chunk. The answers will be evaluated in order right beneath the code chunk.
@@ -379,7 +406,7 @@ Try running the same equations as before but this time in the code chunk. Use th
 \end{quote}
 
 \begin{figure}
-\includegraphics[width=9.07in]{images/3.2codechunkgreen} \caption{RStudio code chunk evaluated}\label{fig:unnamed-chunk-13}
+\includegraphics[width=9.07in]{images/3.2codechunkgreen} \caption{RStudio code chunk evaluated}\label{fig:unnamed-chunk-15}
 \end{figure}
 
 \hypertarget{storing-variables}{%
@@ -420,7 +447,7 @@ Note: When you assign a variable, RStudio will store it in the environment panel
 \end{quote}
 
 \begin{figure}
-\includegraphics[width=12.72in]{images/3.3variableenvironment} \caption{Updated environemnt}\label{fig:unnamed-chunk-14}
+\includegraphics[width=12.72in]{images/3.3variableenvironment} \caption{Updated environemnt}\label{fig:unnamed-chunk-16}
 \end{figure}
 
 Once your variable is assigned you can recall the result by calling the variable. We can use the use these variables directly in the console or together in the \emph{R Markdown} file.
@@ -432,7 +459,7 @@ Try recalling the new variables in both the \textbf{console} and in a \textbf{co
 \end{quote}
 
 \begin{figure}
-\includegraphics[width=10.12in]{images/3.4variablesconsole} \caption{Using variables console}\label{fig:unnamed-chunk-15}
+\includegraphics[width=10.12in]{images/3.4variablesconsole} \caption{Using variables console}\label{fig:unnamed-chunk-17}
 \end{figure}
 
 \hypertarget{using-variables}{%
@@ -612,7 +639,7 @@ Try creating a vector using the \textbf{c( )} function.
 \end{Shaded}
 
 \begin{figure}
-\includegraphics[width=29.25in]{images/3.5vectorconsole} \caption{Basic Vectors}\label{fig:unnamed-chunk-16}
+\includegraphics[width=29.25in]{images/3.5vectorconsole} \caption{Basic Vectors}\label{fig:unnamed-chunk-18}
 \end{figure}
 
 \hypertarget{simple-vector-operations}{%
@@ -647,7 +674,7 @@ Try to make the luggage list with the our previous vectors by using the \textbf{
 \end{Shaded}
 
 \begin{figure}
-\includegraphics[width=29.36in]{images/3.6listconsole} \caption{Basic Lists}\label{fig:unnamed-chunk-17}
+\includegraphics[width=29.36in]{images/3.6listconsole} \caption{Basic Lists}\label{fig:unnamed-chunk-19}
 \end{figure}
 
 \hypertarget{accessing-elements-in-the-list}{%
@@ -716,7 +743,7 @@ Try accessing the \textbf{Electronics} vector in our luggage\_list using the \te
 \end{quote}
 
 \begin{figure}
-\includegraphics[width=29.36in]{images/3.6listconsole} \caption{Basic Lists}\label{fig:unnamed-chunk-18}
+\includegraphics[width=29.36in]{images/3.6listconsole} \caption{Basic Lists}\label{fig:unnamed-chunk-20}
 \end{figure}
 
 We have created a \textbf{luggage\_list} that has 5 vectors that are labeled shoes, shirts, pants, electronics and tolietries.
@@ -779,7 +806,7 @@ Let's say you ended up packing 2 shoes, 6 shirts, 3 pants, 4 electronics, and 2 
 Now when check our matrix we should have the first column filled out with the number of items that we packed.
 
 \begin{figure}
-\includegraphics[width=29.36in]{images/3.6listconsole} \caption{Matrix filled}\label{fig:unnamed-chunk-19}
+\includegraphics[width=29.36in]{images/3.6listconsole} \caption{Matrix filled}\label{fig:unnamed-chunk-21}
 \end{figure}
 
 Try
@@ -842,7 +869,7 @@ Let's say we are curious on how many shirts each person going on this trip packe
 
 \begin{verbatim}
 ## My_Luggage Traveler_2  Travler_3 
-##          2          3          2
+##          2          8          8
 \end{verbatim}
 
 \hypertarget{multiple-selections}{%
@@ -858,11 +885,11 @@ If we want to see how our packing compares to our travelling partners packing we
 
 \begin{verbatim}
 ##             My_Luggage Travler_3
-## Shoes                2         2
-## Shirts               6         1
+## Shoes                2         8
+## Shirts               6         7
 ## Pants                3         4
-## Electronics          4         1
-## Toiletries           2         7
+## Electronics          4         3
+## Toiletries           2         6
 \end{verbatim}
 
 We can also index a certain range instead of selecting specific rows or columns. Let's say we want to check the what each person packed for shoes, shirts and pants. We could index using a vector by putting all 3 numbers or we can use a colon \emph{:} to check the range.
@@ -875,9 +902,9 @@ We can also index a certain range instead of selecting specific rows or columns.
 
 \begin{verbatim}
 ##        My_Luggage Traveler_2 Travler_3
-## Shoes           2          3         2
-## Shirts          6          4         1
-## Pants           3          1         4
+## Shoes           2          8         8
+## Shirts          6          5         7
+## Pants           3          2         4
 \end{verbatim}
 
 \hypertarget{dataframes}{%
@@ -2316,9 +2343,11 @@ where
 For our model, we would write out our linear regression equation as
 
 \[\text{arrivals} = \beta_{0} + \beta_{1}*\text{Years} + \epsilon\]
-\#\#\# Assumptions of Linear Regression
 
-Before we begin with linear regression, there are some assumptions that need to be satisfied. We can use the \emph{LINE} acronym to explain these assumptions.
+\hypertarget{assumptions-of-linear-regression}{%
+\subsection{Assumptions of Linear Regression}\label{assumptions-of-linear-regression}}
+
+Before we begin with linear regression, there are some assumptions that need to be satisfied. We can use the \texttt{LINE} acronym to explain these assumptions.
 
 \begin{itemize}
 \item
@@ -2337,12 +2366,22 @@ Before we begin with linear regression, there are some assumptions that need to 
 Residuals represent the difference between the predicted value and the observed value. The formula for residuals is.
 
 \[\text{Residual} - \text{actual y value} - \text{predicted y value}\]
-Visually, if we were to draw a line
+This is what residuals look like on a linear regression plot.
+
+\begin{figure}
+\includegraphics[width=15.5in]{images/residuals2} \caption{Residuals on a linear regression}\label{fig:unnamed-chunk-22}
+\end{figure}
 
 \hypertarget{creating-our-intial-model}{%
 \subsection{Creating our intial model}\label{creating-our-intial-model}}
 
-To create a linear model, we use the function \textbf{lm({[}target{]} \textasciitilde{} {[}predictor / features{]}, data = {[}data source{]})} when we have one explanatory variable. In this case our y-variable is the number of \textbf{arrivals} and the x-variable is the \textbf{years}
+To create a linear model, we use this function when we have one explanatory variable
+
+\begin{quote}
+\textbf{lm({[}target{]} \textasciitilde{} {[}predictor / features{]}, data = {[}data source{]})}
+\end{quote}
+
+In this case our y-variable is the number of \texttt{arrivals} and the x-variable is the \texttt{years}
 
 Note:
 
@@ -2370,7 +2409,7 @@ The years variable in our dataframe is a \emph{character}. We need to convert it
 \hypertarget{interpretation-of-results}{%
 \subsection{Interpretation of results}\label{interpretation-of-results}}
 
-We can print out a summary of our model using the \textbf{summary( )} function. This will give us information on the intercept, standard error, p-value, test-statistic, r2 value.
+We can print out a summary of our model using the \textbf{summary( )} function. This will give us information on the intercept, standard error, p-value, test-statistic, \(r^2\) value.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2407,12 +2446,16 @@ The intercept (\(\beta_0\)) is -470,402,333 and the coefficient of years variabl
 In writen form, we would say
 
 \begin{itemize}
-\tightlist
 \item
   If the Years is equal to zero, we can expect -470,402,333 arrivals
 \item
   For every 1 increase in Years, we can expect 237,113 arrivals
 \end{itemize}
+
+The first point doesn't make any sense since we can't have year equal to 0.
+
+\hypertarget{assumption-checking}{%
+\subsection{Assumption checking}\label{assumption-checking}}
 
 If we plot our linear regression, it will give us diagnostic plots that will help determine if our linear model satisfies certain assumptions
 
@@ -2429,11 +2472,69 @@ If we plot our linear regression, it will give us diagnostic plots that will hel
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{plot}\NormalTok{(swe\_model)}
+\FunctionTok{plot}\NormalTok{(swe\_model,}\AttributeTok{which=}\NormalTok{(}\DecValTok{1}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/lm plots-1.pdf} \includegraphics{_main_files/figure-latex/lm plots-2.pdf} \includegraphics{_main_files/figure-latex/lm plots-3.pdf} \includegraphics{_main_files/figure-latex/lm plots-4.pdf}
+\includegraphics{_main_files/figure-latex/lm resdiual vs fitted plots-1.pdf}
+
+If our linearity assumption is met, we should see no pattern and the red line show be fairly flat. In our model, we see that this is the case with a few points cluster of points that lie above the line.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(swe\_model,}\AttributeTok{which=}\NormalTok{(}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/lm normal q-q plots-1.pdf}
+
+For our normality assumption we can use the second plot, the Normal Q-Q plot. what we expect to see is a 45 degree line and most of the points should lie on this line. For our model this does not seem to hold true as our points are closer to a 10-20 degree slope.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(swe\_model,}\AttributeTok{which=}\NormalTok{(}\DecValTok{3}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/lm scale-location plots-1.pdf}
+
+To check our assumption of constant variance we can use the third plot, the scale-location plot. What we want to see here are points scattered randomly and the red line to be close to horizontal. However, what we see is there is a pattern and that indicates that the constant variance assumption does not hold true for this model. What we can try to do is transform our y variable using:
+
+\begin{itemize}
+\item
+  Log transformation
+\item
+  Square Root transformation
+\item
+  Cube Root transformation
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\FunctionTok{plot}\NormalTok{(swe\_model, }\AttributeTok{which=}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/lm leverage-1.pdf}
+
+The last plot is the Residuals vs leverage plot. Leverage refers to to the extent where our coefficients would change if we removed an observation from the data set. Points that have high leverage would noticeably change our coefficients. If a point falls outside of the red dashed line, cook's distance, it is considered to be a influential point and requires further investigation. For our model, we don't have any points that are influential.
+
+\hypertarget{summary}{%
+\subsection{Summary}\label{summary}}
+
+Our initial hypothesis was
+
+\begin{quote}
+Does the number of arrivals increase linearly over time (Years)?
+\end{quote}
+
+Since this model does not satisfy the normality assumption and the constant variance assumption that is required for linear regression, we cannot say that the number of arrivals increases linearly as years increases.
+
+\hypertarget{next-steps}{%
+\subsection{Next steps}\label{next-steps}}
+
+Since our linear regression model did not work, we can try using a different model that might be better in explaining trend. In this case, our independent variable is the number of arrivals which count data. Count data is data that does not contain any non-negative integer numbers, (0,1,2,3\ldots). The usual function to deal with count data is a \texttt{Poisson\ Regression}, which is a generalized linear model used when the independent variable deals with count data that follows a Poisson distribution. It assumes the logarithm of expected values (mean) that can be modeled into a linear form by some unknown parameters.
 
 \hypertarget{other-capabilties}{%
 \chapter{Other capabilties}\label{other-capabilties}}
@@ -2442,12 +2543,31 @@ We can create and perform other tasks using R. We will go quickly go through som
 
 \begin{itemize}
 \item
-  Machine learning
-\item
   R-bookdown
 \item
   R-Shiny
+\item
+  R-Markdown
+\item
+  Machine learning
 \end{itemize}
+
+\hypertarget{r-bookdown}{%
+\section{R-bookdown}\label{r-bookdown}}
+
+With R you can create books using the \textbf{R-bookdown} package. This entire workshop was created using R-bookdown. With R-Bookdown, we can create books and long form articles and reports. We can output these books as a PDF, LaTeX, HTML, EPUB and word files. It is a great way to produce a structured document with chaptures, sections, subsections and appendices.
+
+You can visit \url{https://bookdown.org/} to find out more about bookdown.
+
+\hypertarget{r-shiny}{%
+\section{R-Shiny}\label{r-shiny}}
+
+We can build web applications and dashboards using \textbf{R-Shiny}. This is an alternative way to present data in a more interactive way. Some examples of R-Shiny applications can be found on \url{https://shiny.rstudio.com/gallery/} which includes COVID-19 trackers, A/B Testing sample size calculators, Nutritional calculators, Hospital dashboards and genome browsers.
+
+\hypertarget{r-markdown}{%
+\section{R-markdown}\label{r-markdown}}
+
+One advantage to using R-studio is the ability to output reports into as a word, html, or pdf format. Using the \textbf{knit} function capabilities, we can create reports that can be easily reproduced since the code and outputs are all in the same R-markdown file. This is an advantage if you need to generate reports if data gets updated.
 
 \hypertarget{machine-learning}{%
 \section{Machine learning}\label{machine-learning}}
@@ -2467,53 +2587,7 @@ We can perform machine learning tasks in R using the \textbf{caret} and \textbf{
   Neural Networks
 \end{itemize}
 
-We will attempt to use K-means clustering on out dataset to see which countries are simliar. First we will need to install and load our packages and prepare our data.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(factoextra)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{kmeans\_travel }\OtherTok{\textless{}{-}}\NormalTok{ travel\_full\_clean\_subset }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{select}\NormalTok{(}\FunctionTok{where}\NormalTok{(is.numeric))}
-
-\NormalTok{scale\_kmeans }\OtherTok{\textless{}{-}} \FunctionTok{scale}\NormalTok{(kmeans\_travel)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
-\FunctionTok{fviz\_nbclust}\NormalTok{(scale\_kmeans,kmeans,}\AttributeTok{method=}\StringTok{"wss"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{_main_files/figure-latex/kmeans elbow-1.pdf}
-
-From looking at the elbow method, it looks like the optimal number of clusters is 2.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{kmeans\_travel\_1 }\OtherTok{\textless{}{-}} \FunctionTok{kmeans}\NormalTok{(scale\_kmeans,}\AttributeTok{centers=}\DecValTok{4}\NormalTok{,}\AttributeTok{nstart=}\DecValTok{25}\NormalTok{)}
-
-\FunctionTok{fviz\_cluster}\NormalTok{(kmeans\_travel\_1,}\AttributeTok{data=}\NormalTok{scale\_kmeans)}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics{_main_files/figure-latex/unnamed-chunk-20-1.pdf}
-
-\hypertarget{r-bookdown}{%
-\section{R-bookdown}\label{r-bookdown}}
-
-\hypertarget{r-shiny}{%
-\section{R-Shiny}\label{r-shiny}}
+It is important to note that although these technologies can be powerful and provide a new insight to existing data, we have to ask ourselves if it is necessary and why we would want to attempt to use machine learning.
 
   \bibliography{book.bib,packages.bib}
 

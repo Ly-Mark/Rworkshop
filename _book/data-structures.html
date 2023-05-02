@@ -23,7 +23,7 @@
 <meta name="author" content="Dr. Na Li, Mark Ly" />
 
 
-<meta name="date" content="2023-04-28" />
+<meta name="date" content="2023-05-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -471,24 +471,24 @@ Try
 <p>Let’s say we are curious on how many shirts each person going on this trip packed. We will still use square brackets, but this time we will be indexing the row instead of the column. <strong>packing_matrix[1,]</strong></p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-structures.html#cb19-1" aria-hidden="true" tabindex="-1"></a>packing_matrix[<span class="dv">1</span>,]</span></code></pre></div>
 <pre><code>## My_Luggage Traveler_2  Travler_3 
-##          2          4          5</code></pre>
+##          2          2          7</code></pre>
 </div>
 <div id="multiple-selections" class="section level4 hasAnchor" number="4.3.2.4">
 <h4><span class="header-section-number">4.3.2.4</span> Multiple selections<a href="data-structures.html#multiple-selections" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If we want to see how our packing compares to our travelling partners packing we can use a vector to index 2 columns at the same time.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-structures.html#cb21-1" aria-hidden="true" tabindex="-1"></a>packing_matrix[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>##             My_Luggage Travler_3
-## Shoes                2         5
+## Shoes                2         7
 ## Shirts               6         2
-## Pants                3         7
+## Pants                3         4
 ## Electronics          4         7
-## Toiletries           2         8</code></pre>
+## Toiletries           2         6</code></pre>
 <p>We can also index a certain range instead of selecting specific rows or columns. Let’s say we want to check the what each person packed for shoes, shirts and pants. We could index using a vector by putting all 3 numbers or we can use a colon <em>:</em> to check the range.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-structures.html#cb23-1" aria-hidden="true" tabindex="-1"></a>packing_matrix[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,]</span></code></pre></div>
 <pre><code>##        My_Luggage Traveler_2 Travler_3
-## Shoes           2          4         5
-## Shirts          6          1         2
-## Pants           3          2         7</code></pre>
+## Shoes           2          2         7
+## Shirts          6          5         2
+## Pants           3          2         4</code></pre>
 </div>
 </div>
 </div>
