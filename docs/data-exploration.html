@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Data Exploration |  Intro to R Workshop</title>
+  <meta name="description" content="This is a book created for the CHI workshop on R for data analysis." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Data Exploration |  Intro to R Workshop" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a book created for the CHI workshop on R for data analysis." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Data Exploration |  Intro to R Workshop" />
+  
+  <meta name="twitter:description" content="This is a book created for the CHI workshop on R for data analysis." />
+  
+
+<meta name="author" content="Dr. Na Li, Mark Ly" />
+
+
+<meta name="date" content="2023-05-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-wrangling.html"/>
+<link rel="next" href="data-visualization.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CHI R Workshop 2023 - Intro to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About the workshop</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#audience"><i class="fa fa-check"></i><b>1.1</b> Audience</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i><b>1.2</b> Learning objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> R and R studio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#getting-started-desktop"><i class="fa fa-check"></i><b>2.1</b> Getting Started (Desktop)</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#installation"><i class="fa fa-check"></i><b>2.1.1</b> Installation</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-a-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating a Project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-.rmd-file"><i class="fa fa-check"></i><b>2.1.3</b> Creating .RMD file</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#getting-started-cloud"><i class="fa fa-check"></i><b>2.2</b> Getting Started (Cloud)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-.rmd-file-1"><i class="fa fa-check"></i><b>2.2.1</b> Creating .RMD File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>3</b> Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basics.html"><a href="basics.html#basic-operations"><i class="fa fa-check"></i><b>3.1</b> Basic Operations</a></li>
+<li class="chapter" data-level="3.2" data-path="basics.html"><a href="basics.html#code-chunk"><i class="fa fa-check"></i><b>3.2</b> Code Chunk</a></li>
+<li class="chapter" data-level="3.3" data-path="basics.html"><a href="basics.html#storing-variables"><i class="fa fa-check"></i><b>3.3</b> Storing Variables</a></li>
+<li class="chapter" data-level="3.4" data-path="basics.html"><a href="basics.html#using-variables"><i class="fa fa-check"></i><b>3.4</b> Using Variables</a></li>
+<li class="chapter" data-level="3.5" data-path="basics.html"><a href="basics.html#logical-operators"><i class="fa fa-check"></i><b>3.5</b> Logical operators</a></li>
+<li class="chapter" data-level="3.6" data-path="basics.html"><a href="basics.html#data-types"><i class="fa fa-check"></i><b>3.6</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.1</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-structures.html"><a href="data-structures.html#creating-simple-vectors"><i class="fa fa-check"></i><b>4.1.1</b> Creating simple vectors</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-structures.html"><a href="data-structures.html#simple-vector-operations"><i class="fa fa-check"></i><b>4.1.2</b> Simple vector operations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.2</b> Lists</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-list-of-vectors"><i class="fa fa-check"></i><b>4.2.1</b> Creating a list of vectors</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-structures.html"><a href="data-structures.html#accessing-elements-in-the-list"><i class="fa fa-check"></i><b>4.2.2</b> Accessing elements in the list</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-structures.html"><a href="data-structures.html#adding-items-to-lists"><i class="fa fa-check"></i><b>4.2.3</b> Adding items to lists</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-structures.html"><a href="data-structures.html#labeling-items-within-lists"><i class="fa fa-check"></i><b>4.2.4</b> Labeling items within lists</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.3</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-matrix"><i class="fa fa-check"></i><b>4.3.1</b> Creating a matrix</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-structures.html"><a href="data-structures.html#navigating-the-matrix"><i class="fa fa-check"></i><b>4.3.2</b> Navigating the matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>4.4</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-dataframe"><i class="fa fa-check"></i><b>4.4.1</b> Creating a dataframe</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-structures.html"><a href="data-structures.html#using-the-a-dataframe"><i class="fa fa-check"></i><b>4.4.2</b> Using the a dataframe</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>5</b> Data Wrangling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#r-packages"><i class="fa fa-check"></i><b>5.1</b> R Packages</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#installing-packages"><i class="fa fa-check"></i><b>5.1.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#using-packages"><i class="fa fa-check"></i><b>5.1.2</b> Using Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#pipe-function"><i class="fa fa-check"></i><b>5.2.1</b> Pipe function (%&gt;%)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling.html"><a href="data-wrangling.html#loading-datasets"><i class="fa fa-check"></i><b>5.3</b> Loading datasets</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling.html"><a href="data-wrangling.html#understanding-your-dataset"><i class="fa fa-check"></i><b>5.4</b> Understanding your dataset</a></li>
+<li class="chapter" data-level="5.5" data-path="data-wrangling.html"><a href="data-wrangling.html#combining-your-dataset"><i class="fa fa-check"></i><b>5.5</b> Combining your dataset</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#binds"><i class="fa fa-check"></i><b>5.5.1</b> Binds</a></li>
+<li class="chapter" data-level="5.5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>5.5.2</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="data-wrangling.html"><a href="data-wrangling.html#missing-values"><i class="fa fa-check"></i><b>5.6</b> Missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#summary-statistics"><i class="fa fa-check"></i><b>6.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#standard-deviation-and-variance"><i class="fa fa-check"></i><b>6.2</b> Standard deviation and variance</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-exploration.html"><a href="data-exploration.html#standard-deviation"><i class="fa fa-check"></i><b>6.2.1</b> Standard deviation</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-exploration.html"><a href="data-exploration.html#varience"><i class="fa fa-check"></i><b>6.2.2</b> Varience</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>7</b> Data visualization</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-visualization.html"><a href="data-visualization.html#plots"><i class="fa fa-check"></i><b>7.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplots"><i class="fa fa-check"></i><b>7.1.1</b> Boxplots</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>7.1.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplots"><i class="fa fa-check"></i><b>7.1.3</b> Scatterplots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>7.2</b> ggplot2</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>7.2.1</b> Boxplot</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram-1"><i class="fa fa-check"></i><b>7.2.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>7.2.3</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-visualization.html"><a href="data-visualization.html#exporting-plots"><i class="fa fa-check"></i><b>7.2.4</b> Exporting plots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-visualization.html"><a href="data-visualization.html#gtsummary"><i class="fa fa-check"></i><b>7.3</b> gtsummary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Regression</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>8.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="regression.html"><a href="regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>8.1.1</b> Assumptions of Linear Regression</a></li>
+<li class="chapter" data-level="8.1.2" data-path="regression.html"><a href="regression.html#residuals"><i class="fa fa-check"></i><b>8.1.2</b> Residuals</a></li>
+<li class="chapter" data-level="8.1.3" data-path="regression.html"><a href="regression.html#creating-our-intial-model"><i class="fa fa-check"></i><b>8.1.3</b> Creating our intial model</a></li>
+<li class="chapter" data-level="8.1.4" data-path="regression.html"><a href="regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>8.1.4</b> Interpretation of results</a></li>
+<li class="chapter" data-level="8.1.5" data-path="regression.html"><a href="regression.html#assumption-checking"><i class="fa fa-check"></i><b>8.1.5</b> Assumption checking</a></li>
+<li class="chapter" data-level="8.1.6" data-path="regression.html"><a href="regression.html#summary"><i class="fa fa-check"></i><b>8.1.6</b> Summary</a></li>
+<li class="chapter" data-level="8.1.7" data-path="regression.html"><a href="regression.html#next-steps"><i class="fa fa-check"></i><b>8.1.7</b> Next steps</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="other-capabilties.html"><a href="other-capabilties.html"><i class="fa fa-check"></i><b>9</b> Other capabilties</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="other-capabilties.html"><a href="other-capabilties.html#r-bookdown"><i class="fa fa-check"></i><b>9.1</b> R-bookdown</a></li>
+<li class="chapter" data-level="9.2" data-path="other-capabilties.html"><a href="other-capabilties.html#r-shiny"><i class="fa fa-check"></i><b>9.2</b> R-Shiny</a></li>
+<li class="chapter" data-level="9.3" data-path="other-capabilties.html"><a href="other-capabilties.html#r-markdown"><i class="fa fa-check"></i><b>9.3</b> R-markdown</a></li>
+<li class="chapter" data-level="9.4" data-path="other-capabilties.html"><a href="other-capabilties.html#machine-learning"><i class="fa fa-check"></i><b>9.4</b> Machine learning</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="RStudio-Logo-Flat.png" style="width:2in" /><br />
+Intro to R Workshop</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-exploration" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Data Exploration<a href="data-exploration.html#data-exploration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Exploratory data analysis (EDA) is the first step in the getting insights from a dataset. In this section we will see look at our cleaned dataset and perform some summary statistics and visualizations to see what would be a good destinations for our travellers to head to.</p>
+<div id="summary-statistics" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Summary statistics<a href="data-exploration.html#summary-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can make use of the <strong>summary( )</strong> function that was introduced in Chapter 4 to determine the mean and mean costs for <strong>meals</strong> and <strong>one way ticket</strong> costs. We can make use of indexing to select just these two columns.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-exploration.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(travel_full_clean_subset[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
+<pre><code>##  Meal_Inexpensive_Restaurant one_way_ticket_local
+##  Min.   : 2.050              Min.   :0.210       
+##  1st Qu.: 6.315              1st Qu.:0.495       
+##  Median :10.530              Median :1.200       
+##  Mean   :11.836              Mean   :1.715       
+##  3rd Qu.:17.490              3rd Qu.:2.200       
+##  Max.   :26.720              Max.   :5.140</code></pre>
+<p>We can see that the <strong>median</strong> costs for a meal $10.53 CAD, and the <strong>mean</strong> costs is $11.84 CAD. The lowest priced meals are shown as <strong>min</strong> $2.05 CAD, and the most expensive is <strong>max</strong> $26.72 CAD.</p>
+<p>We can use this information to filter out countries that we want to visit based on food or ticket costs. Lets consider filtering out food by the interquartile range (<strong>IQR</strong>). Knowing that the 1st quartile is $6.32 CAD and the 3rd quartile is $17.49 we can use the <strong>filter( )</strong> function and the <strong>between( )</strong> function to select only those countries in this range.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-exploration.html#cb81-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb81-2"><a href="data-exploration.html#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(Meal_Inexpensive_Restaurant,<span class="fl">6.32</span>,<span class="fl">17.49</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb81-3"><a href="data-exploration.html#cb81-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Country,Meal_Inexpensive_Restaurant)) <span class="sc">%&gt;%</span></span>
+<span id="cb81-4"><a href="data-exploration.html#cb81-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Meal_Inexpensive_Restaurant) <span class="sc">%&gt;%</span></span>
+<span id="cb81-5"><a href="data-exploration.html#cb81-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##    Country Meal_Inexpensive_Restaurant
+## 1 Ethiopia                        6.68
+## 2  Jamaica                        6.96
+## 3  Ukraine                        7.18
+## 4   Jordan                        7.53
+## 5  Albania                        7.79</code></pre>
+<p>If we want to rank the previous countries based on meals from least expensive to most expensive we can use the <strong>arrange( )</strong> function. If we would like to go from most expensive to least expensive, we can add the <strong>desc( )</strong> function.</p>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>We can also use the <strong>tail( )</strong> function instead of the <strong>head( )</strong> function to get the most expensive.</p>
+</blockquote>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-exploration.html#cb83-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb83-2"><a href="data-exploration.html#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">between</span>(Meal_Inexpensive_Restaurant,<span class="fl">6.32</span>,<span class="fl">17.49</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb83-3"><a href="data-exploration.html#cb83-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Country,Meal_Inexpensive_Restaurant)) <span class="sc">%&gt;%</span></span>
+<span id="cb83-4"><a href="data-exploration.html#cb83-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Meal_Inexpensive_Restaurant)) <span class="sc">%&gt;%</span></span>
+<span id="cb83-5"><a href="data-exploration.html#cb83-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##       Country Meal_Inexpensive_Restaurant
+## 1 Puerto Rico                       17.37
+## 2      Sweden                       15.52
+## 3      Latvia                       14.67
+## 4    Slovenia                       14.67
+## 5     Georgia                       14.37</code></pre>
+<p>On the lower meal price end we have</p>
+<ul>
+<li><p>Ethiopia</p></li>
+<li><p>Jamaica</p></li>
+<li><p>Ukraine</p></li>
+<li><p>Jordon</p></li>
+<li><p>Albania</p></li>
+</ul>
+<p>and the higher end we have</p>
+<ul>
+<li><p>Puerto Rico</p></li>
+<li><p>Sweden</p></li>
+<li><p>Latvia</p></li>
+<li><p>Solenia</p></li>
+<li><p>Georgia</p></li>
+</ul>
+<p>We combining what we the data wrangling from the previous section, we can determine what the average number of arrivals for each country is from the lat 5 years using the functions <strong>mutate( )</strong> and <strong>arrange( )</strong></p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-exploration.html#cb85-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb85-2"><a href="data-exploration.html#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb85-3"><a href="data-exploration.html#cb85-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean5year =</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="st">&quot;2015&quot;</span><span class="sc">:</span><span class="st">&quot;2020&quot;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb85-4"><a href="data-exploration.html#cb85-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Country,mean5year)) <span class="sc">%&gt;%</span></span>
+<span id="cb85-5"><a href="data-exploration.html#cb85-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mean5year)) <span class="sc">%&gt;%</span></span>
+<span id="cb85-6"><a href="data-exploration.html#cb85-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##         Country mean5year
+## 1 United States 151042948
+## 2         China 130066667
+## 3         Spain 105691333
+## 4        Mexico  87727000
+## 5         Italy  80495100</code></pre>
+</div>
+<div id="standard-deviation-and-variance" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Standard deviation and variance<a href="data-exploration.html#standard-deviation-and-variance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can easily calculate the dispersion of the data using standard deviaton and variance that are built in functions with R.</p>
+<div id="standard-deviation" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Standard deviation<a href="data-exploration.html#standard-deviation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Standard deviation explains how far away a group of numbers is from the mean. If we wanted to find the standard deviation for our meals, we can just the <strong>sd( )</strong> function.</p>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>The <strong>sd( )</strong> function will generate the sample standard deviation.</p>
+</blockquote>
+<blockquote>
+<p>To calculate the population standard deivation we would need to multiple the standard deviation by sqrt((n-1)/n) * sd(x)</p>
+</blockquote>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-exploration.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant)</span></code></pre></div>
+<pre><code>## [1] 7.042914</code></pre>
+</div>
+<div id="varience" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Varience<a href="data-exploration.html#varience" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Variance is how spread out the data is around the mean. To calculate variance the meals variable we can use the <strong>var( )</strong> function.</p>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>The <strong>var( )</strong> function will generate the sample varience.
+If you ever need to calculate the population varience we would need to multiple the varience by (n-1)/n * var(x)</p>
+</blockquote>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-exploration.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant)</span></code></pre></div>
+<pre><code>## [1] 49.60264</code></pre>
+<p>Although it is easy to perform these functions, it is important to understand what you are calculating and if it is appropriate to use that calculation.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-wrangling.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-data-exploration.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

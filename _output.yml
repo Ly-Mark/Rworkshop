@@ -8,12 +8,13 @@ bookdown::gitbook:
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
     download: ["pdf", "epub"]
+
 bookdown::pdf_book:
   base_format: rmarkdown::pdf_document
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
-  keep_tex: yes
-  output_dir: 'book'
+  keep_tex: yes 
 bookdown::epub_book: default
+output_dir: "docs" 

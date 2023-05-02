@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Data Wrangling |  Intro to R Workshop</title>
+  <meta name="description" content="This is a book created for the CHI workshop on R for data analysis." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Data Wrangling |  Intro to R Workshop" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a book created for the CHI workshop on R for data analysis." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Data Wrangling |  Intro to R Workshop" />
+  
+  <meta name="twitter:description" content="This is a book created for the CHI workshop on R for data analysis." />
+  
+
+<meta name="author" content="Dr. Na Li, Mark Ly" />
+
+
+<meta name="date" content="2023-05-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-structures.html"/>
+<link rel="next" href="data-exploration.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">CHI R Workshop 2023 - Intro to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About the workshop</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#audience"><i class="fa fa-check"></i><b>1.1</b> Audience</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i><b>1.2</b> Learning objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html"><i class="fa fa-check"></i><b>2</b> R and R studio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#getting-started-desktop"><i class="fa fa-check"></i><b>2.1</b> Getting Started (Desktop)</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#installation"><i class="fa fa-check"></i><b>2.1.1</b> Installation</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-a-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating a Project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-.rmd-file"><i class="fa fa-check"></i><b>2.1.3</b> Creating .RMD file</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#getting-started-cloud"><i class="fa fa-check"></i><b>2.2</b> Getting Started (Cloud)</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-.rmd-file-1"><i class="fa fa-check"></i><b>2.2.1</b> Creating .RMD File</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>3</b> Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="basics.html"><a href="basics.html#basic-operations"><i class="fa fa-check"></i><b>3.1</b> Basic Operations</a></li>
+<li class="chapter" data-level="3.2" data-path="basics.html"><a href="basics.html#code-chunk"><i class="fa fa-check"></i><b>3.2</b> Code Chunk</a></li>
+<li class="chapter" data-level="3.3" data-path="basics.html"><a href="basics.html#storing-variables"><i class="fa fa-check"></i><b>3.3</b> Storing Variables</a></li>
+<li class="chapter" data-level="3.4" data-path="basics.html"><a href="basics.html#using-variables"><i class="fa fa-check"></i><b>3.4</b> Using Variables</a></li>
+<li class="chapter" data-level="3.5" data-path="basics.html"><a href="basics.html#logical-operators"><i class="fa fa-check"></i><b>3.5</b> Logical operators</a></li>
+<li class="chapter" data-level="3.6" data-path="basics.html"><a href="basics.html#data-types"><i class="fa fa-check"></i><b>3.6</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.1</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-structures.html"><a href="data-structures.html#creating-simple-vectors"><i class="fa fa-check"></i><b>4.1.1</b> Creating simple vectors</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-structures.html"><a href="data-structures.html#simple-vector-operations"><i class="fa fa-check"></i><b>4.1.2</b> Simple vector operations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.2</b> Lists</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-list-of-vectors"><i class="fa fa-check"></i><b>4.2.1</b> Creating a list of vectors</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-structures.html"><a href="data-structures.html#accessing-elements-in-the-list"><i class="fa fa-check"></i><b>4.2.2</b> Accessing elements in the list</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-structures.html"><a href="data-structures.html#adding-items-to-lists"><i class="fa fa-check"></i><b>4.2.3</b> Adding items to lists</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-structures.html"><a href="data-structures.html#labeling-items-within-lists"><i class="fa fa-check"></i><b>4.2.4</b> Labeling items within lists</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.3</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-matrix"><i class="fa fa-check"></i><b>4.3.1</b> Creating a matrix</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-structures.html"><a href="data-structures.html#navigating-the-matrix"><i class="fa fa-check"></i><b>4.3.2</b> Navigating the matrix</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>4.4</b> Dataframes</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-dataframe"><i class="fa fa-check"></i><b>4.4.1</b> Creating a dataframe</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-structures.html"><a href="data-structures.html#using-the-a-dataframe"><i class="fa fa-check"></i><b>4.4.2</b> Using the a dataframe</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>5</b> Data Wrangling</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#r-packages"><i class="fa fa-check"></i><b>5.1</b> R Packages</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#installing-packages"><i class="fa fa-check"></i><b>5.1.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#using-packages"><i class="fa fa-check"></i><b>5.1.2</b> Using Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#pipe-function"><i class="fa fa-check"></i><b>5.2.1</b> Pipe function (%&gt;%)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-wrangling.html"><a href="data-wrangling.html#loading-datasets"><i class="fa fa-check"></i><b>5.3</b> Loading datasets</a></li>
+<li class="chapter" data-level="5.4" data-path="data-wrangling.html"><a href="data-wrangling.html#understanding-your-dataset"><i class="fa fa-check"></i><b>5.4</b> Understanding your dataset</a></li>
+<li class="chapter" data-level="5.5" data-path="data-wrangling.html"><a href="data-wrangling.html#combining-your-dataset"><i class="fa fa-check"></i><b>5.5</b> Combining your dataset</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#binds"><i class="fa fa-check"></i><b>5.5.1</b> Binds</a></li>
+<li class="chapter" data-level="5.5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>5.5.2</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="data-wrangling.html"><a href="data-wrangling.html#missing-values"><i class="fa fa-check"></i><b>5.6</b> Missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data Exploration</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#summary-statistics"><i class="fa fa-check"></i><b>6.1</b> Summary statistics</a></li>
+<li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#standard-deviation-and-variance"><i class="fa fa-check"></i><b>6.2</b> Standard deviation and variance</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-exploration.html"><a href="data-exploration.html#standard-deviation"><i class="fa fa-check"></i><b>6.2.1</b> Standard deviation</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-exploration.html"><a href="data-exploration.html#varience"><i class="fa fa-check"></i><b>6.2.2</b> Varience</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>7</b> Data visualization</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-visualization.html"><a href="data-visualization.html#plots"><i class="fa fa-check"></i><b>7.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplots"><i class="fa fa-check"></i><b>7.1.1</b> Boxplots</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>7.1.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplots"><i class="fa fa-check"></i><b>7.1.3</b> Scatterplots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>7.2</b> ggplot2</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>7.2.1</b> Boxplot</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram-1"><i class="fa fa-check"></i><b>7.2.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>7.2.3</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-visualization.html"><a href="data-visualization.html#exporting-plots"><i class="fa fa-check"></i><b>7.2.4</b> Exporting plots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-visualization.html"><a href="data-visualization.html#gtsummary"><i class="fa fa-check"></i><b>7.3</b> gtsummary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Regression</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>8.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="regression.html"><a href="regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>8.1.1</b> Assumptions of Linear Regression</a></li>
+<li class="chapter" data-level="8.1.2" data-path="regression.html"><a href="regression.html#residuals"><i class="fa fa-check"></i><b>8.1.2</b> Residuals</a></li>
+<li class="chapter" data-level="8.1.3" data-path="regression.html"><a href="regression.html#creating-our-intial-model"><i class="fa fa-check"></i><b>8.1.3</b> Creating our intial model</a></li>
+<li class="chapter" data-level="8.1.4" data-path="regression.html"><a href="regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>8.1.4</b> Interpretation of results</a></li>
+<li class="chapter" data-level="8.1.5" data-path="regression.html"><a href="regression.html#assumption-checking"><i class="fa fa-check"></i><b>8.1.5</b> Assumption checking</a></li>
+<li class="chapter" data-level="8.1.6" data-path="regression.html"><a href="regression.html#summary"><i class="fa fa-check"></i><b>8.1.6</b> Summary</a></li>
+<li class="chapter" data-level="8.1.7" data-path="regression.html"><a href="regression.html#next-steps"><i class="fa fa-check"></i><b>8.1.7</b> Next steps</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="other-capabilties.html"><a href="other-capabilties.html"><i class="fa fa-check"></i><b>9</b> Other capabilties</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="other-capabilties.html"><a href="other-capabilties.html#r-bookdown"><i class="fa fa-check"></i><b>9.1</b> R-bookdown</a></li>
+<li class="chapter" data-level="9.2" data-path="other-capabilties.html"><a href="other-capabilties.html#r-shiny"><i class="fa fa-check"></i><b>9.2</b> R-Shiny</a></li>
+<li class="chapter" data-level="9.3" data-path="other-capabilties.html"><a href="other-capabilties.html#r-markdown"><i class="fa fa-check"></i><b>9.3</b> R-markdown</a></li>
+<li class="chapter" data-level="9.4" data-path="other-capabilties.html"><a href="other-capabilties.html#machine-learning"><i class="fa fa-check"></i><b>9.4</b> Machine learning</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="RStudio-Logo-Flat.png" style="width:2in" /><br />
+Intro to R Workshop</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-wrangling" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Data Wrangling<a href="data-wrangling.html#data-wrangling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="r-packages" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> R Packages<a href="data-wrangling.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Packages are a collection of functions that extend the functionality of R. They are tools that help with data analysis, modelling, data visualization. Some of the most common packages in R is <strong>ggplot2</strong> for data visualization, <strong>dplyr</strong> for data wrangling/manipulation and <em>caret</em> for machine learning.</p>
+<div id="installing-packages" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Installing Packages<a href="data-wrangling.html#installing-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To use packages we will have the the <strong>install.packages( )</strong> function and put in the package. We can either does this as a <em>chunk</em> in a R-markdown file or we can type it directly into the console.</p>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>Try installing <strong>dplyr</strong> and <strong>ggplot2</strong> packages</p>
+</blockquote>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>You can install multiple packages are the same time if you put then in a vector and before using the <strong>install.packages( )</strong> function.</p>
+</blockquote>
+<blockquote>
+<p>i.e., install.packages(c(‘dplyr’,‘ggplot2’))</p>
+</blockquote>
+</div>
+<div id="using-packages" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Using Packages<a href="data-wrangling.html#using-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loading-packages" class="section level4 hasAnchor" number="5.1.2.1">
+<h4><span class="header-section-number">5.1.2.1</span> Loading Packages<a href="data-wrangling.html#loading-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>After installing our packages, we have to load them using the <strong>library( )</strong> function or the <strong>require( )</strong> function. This is similar to opening up a new app or program that you just installed.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-wrangling.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+</div>
+</div>
+</div>
+<div id="dplyr" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> dplyr<a href="data-wrangling.html#dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <strong>dplyr</strong> is used for data manipulation and can allow us to work with data more efficiently than with base R. We can do the same operations in our previous <em>travelers</em> dataframe using <strong>dplyr</strong>.</p>
+<div id="pipe-function" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Pipe function (%&gt;%)<a href="data-wrangling.html#pipe-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This is one of the most powerful functions in the <strong>dplyr</strong> package. What the pipe function does is takes the output of one function and then passes it along to the next one. So instead of saving results to multiple variables, we can perform a sequence of commands in as one command. Using our previous <strong>travelers</strong> dataframe, we were able to calculate the <em>mean luggage weight</em> for all travelers but what if we are interested in the total weight of the luggage each traveler is bringing? We can do this in <strong>dplyr</strong> using the pipe function (%&gt;%) and <strong>mutate( )</strong> function, which creates a new column. We can also subset the data as in the same function as well. Let’s say we are only interested in all the numerical values, we can use the <strong>select</strong> function to ask it to select all the columns that hold numerical data.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-wrangling.html#cb47-1" aria-hidden="true" tabindex="-1"></a>travelers <span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="data-wrangling.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_weight =</span> Weight_luggages<span class="sc">/</span>Num_luggages) <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="data-wrangling.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="fu">where</span>(is.numeric)))</span></code></pre></div>
+<pre><code>##   Age Budget Num_luggages Weight_luggages mean_weight
+## 1  25   1500            2              20          10
+## 2  30   2500            3              15           5
+## 3  35   2000            1              25          25</code></pre>
+<p>You can see our new column <strong>mean_weight</strong> added to the end and that the dataframe only contains numerical values. If we were to do this without the pipe function, we would first need to get add the <strong>mean_weight</strong> column, save it, then subset our data for all numeric values including our new column.</p>
+<p>Lets say we want to filter our data finding travelers with a <strong>age &gt;25</strong> or if they have a <strong>budget &gt;2500</strong>. We can do this all together in one command using dplyr using the <strong>filter( )</strong> command.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-wrangling.html#cb49-1" aria-hidden="true" tabindex="-1"></a>travelers <span class="sc">%&gt;%</span> </span>
+<span id="cb49-2"><a href="data-wrangling.html#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">&gt;</span> <span class="dv">25</span> <span class="sc">|</span> Budget <span class="sc">&gt;</span> <span class="dv">2500</span>)</span></code></pre></div>
+<pre><code>##   Age     Gender Budget Num_luggages Weight_luggages Food_allergies
+## 1  30       Male   2500            3              15  Gluten, dairy
+## 2  35 Non-binary   2000            1              25           None
+##            Activities                  Must_see_places
+## 1      Museums, beach  Statue of Liberty, Grand Canyon
+## 2 Shopping, nightlife Golden Gate Bridge, Machu Picchu</code></pre>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>The <em>|</em> is the logical statment <strong>OR</strong> in R. <em>&amp;</em> is the logical statment for <strong>AND</strong></p>
+</blockquote>
+<p>We can see that we have 2 entries that are either <strong>Age &gt;25</strong> or have a <strong>Budget &gt;2500</strong></p>
+<p>There are a lot more functions that are part of dplyr package. The most common ones for data manipulation are</p>
+<ul>
+<li><p>mutate() - Adds a new variable to your dataframe based on existing variables</p></li>
+<li><p>select() - Picks variables from a dataframe based on their names</p></li>
+<li><p>filter() - Picks out cases based on criteria</p></li>
+<li><p>summarise() - Reduces down values down to a single summary</p></li>
+<li><p>arrange() - Changes the order of the rows based</p></li>
+</ul>
+<p>For more information or more practice you can go to the dplyr website which also has a R-bookdown on data transformation.</p>
+<p><a href="https://dplyr.tidyverse.org/" class="uri">https://dplyr.tidyverse.org/</a></p>
+</div>
+</div>
+<div id="loading-datasets" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Loading datasets<a href="data-wrangling.html#loading-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>More often than not, we will be working with a datasets instead of creating our own. In <strong>R</strong> we can load the different types of files, the most common being a comma separated file (<strong>CSV</strong>). Now that we have our travelers preferences and budget we need to find a destination that would be suitable for each of our travelers. We will be using a few datasets from <strong>Numbeo.com</strong> and <strong>The World bank</strong>.</p>
+<p>We want to save these as variables so we can access them later.</p>
+<p>To load a dataset, we will use the <strong>read.csv( )</strong> function and save the dataset as a variable in our environment. The first one we want to load is from <strong>numbeo.com</strong> which shows us the cost of a inexpensive meal at a restaurant.</p>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>The data from <strong>numbeo.com</strong> is aggregated by user submissions and calculates the average costs of certain products</p>
+</blockquote>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-wrangling.html#cb51-1" aria-hidden="true" tabindex="-1"></a>meals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/numbeo_meal.csv&quot;</span>)</span></code></pre></div>
+<p>Another way to load your data is using the import function in R studio.</p>
+<p>When you select the file you want to import a window will appear and you can do some quick modification to our data if needed.</p>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>One of the most common issues when using this feature is the setting the headers. There is a radial button for the header which you can toggle on and off.</p>
+</blockquote>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>We will be making use of the ticket, arrivals and, country codes dataset. You can try loading these files with the interface or using a code chunk.</p>
+</blockquote>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-wrangling.html#cb52-1" aria-hidden="true" tabindex="-1"></a>ticket <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/numbeo_ticket.csv&quot;</span>)</span>
+<span id="cb52-2"><a href="data-wrangling.html#cb52-2" aria-hidden="true" tabindex="-1"></a>arrival <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/world_bank_arrival.csv&quot;</span>)</span>
+<span id="cb52-3"><a href="data-wrangling.html#cb52-3" aria-hidden="true" tabindex="-1"></a>country_codes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/country_codes_iso.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="understanding-your-dataset" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Understanding your dataset<a href="data-wrangling.html#understanding-your-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Understanding your datasets is important when performing data analysis. The more familiar you are with the shape of your dataset, the more insights you are able to pull out from it. This includes knowing the number of rows and columns as well as the types of columns that you are working with.</p>
+<p>We can use the <strong>View( )</strong> function in order to open up a new tab to view the dataset like an excel sheet.</p>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>This function is case sensitive and must be called with a uppercase <strong>V</strong></p>
+</blockquote>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-wrangling.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(meals)</span></code></pre></div>
+<p>To quickly look at the first 6 rows of the data we can use the <strong>head( )</strong> function.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-wrangling.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meals,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##         Country Meal_Inexpensive_Restaurant
+## 1   Switzerland                       37.35
+## 2       Denmark                       27.58
+## 3 United States                       26.72</code></pre>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>You can specify the number of rows you want to examine by adding the number to function</p>
+</blockquote>
+<blockquote>
+<p>i.e., <strong>head(meals,4)</strong></p>
+</blockquote>
+<p>You can also view the last rows of the column using the <strong>tail( )</strong> function</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-wrangling.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(meals,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##       Country Meal_Inexpensive_Restaurant
+## 103 Sri Lanka                        2.05
+## 104   Nigeria                        2.02
+## 105  Pakistan                        1.65</code></pre>
+<p>We can do some quick summary statistics using the <strong>summary( )</strong> function as well. Depending on the type of data in each column, we can see the length or a number summary including the min, max, mean, median, mode, and the 1st and 3rd quartiles.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-wrangling.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(meals)</span></code></pre></div>
+<pre><code>##    Country          Meal_Inexpensive_Restaurant
+##  Length:105         Min.   : 1.65              
+##  Class :character   1st Qu.: 5.87              
+##  Mode  :character   Median :10.21              
+##                     Mean   :11.53              
+##                     3rd Qu.:15.52              
+##                     Max.   :37.35</code></pre>
+</div>
+<div id="combining-your-dataset" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Combining your dataset<a href="data-wrangling.html#combining-your-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Currently we have 4 separate datasets that contain all the information we need. Our goal is to combine all the dataset to a singular one which we can start our data analysis. To do this need something that is unique for all the entries. In our case, the ISO country code and the country name are something that is unique for each entry.</p>
+<p>We will be using the country_codes dataset as our base.</p>
+<div id="binds" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Binds<a href="data-wrangling.html#binds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are different types of ways to join your dataset depending on your desired outcome. Sometimes we just need to add columns or rows to the base dataset. For this, we can use either <strong>rbind( )</strong> or <strong>cbind( )</strong> if the conditions are appropriate.</p>
+<ul>
+<li><p>rbind() - row bind will add rows to the base dataset if they number of rows and the row names are the same.</p></li>
+<li><p>cbind() - column bind will add more columns to the base dataset if the they have the same number of rows.</p></li>
+</ul>
+</div>
+<div id="joins" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Joins<a href="data-wrangling.html#joins" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Most times, we will have an unequal amount of rows or columns and we want to match with something unique to eaach row. For this we can utilize joins. There are different types of joins you can use that all perform their task differently.</p>
+<ul>
+<li><p>left_join() - Matches all paired variables to the left dataframe</p></li>
+<li><p>right_join() - Matches all paired variables to the right dataframe</p></li>
+<li><p>inner_join() - Returns a dataframe with only matching variables. If their is no matching variable, it does not get included.</p></li>
+<li><p>full_join() - Keeps all variables from both dataframes even if they do not match.</p></li>
+</ul>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>left_join() is the most common join you will be using during a data analysis</p>
+</blockquote>
+<p>Let’s try to combine all 4 datasets into one working dataset. First we want to combine our <em>meal</em> and <em>ticket</em> dataframes since they have the same number of rows. We will use a <em>left_join( )</em> to combine these based on the country name.</p>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>Try to perform a <em>left_join( )</em> on the <em>meal</em> and <em>ticket</em> based on <em>Country</em> name.</p>
+</blockquote>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-wrangling.html#cb60-1" aria-hidden="true" tabindex="-1"></a>travel_meal_tickets <span class="ot">&lt;-</span> <span class="fu">left_join</span>(meals,ticket,<span class="at">by =</span> <span class="st">&quot;Country&quot;</span>)</span>
+<span id="cb60-2"><a href="data-wrangling.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(travel_meal_tickets,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##         Country Meal_Inexpensive_Restaurant one_way_ticket_local
+## 1   Switzerland                       37.35                 5.38
+## 2       Denmark                       27.58                 4.73
+## 3 United States                       26.72                 3.34</code></pre>
+<p>Using a left join, we now have a single dataframe with 3 columns, Country name, the price for the restaurants and price for a one way ticket.</p>
+<p>Next, lets combine this dataframe with the country codes dataframe. Looking at the <strong>country code</strong> dataframe, we have 4 columns and 249 rows. We do need some cleaning on this dataframe before continuing. Let’s keep the Country column and just the 3 digit alpha code using <strong>dplyr</strong> and the <strong>select( )</strong> function</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-wrangling.html#cb62-1" aria-hidden="true" tabindex="-1"></a>country_code_subset <span class="ot">&lt;-</span> country_codes <span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="data-wrangling.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Country,alpha_3_code)) <span class="sc">%&gt;%</span></span>
+<span id="cb62-3"><a href="data-wrangling.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">country_code =</span> alpha_3_code)</span>
+<span id="cb62-4"><a href="data-wrangling.html#cb62-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-5"><a href="data-wrangling.html#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(country_code_subset,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##       Country country_code
+## 1 Afghanistan          AFG
+## 2     Albania          ALB
+## 3     Algeria          DZA</code></pre>
+<p>We want to use our new subset of the country_codes as our base model and join the meal/ticket dataframe to this one. Since the country code has 249 rows and the meal/ticket one has 105 rows. We want to use a full join here because we aren’t sure of the country names are spelled the same in each dataframes. Using the <strong>filter( )</strong> function, we can filter out which alpha_3_codes are missing and we notice there is just one which is Kosovo.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-wrangling.html#cb64-1" aria-hidden="true" tabindex="-1"></a>country_ticket_meal_code <span class="ot">&lt;-</span> <span class="fu">full_join</span>(country_code_subset,travel_meal_tickets, <span class="at">by =</span> <span class="st">&quot;Country&quot;</span>)</span>
+<span id="cb64-2"><a href="data-wrangling.html#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="data-wrangling.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(country_ticket_meal_code,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##       Country country_code Meal_Inexpensive_Restaurant one_way_ticket_local
+## 1 Afghanistan          AFG                          NA                   NA
+## 2     Albania          ALB                        7.79                 0.52
+## 3     Algeria          DZA                        2.96                 0.25</code></pre>
+<p>Using the <strong>filter( )</strong> function, we can filter out which alpha_3_codes are missing and we notice there is just one which is Kosovo.</p>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>Kosovo is not country recognized by ISO 3166 standards.</p>
+</blockquote>
+<p>Finally we want to join our last database which is the from the world bank that contains the number of arrivals to the country from 1960 - 2021 however, we need to perform some data cleaning before we can combine them together. Having a look at our dataframe we see each columns for years has a <strong><em>X</em></strong> in front of it. We will want to rename that by using the <strong>rename_all( )</strong> which is part of the <strong>dplyr</strong> package.</p>
+<h2>
+Note
+</h2>
+<blockquote>
+<p>The period <strong>(.)</strong> being used here is a special character here that means for this “For this current dataframe”</p>
+</blockquote>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-wrangling.html#cb66-1" aria-hidden="true" tabindex="-1"></a>arrival_clean <span class="ot">&lt;-</span> arrival <span class="sc">%&gt;%</span> </span>
+<span id="cb66-2"><a href="data-wrangling.html#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_all</span>(<span class="sc">~</span>stringr<span class="sc">::</span><span class="fu">str_replace</span>(.,<span class="st">&quot;^X&quot;</span>,<span class="st">&quot;&quot;</span>))</span>
+<span id="cb66-3"><a href="data-wrangling.html#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="data-wrangling.html#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(arrival,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##                       Country country_code X1960 X1961 X1962 X1963 X1964 X1965
+## 1                       Aruba          ABW    NA    NA    NA    NA    NA    NA
+## 2 Africa Eastern and Southern          AFE    NA    NA    NA    NA    NA    NA
+## 3                 Afghanistan          AFG    NA    NA    NA    NA    NA    NA
+##   X1966 X1967 X1968 X1969 X1970 X1971 X1972 X1973 X1974 X1975 X1976 X1977 X1978
+## 1    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+## 2    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+## 3    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+##   X1979 X1980 X1981 X1982 X1983 X1984 X1985 X1986 X1987 X1988 X1989 X1990 X1991
+## 1    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+## 2    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+## 3    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
+##   X1992 X1993 X1994    X1995    X1996    X1997    X1998    X1999    X2000
+## 1    NA    NA    NA   912000   957000   947000   906000   972000  1211000
+## 2    NA    NA    NA 11583545 13088654 13456246 14403852 15309378 15353177
+## 3    NA    NA    NA       NA       NA       NA       NA       NA       NA
+##      X2001    X2002    X2003    X2004    X2005    X2006    X2007    X2008
+## 1  1178000  1225000  1184000  1304000  1286000  1285000  1254000  1383000
+## 2 15854696 17383375 17844385 18745951 19917566 22650321 25114898 25413098
+## 3       NA       NA       NA       NA       NA       NA       NA       NA
+##      X2009    X2010    X2011    X2012    X2013    X2014    X2015    X2016
+## 1  1420000  1394000  1469000  1481000  1667000  1739000  1832000  1758000
+## 2 25964418 29071501 31650244 32748552 34426633 35738392 35318681 37645888
+## 3       NA       NA       NA       NA       NA       NA       NA       NA
+##      X2017    X2018    X2019 X2020 X2021
+## 1  1863000  1897000  1951000    NA    NA
+## 2 38258348 41189145 39826701    NA    NA
+## 3       NA       NA       NA    NA    NA</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-wrangling.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(arrival_clean,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##                       Country country_code 1960 1961 1962 1963 1964 1965 1966
+## 1                       Aruba          ABW   NA   NA   NA   NA   NA   NA   NA
+## 2 Africa Eastern and Southern          AFE   NA   NA   NA   NA   NA   NA   NA
+## 3                 Afghanistan          AFG   NA   NA   NA   NA   NA   NA   NA
+##   1967 1968 1969 1970 1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981
+## 1   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA
+## 2   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA
+## 3   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA
+##   1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994     1995
+## 1   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   912000
+## 2   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA 11583545
+## 3   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA   NA       NA
+##       1996     1997     1998     1999     2000     2001     2002     2003
+## 1   957000   947000   906000   972000  1211000  1178000  1225000  1184000
+## 2 13088654 13456246 14403852 15309378 15353177 15854696 17383375 17844385
+## 3       NA       NA       NA       NA       NA       NA       NA       NA
+##       2004     2005     2006     2007     2008     2009     2010     2011
+## 1  1304000  1286000  1285000  1254000  1383000  1420000  1394000  1469000
+## 2 18745951 19917566 22650321 25114898 25413098 25964418 29071501 31650244
+## 3       NA       NA       NA       NA       NA       NA       NA       NA
+##       2012     2013     2014     2015     2016     2017     2018     2019 2020
+## 1  1481000  1667000  1739000  1832000  1758000  1863000  1897000  1951000   NA
+## 2 32748552 34426633 35738392 35318681 37645888 38258348 41189145 39826701   NA
+## 3       NA       NA       NA       NA       NA       NA       NA       NA   NA
+##   2021
+## 1   NA
+## 2   NA
+## 3   NA</code></pre>
+<p>Next, we don’t actually really don’t want to use all the years but just want to have a look at some of the most recent years. In this dataset, we have values from 1995 - 2020. There are a few ways we can filter this data.</p>
+<ul>
+<li><p>We can filter by the column type by using a combination of the <strong>where( )</strong> function and the <strong>is.numeric( )</strong> function</p></li>
+<li><p>We can specify a specific range of dates using the range operator <strong>(:)</strong></p></li>
+</ul>
+<p>You can try either method. Remember to save your filtered dataframe to a new variable.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-wrangling.html#cb70-1" aria-hidden="true" tabindex="-1"></a>arrival_clean_subset <span class="ot">&lt;-</span> arrival_clean <span class="sc">%&gt;%</span></span>
+<span id="cb70-2"><a href="data-wrangling.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;Country&quot;</span>,<span class="st">&quot;country_code&quot;</span>, <span class="fu">where</span>(is.numeric)))</span>
+<span id="cb70-3"><a href="data-wrangling.html#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-4"><a href="data-wrangling.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(arrival_clean_subset,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##                       Country country_code     1995     1996     1997     1998
+## 1                       Aruba          ABW   912000   957000   947000   906000
+## 2 Africa Eastern and Southern          AFE 11583545 13088654 13456246 14403852
+## 3                 Afghanistan          AFG       NA       NA       NA       NA
+##       1999     2000     2001     2002     2003     2004     2005     2006
+## 1   972000  1211000  1178000  1225000  1184000  1304000  1286000  1285000
+## 2 15309378 15353177 15854696 17383375 17844385 18745951 19917566 22650321
+## 3       NA       NA       NA       NA       NA       NA       NA       NA
+##       2007     2008     2009     2010     2011     2012     2013     2014
+## 1  1254000  1383000  1420000  1394000  1469000  1481000  1667000  1739000
+## 2 25114898 25413098 25964418 29071501 31650244 32748552 34426633 35738392
+## 3       NA       NA       NA       NA       NA       NA       NA       NA
+##       2015     2016     2017     2018     2019 2020
+## 1  1832000  1758000  1863000  1897000  1951000   NA
+## 2 35318681 37645888 38258348 41189145 39826701   NA
+## 3       NA       NA       NA       NA       NA   NA</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-wrangling.html#cb72-1" aria-hidden="true" tabindex="-1"></a>arrival_clean <span class="sc">%&gt;%</span></span>
+<span id="cb72-2"><a href="data-wrangling.html#cb72-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(<span class="fu">c</span>(Country,country_code,<span class="st">&quot;1995&quot;</span><span class="sc">:</span><span class="st">&quot;2020&quot;</span>))</span></code></pre></div>
+<p>Now that we have all the dataframes ready to be combined we can decided to use the country code, the country name or both. Using the country code it self would be great but to be sure that we maximize the matching, we can use both country name and country code.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-wrangling.html#cb73-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(country_ticket_meal_code,arrival_clean_subset, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&#39;country_code&#39;</span><span class="ot">=</span><span class="st">&#39;country_code&#39;</span>, <span class="st">&#39;Country&#39;</span><span class="ot">=</span><span class="st">&#39;Country&#39;</span>))</span>
+<span id="cb73-2"><a href="data-wrangling.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(travel_full_clean,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##       Country country_code Meal_Inexpensive_Restaurant one_way_ticket_local
+## 1 Afghanistan          AFG                          NA                   NA
+## 2     Albania          ALB                        7.79                 0.52
+## 3     Algeria          DZA                        2.96                 0.25
+##     1995   1996   1997   1998   1999   2000   2001   2002    2003    2004
+## 1     NA     NA     NA     NA     NA     NA     NA     NA      NA      NA
+## 2 304000 287000 119000 184000 371000 317000 354000 470000  557000  645000
+## 3 520000 605000 635000 678000 749000 866000 901000 988000 1166000 1234000
+##      2005    2006    2007    2008    2009    2010    2011    2012    2013
+## 1      NA      NA      NA      NA      NA      NA      NA      NA      NA
+## 2  748000  937000 1127000 1420000 1856000 2417000 2932000 3514000 3256000
+## 3 1443000 1638000 1743000 1772000 1912000 2070000 2395000 2634000 2733000
+##      2014    2015    2016    2017    2018    2019    2020
+## 1      NA      NA      NA      NA      NA      NA      NA
+## 2 3673000 4131000 4736000 5118000 5927000 6406000 2658000
+## 3 2301000 1710000 2039000 2451000 2657000 2371000  591000</code></pre>
+</div>
+</div>
+<div id="missing-values" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Missing values<a href="data-wrangling.html#missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One aspect that is important when working with any dataset is how we deal with missing data. Our goal is to process our dataset so that we have complete rows of data with no missing or duplicate values. Here are some methods we can use when we are trying to deal with missing values.</p>
+<ul>
+<li><p>Removing the value from the dataset. We have to consider how many values are missing and will removing them impact the analysis we are trying to achieve.</p></li>
+<li><p>Imputation. This involves filling in the missing data with a value that makes sense. You can input using the mean, median or regression. Again, you have to determine if imputing your data makes sense with the data you are working with.</p></li>
+<li><p>Statistical models. In some cases we can use the existing data to predict the missing data with regression models.</p></li>
+<li><p>Find other sources. Sometimes the dataset you get is incomplete. You can also try to find other data sources to fill it in.</p></li>
+</ul>
+<p>In our cases we have 121 countries with missing values and 55 countries for full analysis. We can use the function <strong>complete.cases( )</strong> to check this.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-wrangling.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">complete.cases</span>(travel_full_clean))</span></code></pre></div>
+<pre><code>## [1] 55</code></pre>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>The exclaimation mark <strong>(!)</strong> is a special character that is used when you want to say “is not”</p>
+</blockquote>
+<p>For this workshop we will only worry about the 55 countries that have complete rows of data. We can use the <strong>na.omit( )</strong> function in order to select all the rows with complete data.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-wrangling.html#cb77-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(travel_full_clean) </span>
+<span id="cb77-2"><a href="data-wrangling.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(travel_full_clean_subset,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##   Country country_code Meal_Inexpensive_Restaurant one_way_ticket_local   1995
+## 2 Albania          ALB                        7.79                 0.52 304000
+## 3 Algeria          DZA                        2.96                 0.25 520000
+## 9 Armenia          ARM                       10.13                 0.34  12000
+##     1996   1997   1998   1999   2000   2001   2002    2003    2004    2005
+## 2 287000 119000 184000 371000 317000 354000 470000  557000  645000  748000
+## 3 605000 635000 678000 749000 866000 901000 988000 1166000 1234000 1443000
+## 9  13000  23000  32000  41000  45000 123000 162000  206000  263000  319000
+##      2006    2007    2008    2009    2010    2011    2012    2013    2014
+## 2  937000 1127000 1420000 1856000 2417000 2932000 3514000 3256000 3673000
+## 3 1638000 1743000 1772000 1912000 2070000 2395000 2634000 2733000 2301000
+## 9  382000  511000  558000  575000  684000  758000  963000 1084000 1204000
+##      2015    2016    2017    2018    2019    2020
+## 2 4131000 4736000 5118000 5927000 6406000 2658000
+## 3 1710000 2039000 2451000 2657000 2371000  591000
+## 9 1192000 1260000 1495000 1652000 1894000  375000</code></pre>
+<p>Our dataset is now ready for the exploration an analysis.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-exploration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-data-wrangling.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
