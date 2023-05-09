@@ -199,6 +199,10 @@ Another powerful package that helps with data visulizuation is **gtsummary** whi
 library(gtsummary)
 ```
 
+<h2> Try </h2>
+
+> Try installing the **gtsummary** package
+
 Let's say we are interested in summarizing the meal and ticket costs in a table. First, we will need to subset that from our dataset and then pass that into the **tbl_summary()** function.
 
 ```{r base gtsummary}

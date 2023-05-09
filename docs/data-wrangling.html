@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Data Wrangling |  Intro to R Workshop</title>
+  <title>Chapter 6 Data Wrangling |  Intro to R Workshop</title>
   <meta name="description" content="This is a book created for the CHI workshop on R for data analysis." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Data Wrangling |  Intro to R Workshop" />
+  <meta property="og:title" content="Chapter 6 Data Wrangling |  Intro to R Workshop" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is a book created for the CHI workshop on R for data analysis." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Data Wrangling |  Intro to R Workshop" />
+  <meta name="twitter:title" content="Chapter 6 Data Wrangling |  Intro to R Workshop" />
   
   <meta name="twitter:description" content="This is a book created for the CHI workshop on R for data analysis." />
   
@@ -23,15 +23,15 @@
 <meta name="author" content="Dr. Na Li, Mark Ly" />
 
 
-<meta name="date" content="2023-05-02" />
+<meta name="date" content="2023-05-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-structures.html"/>
-<link rel="next" href="data-exploration.html"/>
+<link rel="prev" href="r-packages.html"/>
+<link rel="next" href="data-visualization.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">CHI R Workshop 2023 - Intro to R</a></li>
+<li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About the workshop</a>
@@ -189,34 +189,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>5</b> Data Wrangling</a>
+<li class="chapter" data-level="5" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>5</b> R Packages</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#r-packages"><i class="fa fa-check"></i><b>5.1</b> R Packages</a>
+<li class="chapter" data-level="5.1" data-path="r-packages.html"><a href="r-packages.html#r-packages-1"><i class="fa fa-check"></i><b>5.1</b> R Packages</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#installing-packages"><i class="fa fa-check"></i><b>5.1.1</b> Installing Packages</a></li>
-<li class="chapter" data-level="5.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#using-packages"><i class="fa fa-check"></i><b>5.1.2</b> Using Packages</a></li>
+<li class="chapter" data-level="5.1.1" data-path="r-packages.html"><a href="r-packages.html#installing-packages"><i class="fa fa-check"></i><b>5.1.1</b> Installing Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a>
+<li class="chapter" data-level="5.2" data-path="r-packages.html"><a href="r-packages.html#r-markdown"><i class="fa fa-check"></i><b>5.2</b> R markdown</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#pipe-function"><i class="fa fa-check"></i><b>5.2.1</b> Pipe function (%&gt;%)</a></li>
+<li class="chapter" data-level="5.2.1" data-path="r-packages.html"><a href="r-packages.html#installing-r-markdown"><i class="fa fa-check"></i><b>5.2.1</b> Installing R Markdown</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>5.2.2</b> Using Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data-wrangling.html"><a href="data-wrangling.html#loading-datasets"><i class="fa fa-check"></i><b>5.3</b> Loading datasets</a></li>
-<li class="chapter" data-level="5.4" data-path="data-wrangling.html"><a href="data-wrangling.html#understanding-your-dataset"><i class="fa fa-check"></i><b>5.4</b> Understanding your dataset</a></li>
-<li class="chapter" data-level="5.5" data-path="data-wrangling.html"><a href="data-wrangling.html#combining-your-dataset"><i class="fa fa-check"></i><b>5.5</b> Combining your dataset</a>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#binds"><i class="fa fa-check"></i><b>5.5.1</b> Binds</a></li>
-<li class="chapter" data-level="5.5.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>5.5.2</b> Joins</a></li>
-</ul></li>
-<li class="chapter" data-level="5.6" data-path="data-wrangling.html"><a href="data-wrangling.html#missing-values"><i class="fa fa-check"></i><b>5.6</b> Missing values</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="data-exploration.html"><a href="data-exploration.html"><i class="fa fa-check"></i><b>6</b> Data Exploration</a>
+<li class="chapter" data-level="6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dplyr"><i class="fa fa-check"></i><b>6.1</b> dplyr</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="data-exploration.html"><a href="data-exploration.html#summary-statistics"><i class="fa fa-check"></i><b>6.1</b> Summary statistics</a></li>
-<li class="chapter" data-level="6.2" data-path="data-exploration.html"><a href="data-exploration.html#standard-deviation-and-variance"><i class="fa fa-check"></i><b>6.2</b> Standard deviation and variance</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="data-exploration.html"><a href="data-exploration.html#standard-deviation"><i class="fa fa-check"></i><b>6.2.1</b> Standard deviation</a></li>
-<li class="chapter" data-level="6.2.2" data-path="data-exploration.html"><a href="data-exploration.html#varience"><i class="fa fa-check"></i><b>6.2.2</b> Varience</a></li>
+<li class="chapter" data-level="6.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#pipe-function"><i class="fa fa-check"></i><b>6.1.1</b> Pipe function (%&gt;%)</a></li>
 </ul></li>
+<li class="chapter" data-level="6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#loading-datasets"><i class="fa fa-check"></i><b>6.2</b> Loading datasets</a></li>
+<li class="chapter" data-level="6.3" data-path="data-wrangling.html"><a href="data-wrangling.html#understanding-your-dataset"><i class="fa fa-check"></i><b>6.3</b> Understanding your dataset</a></li>
+<li class="chapter" data-level="6.4" data-path="data-wrangling.html"><a href="data-wrangling.html#combining-your-dataset"><i class="fa fa-check"></i><b>6.4</b> Combining your dataset</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="data-wrangling.html"><a href="data-wrangling.html#binds"><i class="fa fa-check"></i><b>6.4.1</b> Binds</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>6.4.2</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="data-wrangling.html"><a href="data-wrangling.html#missing-values"><i class="fa fa-check"></i><b>6.5</b> Missing values</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>7</b> Data visualization</a>
 <ul>
@@ -252,8 +250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.1" data-path="other-capabilties.html"><a href="other-capabilties.html#r-bookdown"><i class="fa fa-check"></i><b>9.1</b> R-bookdown</a></li>
 <li class="chapter" data-level="9.2" data-path="other-capabilties.html"><a href="other-capabilties.html#r-shiny"><i class="fa fa-check"></i><b>9.2</b> R-Shiny</a></li>
-<li class="chapter" data-level="9.3" data-path="other-capabilties.html"><a href="other-capabilties.html#r-markdown"><i class="fa fa-check"></i><b>9.3</b> R-markdown</a></li>
-<li class="chapter" data-level="9.4" data-path="other-capabilties.html"><a href="other-capabilties.html#machine-learning"><i class="fa fa-check"></i><b>9.4</b> Machine learning</a></li>
+<li class="chapter" data-level="9.3" data-path="other-capabilties.html"><a href="other-capabilties.html#machine-learning"><i class="fa fa-check"></i><b>9.3</b> Machine learning</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -276,52 +273,13 @@ Intro to R Workshop</p></a>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-wrangling" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Data Wrangling<a href="data-wrangling.html#data-wrangling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="r-packages" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> R Packages<a href="data-wrangling.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Packages are a collection of functions that extend the functionality of R. They are tools that help with data analysis, modelling, data visualization. Some of the most common packages in R is <strong>ggplot2</strong> for data visualization, <strong>dplyr</strong> for data wrangling/manipulation and <em>caret</em> for machine learning.</p>
-<div id="installing-packages" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Installing Packages<a href="data-wrangling.html#installing-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To use packages we will have the the <strong>install.packages( )</strong> function and put in the package. We can either does this as a <em>chunk</em> in a R-markdown file or we can type it directly into the console.</p>
-<h2>
-Try
-</h2>
-<blockquote>
-<p>Try installing <strong>dplyr</strong> and <strong>ggplot2</strong> packages</p>
-</blockquote>
-<h3>
-Note
-</h3>
-<blockquote>
-<p>You can install multiple packages are the same time if you put then in a vector and before using the <strong>install.packages( )</strong> function.</p>
-</blockquote>
-<blockquote>
-<p>i.e., install.packages(c(‘dplyr’,‘ggplot2’))</p>
-</blockquote>
-</div>
-<div id="using-packages" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Using Packages<a href="data-wrangling.html#using-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="loading-packages" class="section level4 hasAnchor" number="5.1.2.1">
-<h4><span class="header-section-number">5.1.2.1</span> Loading Packages<a href="data-wrangling.html#loading-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>After installing our packages, we have to load them using the <strong>library( )</strong> function or the <strong>require( )</strong> function. This is similar to opening up a new app or program that you just installed.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-wrangling.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-</div>
-</div>
-</div>
-<div id="dplyr" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> dplyr<a href="data-wrangling.html#dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-wrangling" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Data Wrangling<a href="data-wrangling.html#data-wrangling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="dplyr" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> dplyr<a href="data-wrangling.html#dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <strong>dplyr</strong> is used for data manipulation and can allow us to work with data more efficiently than with base R. We can do the same operations in our previous <em>travelers</em> dataframe using <strong>dplyr</strong>.</p>
-<div id="pipe-function" class="section level3 hasAnchor" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Pipe function (%&gt;%)<a href="data-wrangling.html#pipe-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pipe-function" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Pipe function (%&gt;%)<a href="data-wrangling.html#pipe-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is one of the most powerful functions in the <strong>dplyr</strong> package. What the pipe function does is takes the output of one function and then passes it along to the next one. So instead of saving results to multiple variables, we can perform a sequence of commands in as one command. Using our previous <strong>travelers</strong> dataframe, we were able to calculate the <em>mean luggage weight</em> for all travelers but what if we are interested in the total weight of the luggage each traveler is bringing? We can do this in <strong>dplyr</strong> using the pipe function (%&gt;%) and <strong>mutate( )</strong> function, which creates a new column. We can also subset the data as in the same function as well. Let’s say we are only interested in all the numerical values, we can use the <strong>select</strong> function to ask it to select all the columns that hold numerical data.</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-wrangling.html#cb47-1" aria-hidden="true" tabindex="-1"></a>travelers <span class="sc">%&gt;%</span></span>
 <span id="cb47-2"><a href="data-wrangling.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_weight =</span> Weight_luggages<span class="sc">/</span>Num_luggages) <span class="sc">%&gt;%</span></span>
@@ -359,8 +317,8 @@ Note
 <p><a href="https://dplyr.tidyverse.org/" class="uri">https://dplyr.tidyverse.org/</a></p>
 </div>
 </div>
-<div id="loading-datasets" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Loading datasets<a href="data-wrangling.html#loading-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="loading-datasets" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Loading datasets<a href="data-wrangling.html#loading-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>More often than not, we will be working with a datasets instead of creating our own. In <strong>R</strong> we can load the different types of files, the most common being a comma separated file (<strong>CSV</strong>). Now that we have our travelers preferences and budget we need to find a destination that would be suitable for each of our travelers. We will be using a few datasets from <strong>Numbeo.com</strong> and <strong>The World bank</strong>.</p>
 <p>We want to save these as variables so we can access them later.</p>
 <p>To load a dataset, we will use the <strong>read.csv( )</strong> function and save the dataset as a variable in our environment. The first one we want to load is from <strong>numbeo.com</strong> which shows us the cost of a inexpensive meal at a restaurant.</p>
@@ -389,8 +347,8 @@ Try
 <span id="cb52-2"><a href="data-wrangling.html#cb52-2" aria-hidden="true" tabindex="-1"></a>arrival <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/world_bank_arrival.csv&quot;</span>)</span>
 <span id="cb52-3"><a href="data-wrangling.html#cb52-3" aria-hidden="true" tabindex="-1"></a>country_codes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/country_codes_iso.csv&quot;</span>)</span></code></pre></div>
 </div>
-<div id="understanding-your-dataset" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Understanding your dataset<a href="data-wrangling.html#understanding-your-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="understanding-your-dataset" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Understanding your dataset<a href="data-wrangling.html#understanding-your-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Understanding your datasets is important when performing data analysis. The more familiar you are with the shape of your dataset, the more insights you are able to pull out from it. This includes knowing the number of rows and columns as well as the types of columns that you are working with.</p>
 <p>We can use the <strong>View( )</strong> function in order to open up a new tab to view the dataset like an excel sheet.</p>
 <h3>
@@ -431,20 +389,20 @@ Note
 ##                     3rd Qu.:15.52              
 ##                     Max.   :37.35</code></pre>
 </div>
-<div id="combining-your-dataset" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Combining your dataset<a href="data-wrangling.html#combining-your-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="combining-your-dataset" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Combining your dataset<a href="data-wrangling.html#combining-your-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Currently we have 4 separate datasets that contain all the information we need. Our goal is to combine all the dataset to a singular one which we can start our data analysis. To do this need something that is unique for all the entries. In our case, the ISO country code and the country name are something that is unique for each entry.</p>
 <p>We will be using the country_codes dataset as our base.</p>
-<div id="binds" class="section level3 hasAnchor" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> Binds<a href="data-wrangling.html#binds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="binds" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Binds<a href="data-wrangling.html#binds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are different types of ways to join your dataset depending on your desired outcome. Sometimes we just need to add columns or rows to the base dataset. For this, we can use either <strong>rbind( )</strong> or <strong>cbind( )</strong> if the conditions are appropriate.</p>
 <ul>
 <li><p>rbind() - row bind will add rows to the base dataset if they number of rows and the row names are the same.</p></li>
 <li><p>cbind() - column bind will add more columns to the base dataset if the they have the same number of rows.</p></li>
 </ul>
 </div>
-<div id="joins" class="section level3 hasAnchor" number="5.5.2">
-<h3><span class="header-section-number">5.5.2</span> Joins<a href="data-wrangling.html#joins" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="joins" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Joins<a href="data-wrangling.html#joins" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Most times, we will have an unequal amount of rows or columns and we want to match with something unique to eaach row. For this we can utilize joins. There are different types of joins you can use that all perform their task differently.</p>
 <ul>
 <li><p>left_join() - Matches all paired variables to the left dataframe</p></li>
@@ -614,8 +572,8 @@ Note
 ## 3 2301000 1710000 2039000 2451000 2657000 2371000  591000</code></pre>
 </div>
 </div>
-<div id="missing-values" class="section level2 hasAnchor" number="5.6">
-<h2><span class="header-section-number">5.6</span> Missing values<a href="data-wrangling.html#missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="missing-values" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Missing values<a href="data-wrangling.html#missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One aspect that is important when working with any dataset is how we deal with missing data. Our goal is to process our dataset so that we have complete rows of data with no missing or duplicate values. Here are some methods we can use when we are trying to deal with missing values.</p>
 <ul>
 <li><p>Removing the value from the dataset. We have to consider how many values are missing and will removing them impact the analysis we are trying to achieve.</p></li>
@@ -660,8 +618,8 @@ Note
           </div>
         </div>
       </div>
-<a href="data-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-exploration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -692,7 +650,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-data-wrangling.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-data-wrangling.Rmd",
 "text": "Edit"
 },
 "history": {

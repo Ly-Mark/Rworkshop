@@ -59,9 +59,11 @@ Now that we have created our new project and added our data to the folder, we ca
 A popup window should come up and we need to title our **R Markdown** file.
 
 You can type in **_2023 Rworkshop_** for the title and then click on ok to create the **_.rmd_** file. 
+
 ```{r fig.cap=paste("RStudio markdown creation"), echo=FALSE}
 knitr::include_graphics("images/2.4rmarkdown.png")
 ```
+
 Once you hit `OK`, you should see a tab at the top that says `Untitled1` and your **RStudio IDE** should have 4 distinct panels.
 
 ```{r fig.cap=paste("New .rmd file"), echo=FALSE}
@@ -85,14 +87,17 @@ If you would like to use the cloud version of **RStudio** you can sign up for th
 ```{r fig.cap=paste("Sign up for RStudio cloud"), echo=FALSE}
 knitr::include_graphics("images/2.2rcloud.png")
 ```
+
 If you are just planning to use R occasionally and don't need heavy computing, then the free version of RStudio cloud will work just fine. 
 
 ### Creating .RMD File
 
 After logging in to the free account, you can click on `New Project` on the right hand side and select `New RStudio Project` 
+
 ```{r fig.cap=paste("RStudio Cloud Creating a new project"), echo=FALSE}
 knitr::include_graphics("images/2.6rmarkdowncloud.png")
 ```
+
 Once you open the new project, you will get a screen similar to this. 
 
 ```{r fig.cap=paste("RStudio Cloud Creating a new project"), echo=FALSE}
@@ -104,6 +109,7 @@ From here we want create a **R Markdown** file by going to `File -> New File -> 
 ```{r fig.cap=paste("RStudio Cloud new markdown file"), echo=FALSE}
 knitr::include_graphics("images/2.8rmarkdowncloudnew.png")
 ```
+
 A pop-up will appear saying it will need to install some packages to create a **R Markdown** file. You can install these by selecting `Yes`
 
 ```{r fig.cap=paste("RStudio cloud markdown packages"), echo=FALSE}
@@ -113,6 +119,7 @@ knitr::include_graphics("images/2.9rmarkdownpackages.png")
 Another popup window should come up and we need to title our **R Markdown** file.
 
 You can type in **_2023 Rworkshop_** for the title and then click on ok to create the **_.rmd_** file. 
+
 ```{r fig.cap=paste("RStudio cloud markdown name"), echo=FALSE}
 knitr::include_graphics("images/2.4rmarkdown.png")
 ```

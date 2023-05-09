@@ -1,0 +1,45 @@
+# R Packages
+
+## R Packages
+
+Packages are a collection of functions that extend the functionality of R. They are tools that help with data analysis, modelling, data visualization.  Some of the most common packages in R is **ggplot2** for data visualization, **dplyr** for data wrangling/manipulation and *caret* for machine learning. 
+
+### Installing Packages
+
+To use packages we will have the the **install.packages( )** function and put in the package. We can either does this as a _chunk_ in a R-markdown file or we can type it directly into the console. To install a package, we will need to write the name of the package we want to install surrounded by quotes. `install.packages('package name')`
+
+<h2> Try </h2>
+
+> Try installing **dplyr** and **ggplot2** packages
+
+
+<h3> Note </h3>
+
+> You can install multiple packages are the same time if you put then in a vector and before using the **install.packages( )** function.
+
+> i.e., install.packages(c('dplyr','ggplot2'))
+
+
+## R markdown
+
+One advantage to using R-studio is the ability to output reports into as a word, html, or pdf format. Using the **knit** function capabilities, we can create reports that can be easily reproduced since the code and outputs are all in the same R-markdown file. This is an advantage if you need to generate reports if data gets updated. 
+
+### Installing R Markdown
+
+Just like above, we want to install our package using `install.packages( )` function 
+
+<h2> Try </h2>
+
+> Try installing **rmarkdown**
+
+As we've been using throughout day 1, R markdown files are convenient because we can execute and display our code in line. In day 2 we will use this to generate a report after some data analysis. 
+
+### Using Packages
+
+#### Loading Packages
+
+After installing our packages, we have to load them using the **library( )** function or the **require( )** function. This is similar to opening up a new app or program that you just installed. 
+```{r loading packages, results='hide', warning= FALSE}
+library(dplyr)
+```
+

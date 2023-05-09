@@ -1,0 +1,37 @@
+# Other capabilties
+
+We can create and perform other tasks using R. We will go quickly go through some R's capabilities and things you can do with R including
+
+* R-bookdown
+
+* R-Shiny
+
+* Machine learning
+
+## R-bookdown
+
+With R you can create books using the **R-bookdown** package. This entire workshop was created using R-bookdown. With R-Bookdown, we can create books and long form articles and reports. We can output these books as a PDF, LaTeX, HTML, EPUB and word files. It is a great way to produce a structured document with chaptures, sections, subsections and appendices.  
+
+You can visit <https://bookdown.org/> to find out more about bookdown.
+
+## R-Shiny
+
+We can build web applications and dashboards using **R-Shiny**. This is an alternative way to present data in a more interactive way. Some examples of R-Shiny applications can be found on <https://shiny.rstudio.com/gallery/> which includes COVID-19 trackers, A/B Testing sample size calculators, Nutritional calculators, Hospital dashboards and genome browsers. 
+
+
+## Machine learning
+
+We can perform machine learning tasks in R using the **caret** and **factoextra** packages. This includes models like
+
+* Random forests
+
+* Decisions Trees
+
+* XGBoost
+
+* K-means
+
+* Neural Networks
+
+It is important to note that although these technologies can be powerful and provide a new insight to existing data, we have to ask ourselves if it is necessary and why we would want to attempt to use machine learning. 
+

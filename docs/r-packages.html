@@ -5,31 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 R Packages |  Intro to R Workshop</title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="description" content="This is a book created for the CHI workshop on R for data analysis." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 R Packages |  Intro to R Workshop" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="This is a book created for the CHI workshop on R for data analysis." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 5 R Packages |  Intro to R Workshop" />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="This is a book created for the CHI workshop on R for data analysis." />
   
 
 <meta name="author" content="Dr. Na Li, Mark Ly" />
 
 
-<meta name="date" content="2023-04-17" />
+<meta name="date" content="2023-05-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -37,7 +31,7 @@ set in the _output.yml file.</p>" />
   
   
 <link rel="prev" href="data-structures.html"/>
-<link rel="next" href="blocks.html"/>
+<link rel="next" href="data-wrangling.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -152,7 +146,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#getting-started-desktop"><i class="fa fa-check"></i><b>2.1</b> Getting Started (Desktop)</a>
 <ul>
 <li class="chapter" data-level="2.1.1" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#installation"><i class="fa fa-check"></i><b>2.1.1</b> Installation</a></li>
-<li class="chapter" data-level="2.1.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-.rmd-file"><i class="fa fa-check"></i><b>2.1.2</b> Creating .RMD file</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-a-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating a Project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#creating-.rmd-file"><i class="fa fa-check"></i><b>2.1.3</b> Creating .RMD file</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="r-and-r-studio.html"><a href="r-and-r-studio.html#getting-started-cloud"><i class="fa fa-check"></i><b>2.2</b> Getting Started (Cloud)</a>
 <ul>
@@ -196,26 +191,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>5</b> R Packages</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="r-packages.html"><a href="r-packages.html#installing-packages"><i class="fa fa-check"></i><b>5.1</b> Installing Packages</a></li>
-<li class="chapter" data-level="5.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>5.2</b> Using Packages</a>
+<li class="chapter" data-level="5.1" data-path="r-packages.html"><a href="r-packages.html#r-packages-1"><i class="fa fa-check"></i><b>5.1</b> R Packages</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="r-packages.html"><a href="r-packages.html#loading-packages"><i class="fa fa-check"></i><b>5.2.1</b> Loading Packages</a></li>
-<li class="chapter" data-level="5.2.2" data-path="r-packages.html"><a href="r-packages.html#dplyr"><i class="fa fa-check"></i><b>5.2.2</b> dplyr</a></li>
+<li class="chapter" data-level="5.1.1" data-path="r-packages.html"><a href="r-packages.html#installing-packages"><i class="fa fa-check"></i><b>5.1.1</b> Installing Packages</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<li class="chapter" data-level="5.2" data-path="r-packages.html"><a href="r-packages.html#r-markdown"><i class="fa fa-check"></i><b>5.2</b> R markdown</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
-<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+<li class="chapter" data-level="5.2.1" data-path="r-packages.html"><a href="r-packages.html#installing-r-markdown"><i class="fa fa-check"></i><b>5.2.1</b> Installing R Markdown</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>5.2.2</b> Using Packages</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
-<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
-<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+<li class="chapter" data-level="6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#dplyr"><i class="fa fa-check"></i><b>6.1</b> dplyr</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#pipe-function"><i class="fa fa-check"></i><b>6.1.1</b> Pipe function (%&gt;%)</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#loading-datasets"><i class="fa fa-check"></i><b>6.2</b> Loading datasets</a></li>
+<li class="chapter" data-level="6.3" data-path="data-wrangling.html"><a href="data-wrangling.html#understanding-your-dataset"><i class="fa fa-check"></i><b>6.3</b> Understanding your dataset</a></li>
+<li class="chapter" data-level="6.4" data-path="data-wrangling.html"><a href="data-wrangling.html#combining-your-dataset"><i class="fa fa-check"></i><b>6.4</b> Combining your dataset</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="data-wrangling.html"><a href="data-wrangling.html#binds"><i class="fa fa-check"></i><b>6.4.1</b> Binds</a></li>
+<li class="chapter" data-level="6.4.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>6.4.2</b> Joins</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="data-wrangling.html"><a href="data-wrangling.html#missing-values"><i class="fa fa-check"></i><b>6.5</b> Missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>7</b> Data visualization</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="data-visualization.html"><a href="data-visualization.html#plots"><i class="fa fa-check"></i><b>7.1</b> Plots</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplots"><i class="fa fa-check"></i><b>7.1.1</b> Boxplots</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>7.1.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplots"><i class="fa fa-check"></i><b>7.1.3</b> Scatterplots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-visualization.html"><a href="data-visualization.html#ggplot2"><i class="fa fa-check"></i><b>7.2</b> ggplot2</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplot"><i class="fa fa-check"></i><b>7.2.1</b> Boxplot</a></li>
+<li class="chapter" data-level="7.2.2" data-path="data-visualization.html"><a href="data-visualization.html#histogram-1"><i class="fa fa-check"></i><b>7.2.2</b> Histogram</a></li>
+<li class="chapter" data-level="7.2.3" data-path="data-visualization.html"><a href="data-visualization.html#scatterplot"><i class="fa fa-check"></i><b>7.2.3</b> Scatterplot</a></li>
+<li class="chapter" data-level="7.2.4" data-path="data-visualization.html"><a href="data-visualization.html#exporting-plots"><i class="fa fa-check"></i><b>7.2.4</b> Exporting plots</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="data-visualization.html"><a href="data-visualization.html#gtsummary"><i class="fa fa-check"></i><b>7.3</b> gtsummary</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Regression</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>8.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="regression.html"><a href="regression.html#assumptions-of-linear-regression"><i class="fa fa-check"></i><b>8.1.1</b> Assumptions of Linear Regression</a></li>
+<li class="chapter" data-level="8.1.2" data-path="regression.html"><a href="regression.html#residuals"><i class="fa fa-check"></i><b>8.1.2</b> Residuals</a></li>
+<li class="chapter" data-level="8.1.3" data-path="regression.html"><a href="regression.html#creating-our-intial-model"><i class="fa fa-check"></i><b>8.1.3</b> Creating our intial model</a></li>
+<li class="chapter" data-level="8.1.4" data-path="regression.html"><a href="regression.html#interpretation-of-results"><i class="fa fa-check"></i><b>8.1.4</b> Interpretation of results</a></li>
+<li class="chapter" data-level="8.1.5" data-path="regression.html"><a href="regression.html#assumption-checking"><i class="fa fa-check"></i><b>8.1.5</b> Assumption checking</a></li>
+<li class="chapter" data-level="8.1.6" data-path="regression.html"><a href="regression.html#summary"><i class="fa fa-check"></i><b>8.1.6</b> Summary</a></li>
+<li class="chapter" data-level="8.1.7" data-path="regression.html"><a href="regression.html#next-steps"><i class="fa fa-check"></i><b>8.1.7</b> Next steps</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="other-capabilties.html"><a href="other-capabilties.html"><i class="fa fa-check"></i><b>9</b> Other capabilties</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="other-capabilties.html"><a href="other-capabilties.html#r-bookdown"><i class="fa fa-check"></i><b>9.1</b> R-bookdown</a></li>
+<li class="chapter" data-level="9.2" data-path="other-capabilties.html"><a href="other-capabilties.html#r-shiny"><i class="fa fa-check"></i><b>9.2</b> R-Shiny</a></li>
+<li class="chapter" data-level="9.3" data-path="other-capabilties.html"><a href="other-capabilties.html#machine-learning"><i class="fa fa-check"></i><b>9.3</b> Machine learning</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -239,10 +275,12 @@ Intro to R Workshop</p></a>
             <section class="normal" id="section-">
 <div id="r-packages" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> R Packages<a href="r-packages.html#r-packages" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="r-packages-1" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> R Packages<a href="r-packages.html#r-packages-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Packages are a collection of functions that extend the functionality of R. They are tools that help with data analysis, modelling, data visualization. Some of the most common packages in R is <strong>ggplot2</strong> for data visualization, <strong>dplyr</strong> for data wrangling/manipulation and <em>caret</em> for machine learning.</p>
-<div id="installing-packages" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Installing Packages<a href="r-packages.html#installing-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To use packages we will have the the <strong>install.packages( )</strong> function and put in the package. We can either does this as a <em>chunk</em> in a R-markdown file or we can type it directly into the console.</p>
+<div id="installing-packages" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Installing Packages<a href="r-packages.html#installing-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To use packages we will have the the <strong>install.packages( )</strong> function and put in the package. We can either does this as a <em>chunk</em> in a R-markdown file or we can type it directly into the console. To install a package, we will need to write the name of the package we want to install surrounded by quotes. <code>install.packages('package name')</code></p>
 <h2>
 Try
 </h2>
@@ -259,12 +297,27 @@ Note
 <p>i.e., install.packages(c(‘dplyr’,‘ggplot2’))</p>
 </blockquote>
 </div>
-<div id="using-packages" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Using Packages<a href="r-packages.html#using-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="loading-packages" class="section level3 hasAnchor" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Loading Packages<a href="r-packages.html#loading-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="r-markdown" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> R markdown<a href="r-packages.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One advantage to using R-studio is the ability to output reports into as a word, html, or pdf format. Using the <strong>knit</strong> function capabilities, we can create reports that can be easily reproduced since the code and outputs are all in the same R-markdown file. This is an advantage if you need to generate reports if data gets updated.</p>
+<div id="installing-r-markdown" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Installing R Markdown<a href="r-packages.html#installing-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Just like above, we want to install our package using <code>install.packages( )</code> function</p>
+<h2>
+Try
+</h2>
+<blockquote>
+<p>Try installing <strong>rmarkdown</strong></p>
+</blockquote>
+<p>As we’ve been using throughout day 1, R markdown files are convenient because we can execute and display our code in line. In day 2 we will use this to generate a report after some data analysis.</p>
+</div>
+<div id="using-packages" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Using Packages<a href="r-packages.html#using-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="loading-packages" class="section level4 hasAnchor" number="5.2.2.1">
+<h4><span class="header-section-number">5.2.2.1</span> Loading Packages<a href="r-packages.html#loading-packages" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>After installing our packages, we have to load them using the <strong>library( )</strong> function or the <strong>require( )</strong> function. This is similar to opening up a new app or program that you just installed.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r-packages.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-packages.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
@@ -273,17 +326,6 @@ Note
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-</div>
-<div id="dplyr" class="section level3 hasAnchor" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> dplyr<a href="r-packages.html#dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The <strong>dplyr</strong> is used for data manipulation and can allow us to work with data more efficiently than with base R. We can do the same operations in our previous <em>travelers</em> dataframe using <strong>dplyr</strong>.</p>
-<div id="pipe-function" class="section level4 hasAnchor" number="5.2.2.1">
-<h4><span class="header-section-number">5.2.2.1</span> Pipe function (%&gt;%)<a href="r-packages.html#pipe-function" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>This is one of the most powerful functions in the <strong>dplyr</strong> package. What the pipe function does is takes the output of one function and then passes it along to the next one. So instead of saving results to multiple variables, we can perform a sequence of commands in as one command. Using our previous <strong>travellers</strong> dataframe, we were able to calculate the <em>mean luggage weight</em> for all travellers but what if we are interested in the total weight of the luggage each traveler is bringing? We can do this in <strong>dplyr</strong> using the pipe function (%&gt;%) and <strong>mutate( )</strong> function, which creates a new column. We can also subset the data as in the same function as well. Let’s say we are only interested in all the numerical values, we can use the <strong>select</strong> function to ask it to select all the columns that hold numerical data.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r-packages.html#cb33-1" aria-hidden="true" tabindex="-1"></a>travellers <span class="sc">%&gt;%</span></span>
-<span id="cb33-2"><a href="r-packages.html#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_weight =</span> Weight_luggages<span class="sc">/</span>Num_luggages) <span class="sc">%&gt;%</span></span>
-<span id="cb33-3"><a href="r-packages.html#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="fu">where</span>(is.numeric)))</span></code></pre></div>
-<p>You can see our new column <strong>mean_weight</strong> added to the end and that the dataframe only contains numerical values</p>
 
 </div>
 </div>
@@ -295,7 +337,7 @@ Note
         </div>
       </div>
 <a href="data-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="blocks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-wrangling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -326,7 +368,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-data-wrangling.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-r-packages.Rmd",
 "text": "Edit"
 },
 "history": {
