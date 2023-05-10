@@ -73,7 +73,7 @@ In this case our y-variable is the number of `arrivals` and the x-variable is th
 > The years variable in our dataframe is a *character*. We need to convert it to a numeric to perform the linear regression.
 
 ```{r linear model}
-swe_model <- lm(arrivals~as.numeric(sweden_travel$years),data=sweden_travel)
+swe_model <- lm(arrivals~years,data=sweden_travel)
 swe_model
 ```
 

@@ -57,20 +57,35 @@ Scatterplots are useful to show a relationship between two different variables. 
 
 * Draw the scatterplot
 
-```{r scatterplot base}
+We will be using the `gather( )` function that is part of the `tidyr` package. This package helps us convert between different data formats. 
+
+<h3> Note </h3>
+
+> tidyr and dplyr are both part of the tidyverse set of packages. You can install both by using `install.packages('tidyverse') and load then with library(tidyverse)
+
+```{r scatterplot subset base}
 library(tidyr)
 sweden_travel <- travel_full_clean_subset %>%
   filter(country_code=="SWE" ) %>%
   select(c("1995":"2020")) %>%
-  gather() %>%
+  gather() %>% # pivots the data
   rename(years= key,
          arrivals= value)
+```
 
+Take note of the data types for each of the columns. Our years column are characters but we want to change that to a numerical format. To do this, we can use the `as.numeric ()` function on the specific column 
+
+```{r convert datatypes}
+sweden_travel$years <-as.numeric(sweden_travel$years)
+```
+
+```{r Sweden scatterplot}
 plot(sweden_travel$years, sweden_travel$arrivals/100000,
      main="Number of Travellers from 1995 to 2020 (Sweden)",
      xlab="Years",
      ylab="Number of arrivals (x100,000)") 
 ```
+
 
 From the scatterplot, we see a steady increase in arrivals to sweeden over the years. We do see a few years between 2010, and 2015 with a high spike in arrivals which could indicate a few outliers in our data. To check we can run another boxplot on the arrivals data.
 
@@ -111,7 +126,8 @@ ggplot(data = travel_full_clean_subset, aes(y=Meal_Inexpensive_Restaurant)) +
   geom_boxplot()
 ```
 
-We can also rename our axis in a simliar way to our base R plot by using the **labs( )** argument
+We can also rename our axis in a simliar way to our base R plot by using the **labs( )** argument.
+
 ```{r boxplot ggplot2 clean}
 ggplot(data = travel_full_clean_subset, aes(y=Meal_Inexpensive_Restaurant)) + 
   geom_boxplot() +
@@ -181,6 +197,7 @@ boxplot_arrivals_swe <- ggplot(data = sweden_travel, aes(y=arrivals/100000)) +
 ```
 
 Next, we will use the **ggsave( )** function and specify the location, the format, and the height and width we want to save the image as.
+
 ```{r saving files}
 ggsave("/Users/markly/boxplot_swe_arrival.pdf", plot = boxplot_arrivals_swe, device = "pdf", width = 12, height = 6, dpi=150)
 ```
@@ -203,7 +220,7 @@ library(gtsummary)
 
 > Try installing the **gtsummary** package
 
-Let's say we are interested in summarizing the meal and ticket costs in a table. First, we will need to subset that from our dataset and then pass that into the **tbl_summary()** function.
+Let's say we are interested in summarizing the meal and ticket costs in a table. First, we will need to subset that from our dataset and then pass that into the **tbl_summary( )** function.
 
 ```{r base gtsummary}
 travel_full_clean_subset %>%
@@ -241,14 +258,6 @@ travel_region %>%
                            "one_way_ticket_local"~"One-way Ticket Price")) %>%
   modify_header(label = "**Variable**") %>% # update the column header
   bold_labels()
-```
-
-
-```{r gtsummary years and regions}
-travel_full_clean_subset %>%
-  inner_join(.,region_select,by="country_code") %>%
-  select(c(Meal_Inexpensive_Restaurant,one_way_ticket_local,"2015":"2020",region)) %>%
-  tbl_summary(by=region)
 ```
 
 With both **ggplot2** and **gtsummary**, we have lots of tools to use to display and communicate our data.  

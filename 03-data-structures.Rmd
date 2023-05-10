@@ -17,7 +17,7 @@ So far we've learned some basics of what you can do in *R* and *R Studio* includ
 
 This is a one dimensional data structure where all the elements in the vector are the same. Similar to vectors that are found in mathematics.
 
-Imagine you are. Imagine that you're going on a vacation and you need to pack all the essentials in your luggage. To make most space you want to use packing cubes and pack all your similar items together. So all your shirts go in one cube, all your pant in another and, all your electric devices in the third one. You can think of your packing cube as a vector in R, and the items you're packing as the elements of the vector.
+Imagine that you're going on a vacation and you need to pack all the essentials in your luggage. To make most space you want to use packing cubes and pack all your similar items together. So all your shirts go in one cube, all your pant in another and, all your electric devices in the third one. You can think of your packing cube as a vector in R, and the items you're packing as the elements of the vector.
 
 ### Creating simple vectors
 
@@ -120,12 +120,11 @@ Now we can we can access our items by using the **$** symbol which make it easie
 
 > Try accessing the **Electronics** vector in our luggage_list using the **$** Symbol. 
 
-
 ```{r fig.cap=paste("Basic Lists"), fig.width=5, fig.height=5, echo=FALSE}
-knitr::include_graphics("images/3.6listconsole.png")
+knitr::include_graphics("images/3.7renamedlist.png")
 ```
 
-We have created a **luggage_list** that has 5 vectors that are labeled shoes, shirts, pants, electronics and tolietries.
+We have created a **luggage_list** that has 5 vectors that are labeled shoes, shirts, pants, electronics and toiletries.
 
 ## Matrices 
 
@@ -165,7 +164,7 @@ packing_matrix[, 1] <- c(2, 6, 3, 4, 2)
 Now when check our matrix we should have the first column filled out with the number of items that we packed. 
 
 ```{r fig.cap=paste("Matrix filled"), fig.width=5, fig.height=5, echo=FALSE}
-knitr::include_graphics("images/3.6listconsole.png")
+knitr::include_graphics("images/3.8packingmatrix.png")
 ```
 
 <h2> Try </h2>
@@ -184,6 +183,10 @@ packing_matrix[,3] <- sample(1:8, 5, replace = TRUE)
 ```
 
 Now that our have filled our packing matrix, we can easily showcase how to access columns and rows in a matrix. 
+
+```{r fig.cap=paste("Matrix full"), fig.width=5, fig.height=5, echo=FALSE}
+knitr::include_graphics("images/3.9packingmatrixfull.png")
+```
 
 #### Selecting columns
 
@@ -212,7 +215,7 @@ If we want to see how our packing compares to our travelling partners packing we
 ```{r Two column}
 packing_matrix[,c(1,3)]
 ```
-We can also index a certain range instead of selecting specific rows or columns. Let's say we want to check the what each person packed for shoes, shirts and pants. We could index using a vector by putting all 3 numbers or we can use a colon *:* to check the range. 
+We can also index a certain range instead of selecting specific rows or columns. Let's say we want to check the what each person packed for shoes, shirts and pants. We could index using a `vector` by putting all 3 numbers or we can use a `colon` *:* to check the range. 
 
 ```{r First 3 rows}
 packing_matrix[1:3,]
@@ -220,7 +223,7 @@ packing_matrix[1:3,]
 
 ## Dataframes
 
-Dataframes is a very popular data structure in R since they are easy to work with and allows you do organize and work with data very effciently. A dataframe is another tabular object like the matrix but the difference between the two is that you can store different types of data in a dataframe. Think of it simliar to an excel spreadsheet where you can different types of data for each column (age, gender, income, etc.). 
+Dataframes is a very popular data structure in R since they are easy to work with and allows you do organize and work with data very efficiently. A dataframe is another tabular object like the matrix but the difference between the two is that you can store different types of data in a dataframe. Think of it similar to an excel spreadsheet where you can different types of data for each column (age, gender, income, etc.). 
 
 ### Creating a dataframe
 
@@ -262,11 +265,11 @@ travelers <- data.frame(
 print(travelers)
 ```
 
-### Using the a dataframe
+### Using a dataframe
 
 #### Manipulating data 
 
-Like spreedsheets, we can manipulate the dataframe to create new variables. If we wanted to find out the average weight of the luggages we can use build in mean function
+Like spreadsheets, we can manipulate the dataframe to create new variables. If we wanted to find out the average weight of the luggages we can use build in mean function
 
 ```{r average weight}
 mean(travelers$Weight_luggages)

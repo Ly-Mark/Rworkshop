@@ -1,5 +1,30 @@
 # Data Wrangling
 
+
+Our goal is to generate a report with using a R-markdown file that includes some data analysis and data visualizations. We are going to use the travelers dataframe that we created yesterday as a starting point but will incorporate other datasets as we continue throughout the day. 
+Let's create a new R markdown file and called it `travelers`. We want to install and load the packages that we introduced yesterday. We will be adding a few packages as we go throughout the day.
+
+* dplyr
+
+* ggplot2
+
+Let's also create our travelers dataframe from yesterday
+
+```{r travelers2 dataframe}
+travelers <- data.frame(
+  Age = c(25, 30, 35),
+  Gender = factor(c("Female", "Male", "Non-binary"), levels = c("Male", "Female", "Non-binary")),
+  Budget = c(1500, 2500, 2000),
+  Num_luggages = c(2, 3, 1),
+  Weight_luggages = c(20, 15, 25),
+  Food_allergies = c("Peanuts, shellfish", "Gluten, dairy", "None"),
+  Activities = c("Hiking, sightseeing", "Museums, beach", "Shopping, nightlife"),
+  Must_see_places = c("Eiffel Tower, Colosseum", "Statue of Liberty, Grand Canyon", "Golden Gate Bridge, Machu Picchu")
+)
+```
+
+Next, we will be perform some data wrangling. Data wrangling refers to the process of gathering, cleaning, transforming, and organizing raw data into a format that is suitable for analysis or further processing. We will be using the `dplyr` package we installed in the previous chapter to do this. 
+
 ## dplyr
 
 The **dplyr** is used for data manipulation and can allow us to work with data more efficiently than with base R. We can do the same operations in our previous _travelers_ dataframe using **dplyr**. 
@@ -17,6 +42,7 @@ travelers %>%
 You can see our new column **mean_weight** added to the end and that the dataframe only contains numerical values. If we were to do this without the pipe function, we would first need to get add the **mean_weight** column, save it, then subset our data for all numeric values including our new column. 
 
 Lets say we want to filter our data finding travelers with a **age >25** or if they have a **budget >2500**. We can do this all together in one command using dplyr using the **filter( )** command. 
+
 ```{r dplyr filtering}
 travelers %>% 
   filter(Age > 25 | Budget > 2500)
@@ -30,17 +56,17 @@ We can see that we have 2 entries that are either **Age >25** or have a **Budget
 
 There are a lot more functions that are part of dplyr package. The most common ones for data manipulation are 
 
-* mutate() - Adds a new variable to your dataframe based on existing variables
+* **mutate( )** - Adds a new variable to your dataframe based on existing variables
 
-* select() - Picks variables from a dataframe based on their names
+* **select( )** - Picks variables from a dataframe based on their names
 
-* filter() - Picks out cases based on criteria
+* **filter( )** - Picks out cases based on criteria
 
-* summarise() - Reduces down values down to a single summary
+* **summarise( )** - Reduces down values down to a single summary
 
-* arrange() - Changes the order of the rows based 
+* **arrange( )** - Changes the order of the rows based 
 
-For more information or more practice you can go to the dplyr website which also has a R-bookdown on data transformation. 
+For more information or more practice you can go to the `dplyr` website which also has a online book on data transformation. 
 
 <https://dplyr.tidyverse.org/>
 
@@ -63,7 +89,15 @@ meals <- read.csv("data/numbeo_meal.csv")
 
 Another way to load your data is using the import function in R studio. 
 
+```{r fig.cap=paste("import function"), fig.width=5, fig.height=5, echo=FALSE}
+knitr::include_graphics("images/5.0importfunction.png")
+```
+
 When you select the file you want to import a window will appear and you can do some quick modification to our data if needed. 
+
+```{r fig.cap=paste("import window"), fig.width=5, fig.height=5, echo=FALSE}
+knitr::include_graphics("images/5.1importwindow.png")
+```
 
 <h3> Note </h3>
 
@@ -81,7 +115,7 @@ country_codes <- read.csv("data/country_codes_iso.csv")
 
 ## Understanding your dataset
 
-Understanding your datasets is important when performing data analysis. The more familiar you are with the shape of your dataset, the more insights you are able to pull out from it. This includes knowing the number of rows and columns as well as the types of columns that you are working with.
+Knowing what your dataset contains is important when performing data analysis. The more familiar you are with the shape of your dataset, the more insights you are able to pull out from it. This includes knowing the number of rows and columns as well as the types of columns that you are working with.
 
 We can use the **View( )** function in order to open up a new tab to view the dataset like an excel sheet. 
 
@@ -119,30 +153,35 @@ summary(meals)
 
 ## Combining your dataset
 
-Currently we have 4 separate datasets that contain all the information we need. Our goal is to combine all the dataset to a singular one which we can start our data analysis. To do this need something that is unique for all the entries. In our case, the ISO country code and the country name are something that is unique for each entry.
+Currently, we have 4 separate datasets that contain all the information we need. Our goal is to combine all the dataset to a singular one which we can start our data analysis. To do this need something that is unique for all the entries. In our case, the ISO country code and the country name are something that is unique for each entry.
 
-We will be using the country_codes dataset as our base. 
+We will be using the `country_codes dataset` as our base. 
 
 ### Binds
 
 There are different types of ways to join your dataset depending on your desired outcome. Sometimes we just need to add columns or rows to the base dataset. For this, we can use either **rbind( )** or **cbind( )** if the conditions are appropriate. 
 
-* rbind() - row bind will add rows to the base dataset if they number of rows and the row names are the same. 
+* **rbind( )** - row bind will add rows to the base dataset if they number of rows and the row names are the same. 
 
-* cbind() - column bind will add more columns to the base dataset if the they have the same number of rows. 
+* **cbind( )** - column bind will add more columns to the base dataset if the they have the same number of rows. 
 
 
 ### Joins
 
 Most times, we will have an unequal amount of rows or columns and we want to match with something unique to eaach row. For this we can utilize joins. There are different types of joins you can use that all perform their task differently. 
 
-* left_join() - Matches all paired variables to the left dataframe 
+* **left_join( )** - Matches all paired variables to the left dataframe 
 
-* right_join() - Matches all paired variables to the right dataframe 
+* **right_join( )** - Matches all paired variables to the right dataframe 
 
-* inner_join() - Returns a dataframe with only matching variables. If their is no matching variable, it does not get included.
+* **inner_join( )** - Returns a dataframe with only matching variables. If their is no matching variable, it does not get included.
 
-* full_join() - Keeps all variables from both dataframes even if they do not match. 
+* **full_join( )** - Keeps all variables from both dataframes even if they do not match. 
+
+
+```{r fig.cap=paste("Types of Joins"), fig.width=5, fig.height=5, echo=FALSE}
+knitr::include_graphics("images/Joins.jpeg")
+```
 
 <h3> Note </h3>
 
@@ -171,7 +210,7 @@ country_code_subset <- country_codes %>%
 head(country_code_subset,3)
 ```
 
-We want to use our new subset of the country_codes as our base model and join the meal/ticket dataframe to this one. Since the country code has 249 rows and the meal/ticket one has 105 rows. We want to use a full join here because we aren't sure of the country names are spelled the same in each dataframes. Using the **filter( )** function, we can filter out which alpha_3_codes are missing and we notice there is just one which is Kosovo. 
+We want to use our new subset of the country_codes as our base model and join the meal/ticket dataframe to this one. Since the country code has 249 rows and the meal/ticket one has 105 rows. We want to use a full join here because we aren't sure of the country names are spelled the same in each dataframes.
 
 ```{r full join table}
 country_ticket_meal_code <- full_join(country_code_subset,travel_meal_tickets, by = "Country")
@@ -181,11 +220,17 @@ head(country_ticket_meal_code,3)
 
 Using the **filter( )** function, we can filter out which alpha_3_codes are missing and we notice there is just one which is Kosovo. 
 
+```{r missing country codes}
+country_ticket_meal_code %>%
+  filter(is.na(country_code))
+```
+
+
 <h3> Note </h3>
 
 > Kosovo is not country recognized by ISO 3166 standards. 
 
-Finally we want to join our last database which is the from the world bank that contains the number of arrivals to the country from 1960 - 2021 however, we need to perform some data cleaning before we can combine them together. Having a look at our dataframe we see each columns for years has a **_X_** in front of it. We will want to rename that by using the **rename_all( )** which is part of the **dplyr** package. 
+Finally, we want to join our last database which is the from the world bank that contains the number of arrivals to the country from 1960 - 2021 however, we need to perform some data cleaning before we can combine them together. Having a look at our dataframe we see each columns for years has a **_X_** in front of it. We will want to rename that by using the **rename_all( )** which is part of the **dplyr** package. 
 
 <h2> Note </h2>
 
@@ -255,7 +300,8 @@ For this workshop we will only worry about the 55 countries that have complete r
 ```{r removing missing}
 travel_full_clean_subset <- na.omit(travel_full_clean) 
 head(travel_full_clean_subset,3)
-
 ```
 
 Our dataset is now ready for the exploration an analysis. 
+
+

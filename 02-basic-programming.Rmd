@@ -11,7 +11,7 @@ In this section, we will learn about some simple coding operations you can perfo
 All the basic arithmetic operators can be done in using **R** which includes
 
 * Addition: `+`
-* Subtraction: `-`zq
+* Subtraction: `-`
 * Multiplication: `*`
 * Division: `/`
 * Exponentiation: `^`
