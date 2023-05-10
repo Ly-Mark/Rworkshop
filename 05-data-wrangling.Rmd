@@ -253,7 +253,8 @@ Next, we don't actually really don't want to use all the years but just want to 
 
 * We can specify a specific range of dates using the range operator **(:)**
 
-You can try either method. Remember to save your filtered dataframe to a new variable. 
+You can try either method. Remember to save your filtered dataframe to a new variable.
+
 ```{r arrival subset1}
 arrival_clean_subset <- arrival_clean %>%
   select(c("Country","country_code", where(is.numeric)))

@@ -23,7 +23,7 @@
 <meta name="author" content="Dr. Na Li, Mark Ly" />
 
 
-<meta name="date" content="2023-05-08" />
+<meta name="date" content="2023-05-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">CHI R Workshop 2023 - Intro to R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About the workshop</a>
@@ -185,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>4.4</b> Dataframes</a>
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-dataframe"><i class="fa fa-check"></i><b>4.4.1</b> Creating a dataframe</a></li>
-<li class="chapter" data-level="4.4.2" data-path="data-structures.html"><a href="data-structures.html#using-the-a-dataframe"><i class="fa fa-check"></i><b>4.4.2</b> Using the a dataframe</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-structures.html"><a href="data-structures.html#using-a-dataframe"><i class="fa fa-check"></i><b>4.4.2</b> Using a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a></li>
 </ul></li>
@@ -198,7 +198,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="r-packages.html"><a href="r-packages.html#r-markdown"><i class="fa fa-check"></i><b>5.2</b> R markdown</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="r-packages.html"><a href="r-packages.html#installing-r-markdown"><i class="fa fa-check"></i><b>5.2.1</b> Installing R Markdown</a></li>
-<li class="chapter" data-level="5.2.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>5.2.2</b> Using Packages</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-packages.html"><a href="r-packages.html#why-r-markdown"><i class="fa fa-check"></i><b>5.2.2</b> Why R Markdown</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>5.2.3</b> Using Packages</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-packages.html"><a href="r-packages.html#documentation"><i class="fa fa-check"></i><b>5.2.4</b> Documentation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling</a>
@@ -232,6 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.4" data-path="data-visualization.html"><a href="data-visualization.html#exporting-plots"><i class="fa fa-check"></i><b>7.2.4</b> Exporting plots</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="data-visualization.html"><a href="data-visualization.html#gtsummary"><i class="fa fa-check"></i><b>7.3</b> gtsummary</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualization.html"><a href="data-visualization.html#knitting"><i class="fa fa-check"></i><b>7.4</b> Knitting</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Regression</a>
 <ul>
@@ -275,23 +278,41 @@ Intro to R Workshop</p></a>
             <section class="normal" id="section-">
 <div id="data-wrangling" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Data Wrangling<a href="data-wrangling.html#data-wrangling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Our goal is to generate a report with using a R-markdown file that includes some data analysis and data visualizations. We are going to use the travelers dataframe that we created yesterday as a starting point but will incorporate other datasets as we continue throughout the day.
+Let’s create a new R markdown file and called it <code>travelers</code>. We want to install and load the packages that we introduced yesterday. We will be adding a few packages as we go throughout the day.</p>
+<ul>
+<li><p>dplyr</p></li>
+<li><p>ggplot2</p></li>
+</ul>
+<p>Let’s also create our travelers dataframe from yesterday</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-wrangling.html#cb48-1" aria-hidden="true" tabindex="-1"></a>travelers <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb48-2"><a href="data-wrangling.html#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
+<span id="cb48-3"><a href="data-wrangling.html#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Gender =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Non-binary&quot;</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Non-binary&quot;</span>)),</span>
+<span id="cb48-4"><a href="data-wrangling.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Budget =</span> <span class="fu">c</span>(<span class="dv">1500</span>, <span class="dv">2500</span>, <span class="dv">2000</span>),</span>
+<span id="cb48-5"><a href="data-wrangling.html#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Num_luggages =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>),</span>
+<span id="cb48-6"><a href="data-wrangling.html#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Weight_luggages =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">15</span>, <span class="dv">25</span>),</span>
+<span id="cb48-7"><a href="data-wrangling.html#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Food_allergies =</span> <span class="fu">c</span>(<span class="st">&quot;Peanuts, shellfish&quot;</span>, <span class="st">&quot;Gluten, dairy&quot;</span>, <span class="st">&quot;None&quot;</span>),</span>
+<span id="cb48-8"><a href="data-wrangling.html#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Activities =</span> <span class="fu">c</span>(<span class="st">&quot;Hiking, sightseeing&quot;</span>, <span class="st">&quot;Museums, beach&quot;</span>, <span class="st">&quot;Shopping, nightlife&quot;</span>),</span>
+<span id="cb48-9"><a href="data-wrangling.html#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Must_see_places =</span> <span class="fu">c</span>(<span class="st">&quot;Eiffel Tower, Colosseum&quot;</span>, <span class="st">&quot;Statue of Liberty, Grand Canyon&quot;</span>, <span class="st">&quot;Golden Gate Bridge, Machu Picchu&quot;</span>)</span>
+<span id="cb48-10"><a href="data-wrangling.html#cb48-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Next, we will be perform some data wrangling. Data wrangling refers to the process of gathering, cleaning, transforming, and organizing raw data into a format that is suitable for analysis or further processing. We will be using the <code>dplyr</code> package we installed in the previous chapter to do this.</p>
 <div id="dplyr" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> dplyr<a href="data-wrangling.html#dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <strong>dplyr</strong> is used for data manipulation and can allow us to work with data more efficiently than with base R. We can do the same operations in our previous <em>travelers</em> dataframe using <strong>dplyr</strong>.</p>
 <div id="pipe-function" class="section level3 hasAnchor" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Pipe function (%&gt;%)<a href="data-wrangling.html#pipe-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is one of the most powerful functions in the <strong>dplyr</strong> package. What the pipe function does is takes the output of one function and then passes it along to the next one. So instead of saving results to multiple variables, we can perform a sequence of commands in as one command. Using our previous <strong>travelers</strong> dataframe, we were able to calculate the <em>mean luggage weight</em> for all travelers but what if we are interested in the total weight of the luggage each traveler is bringing? We can do this in <strong>dplyr</strong> using the pipe function (%&gt;%) and <strong>mutate( )</strong> function, which creates a new column. We can also subset the data as in the same function as well. Let’s say we are only interested in all the numerical values, we can use the <strong>select</strong> function to ask it to select all the columns that hold numerical data.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-wrangling.html#cb47-1" aria-hidden="true" tabindex="-1"></a>travelers <span class="sc">%&gt;%</span></span>
-<span id="cb47-2"><a href="data-wrangling.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_weight =</span> Weight_luggages<span class="sc">/</span>Num_luggages) <span class="sc">%&gt;%</span></span>
-<span id="cb47-3"><a href="data-wrangling.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="fu">where</span>(is.numeric)))</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-wrangling.html#cb49-1" aria-hidden="true" tabindex="-1"></a>travelers <span class="sc">%&gt;%</span></span>
+<span id="cb49-2"><a href="data-wrangling.html#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_weight =</span> Weight_luggages<span class="sc">/</span>Num_luggages) <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="data-wrangling.html#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="fu">where</span>(is.numeric)))</span></code></pre></div>
 <pre><code>##   Age Budget Num_luggages Weight_luggages mean_weight
 ## 1  25   1500            2              20          10
 ## 2  30   2500            3              15           5
 ## 3  35   2000            1              25          25</code></pre>
 <p>You can see our new column <strong>mean_weight</strong> added to the end and that the dataframe only contains numerical values. If we were to do this without the pipe function, we would first need to get add the <strong>mean_weight</strong> column, save it, then subset our data for all numeric values including our new column.</p>
 <p>Lets say we want to filter our data finding travelers with a <strong>age &gt;25</strong> or if they have a <strong>budget &gt;2500</strong>. We can do this all together in one command using dplyr using the <strong>filter( )</strong> command.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-wrangling.html#cb49-1" aria-hidden="true" tabindex="-1"></a>travelers <span class="sc">%&gt;%</span> </span>
-<span id="cb49-2"><a href="data-wrangling.html#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">&gt;</span> <span class="dv">25</span> <span class="sc">|</span> Budget <span class="sc">&gt;</span> <span class="dv">2500</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-wrangling.html#cb51-1" aria-hidden="true" tabindex="-1"></a>travelers <span class="sc">%&gt;%</span> </span>
+<span id="cb51-2"><a href="data-wrangling.html#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">&gt;</span> <span class="dv">25</span> <span class="sc">|</span> Budget <span class="sc">&gt;</span> <span class="dv">2500</span>)</span></code></pre></div>
 <pre><code>##   Age     Gender Budget Num_luggages Weight_luggages Food_allergies
 ## 1  30       Male   2500            3              15  Gluten, dairy
 ## 2  35 Non-binary   2000            1              25           None
@@ -307,13 +328,13 @@ Note
 <p>We can see that we have 2 entries that are either <strong>Age &gt;25</strong> or have a <strong>Budget &gt;2500</strong></p>
 <p>There are a lot more functions that are part of dplyr package. The most common ones for data manipulation are</p>
 <ul>
-<li><p>mutate() - Adds a new variable to your dataframe based on existing variables</p></li>
-<li><p>select() - Picks variables from a dataframe based on their names</p></li>
-<li><p>filter() - Picks out cases based on criteria</p></li>
-<li><p>summarise() - Reduces down values down to a single summary</p></li>
-<li><p>arrange() - Changes the order of the rows based</p></li>
+<li><p><strong>mutate( )</strong> - Adds a new variable to your dataframe based on existing variables</p></li>
+<li><p><strong>select( )</strong> - Picks variables from a dataframe based on their names</p></li>
+<li><p><strong>filter( )</strong> - Picks out cases based on criteria</p></li>
+<li><p><strong>summarise( )</strong> - Reduces down values down to a single summary</p></li>
+<li><p><strong>arrange( )</strong> - Changes the order of the rows based</p></li>
 </ul>
-<p>For more information or more practice you can go to the dplyr website which also has a R-bookdown on data transformation.</p>
+<p>For more information or more practice you can go to the <code>dplyr</code> website which also has a online book on data transformation.</p>
 <p><a href="https://dplyr.tidyverse.org/" class="uri">https://dplyr.tidyverse.org/</a></p>
 </div>
 </div>
@@ -328,9 +349,21 @@ Note
 <blockquote>
 <p>The data from <strong>numbeo.com</strong> is aggregated by user submissions and calculates the average costs of certain products</p>
 </blockquote>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-wrangling.html#cb51-1" aria-hidden="true" tabindex="-1"></a>meals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/numbeo_meal.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-wrangling.html#cb53-1" aria-hidden="true" tabindex="-1"></a>meals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/numbeo_meal.csv&quot;</span>)</span></code></pre></div>
 <p>Another way to load your data is using the import function in R studio.</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-28"></span>
+<img src="images/5.0importfunction.png" alt="import function" width="1800" />
+<p class="caption">
+Figure 6.1: import function
+</p>
+</div>
 <p>When you select the file you want to import a window will appear and you can do some quick modification to our data if needed.</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-29"></span>
+<img src="images/5.1importwindow.png" alt="import window" width="735" />
+<p class="caption">
+Figure 6.2: import window
+</p>
+</div>
 <h3>
 Note
 </h3>
@@ -343,13 +376,13 @@ Try
 <blockquote>
 <p>We will be making use of the ticket, arrivals and, country codes dataset. You can try loading these files with the interface or using a code chunk.</p>
 </blockquote>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-wrangling.html#cb52-1" aria-hidden="true" tabindex="-1"></a>ticket <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/numbeo_ticket.csv&quot;</span>)</span>
-<span id="cb52-2"><a href="data-wrangling.html#cb52-2" aria-hidden="true" tabindex="-1"></a>arrival <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/world_bank_arrival.csv&quot;</span>)</span>
-<span id="cb52-3"><a href="data-wrangling.html#cb52-3" aria-hidden="true" tabindex="-1"></a>country_codes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/country_codes_iso.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-wrangling.html#cb54-1" aria-hidden="true" tabindex="-1"></a>ticket <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/numbeo_ticket.csv&quot;</span>)</span>
+<span id="cb54-2"><a href="data-wrangling.html#cb54-2" aria-hidden="true" tabindex="-1"></a>arrival <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/world_bank_arrival.csv&quot;</span>)</span>
+<span id="cb54-3"><a href="data-wrangling.html#cb54-3" aria-hidden="true" tabindex="-1"></a>country_codes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/country_codes_iso.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="understanding-your-dataset" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Understanding your dataset<a href="data-wrangling.html#understanding-your-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Understanding your datasets is important when performing data analysis. The more familiar you are with the shape of your dataset, the more insights you are able to pull out from it. This includes knowing the number of rows and columns as well as the types of columns that you are working with.</p>
+<p>Knowing what your dataset contains is important when performing data analysis. The more familiar you are with the shape of your dataset, the more insights you are able to pull out from it. This includes knowing the number of rows and columns as well as the types of columns that you are working with.</p>
 <p>We can use the <strong>View( )</strong> function in order to open up a new tab to view the dataset like an excel sheet.</p>
 <h3>
 Note
@@ -357,9 +390,9 @@ Note
 <blockquote>
 <p>This function is case sensitive and must be called with a uppercase <strong>V</strong></p>
 </blockquote>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-wrangling.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(meals)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-wrangling.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(meals)</span></code></pre></div>
 <p>To quickly look at the first 6 rows of the data we can use the <strong>head( )</strong> function.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-wrangling.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meals,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-wrangling.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(meals,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##         Country Meal_Inexpensive_Restaurant
 ## 1   Switzerland                       37.35
 ## 2       Denmark                       27.58
@@ -374,13 +407,13 @@ Note
 <p>i.e., <strong>head(meals,4)</strong></p>
 </blockquote>
 <p>You can also view the last rows of the column using the <strong>tail( )</strong> function</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-wrangling.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(meals,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-wrangling.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(meals,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##       Country Meal_Inexpensive_Restaurant
 ## 103 Sri Lanka                        2.05
 ## 104   Nigeria                        2.02
 ## 105  Pakistan                        1.65</code></pre>
 <p>We can do some quick summary statistics using the <strong>summary( )</strong> function as well. Depending on the type of data in each column, we can see the length or a number summary including the min, max, mean, median, mode, and the 1st and 3rd quartiles.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-wrangling.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(meals)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-wrangling.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(meals)</span></code></pre></div>
 <pre><code>##    Country          Meal_Inexpensive_Restaurant
 ##  Length:105         Min.   : 1.65              
 ##  Class :character   1st Qu.: 5.87              
@@ -391,25 +424,31 @@ Note
 </div>
 <div id="combining-your-dataset" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Combining your dataset<a href="data-wrangling.html#combining-your-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Currently we have 4 separate datasets that contain all the information we need. Our goal is to combine all the dataset to a singular one which we can start our data analysis. To do this need something that is unique for all the entries. In our case, the ISO country code and the country name are something that is unique for each entry.</p>
-<p>We will be using the country_codes dataset as our base.</p>
+<p>Currently, we have 4 separate datasets that contain all the information we need. Our goal is to combine all the dataset to a singular one which we can start our data analysis. To do this need something that is unique for all the entries. In our case, the ISO country code and the country name are something that is unique for each entry.</p>
+<p>We will be using the <code>country_codes dataset</code> as our base.</p>
 <div id="binds" class="section level3 hasAnchor" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Binds<a href="data-wrangling.html#binds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are different types of ways to join your dataset depending on your desired outcome. Sometimes we just need to add columns or rows to the base dataset. For this, we can use either <strong>rbind( )</strong> or <strong>cbind( )</strong> if the conditions are appropriate.</p>
 <ul>
-<li><p>rbind() - row bind will add rows to the base dataset if they number of rows and the row names are the same.</p></li>
-<li><p>cbind() - column bind will add more columns to the base dataset if the they have the same number of rows.</p></li>
+<li><p><strong>rbind( )</strong> - row bind will add rows to the base dataset if they number of rows and the row names are the same.</p></li>
+<li><p><strong>cbind( )</strong> - column bind will add more columns to the base dataset if the they have the same number of rows.</p></li>
 </ul>
 </div>
 <div id="joins" class="section level3 hasAnchor" number="6.4.2">
 <h3><span class="header-section-number">6.4.2</span> Joins<a href="data-wrangling.html#joins" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Most times, we will have an unequal amount of rows or columns and we want to match with something unique to eaach row. For this we can utilize joins. There are different types of joins you can use that all perform their task differently.</p>
 <ul>
-<li><p>left_join() - Matches all paired variables to the left dataframe</p></li>
-<li><p>right_join() - Matches all paired variables to the right dataframe</p></li>
-<li><p>inner_join() - Returns a dataframe with only matching variables. If their is no matching variable, it does not get included.</p></li>
-<li><p>full_join() - Keeps all variables from both dataframes even if they do not match.</p></li>
+<li><p><strong>left_join( )</strong> - Matches all paired variables to the left dataframe</p></li>
+<li><p><strong>right_join( )</strong> - Matches all paired variables to the right dataframe</p></li>
+<li><p><strong>inner_join( )</strong> - Returns a dataframe with only matching variables. If their is no matching variable, it does not get included.</p></li>
+<li><p><strong>full_join( )</strong> - Keeps all variables from both dataframes even if they do not match.</p></li>
 </ul>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-30"></span>
+<img src="images/Joins.jpeg" alt="Types of Joins" width="374" />
+<p class="caption">
+Figure 6.3: Types of Joins
+</p>
+</div>
 <h3>
 Note
 </h3>
@@ -423,49 +462,55 @@ Try
 <blockquote>
 <p>Try to perform a <em>left_join( )</em> on the <em>meal</em> and <em>ticket</em> based on <em>Country</em> name.</p>
 </blockquote>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-wrangling.html#cb60-1" aria-hidden="true" tabindex="-1"></a>travel_meal_tickets <span class="ot">&lt;-</span> <span class="fu">left_join</span>(meals,ticket,<span class="at">by =</span> <span class="st">&quot;Country&quot;</span>)</span>
-<span id="cb60-2"><a href="data-wrangling.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(travel_meal_tickets,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-wrangling.html#cb62-1" aria-hidden="true" tabindex="-1"></a>travel_meal_tickets <span class="ot">&lt;-</span> <span class="fu">left_join</span>(meals,ticket,<span class="at">by =</span> <span class="st">&quot;Country&quot;</span>)</span>
+<span id="cb62-2"><a href="data-wrangling.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(travel_meal_tickets,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##         Country Meal_Inexpensive_Restaurant one_way_ticket_local
 ## 1   Switzerland                       37.35                 5.38
 ## 2       Denmark                       27.58                 4.73
 ## 3 United States                       26.72                 3.34</code></pre>
 <p>Using a left join, we now have a single dataframe with 3 columns, Country name, the price for the restaurants and price for a one way ticket.</p>
 <p>Next, lets combine this dataframe with the country codes dataframe. Looking at the <strong>country code</strong> dataframe, we have 4 columns and 249 rows. We do need some cleaning on this dataframe before continuing. Let’s keep the Country column and just the 3 digit alpha code using <strong>dplyr</strong> and the <strong>select( )</strong> function</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-wrangling.html#cb62-1" aria-hidden="true" tabindex="-1"></a>country_code_subset <span class="ot">&lt;-</span> country_codes <span class="sc">%&gt;%</span></span>
-<span id="cb62-2"><a href="data-wrangling.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Country,alpha_3_code)) <span class="sc">%&gt;%</span></span>
-<span id="cb62-3"><a href="data-wrangling.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">country_code =</span> alpha_3_code)</span>
-<span id="cb62-4"><a href="data-wrangling.html#cb62-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb62-5"><a href="data-wrangling.html#cb62-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(country_code_subset,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-wrangling.html#cb64-1" aria-hidden="true" tabindex="-1"></a>country_code_subset <span class="ot">&lt;-</span> country_codes <span class="sc">%&gt;%</span></span>
+<span id="cb64-2"><a href="data-wrangling.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Country,alpha_3_code)) <span class="sc">%&gt;%</span></span>
+<span id="cb64-3"><a href="data-wrangling.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">country_code =</span> alpha_3_code)</span>
+<span id="cb64-4"><a href="data-wrangling.html#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="data-wrangling.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(country_code_subset,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##       Country country_code
 ## 1 Afghanistan          AFG
 ## 2     Albania          ALB
 ## 3     Algeria          DZA</code></pre>
-<p>We want to use our new subset of the country_codes as our base model and join the meal/ticket dataframe to this one. Since the country code has 249 rows and the meal/ticket one has 105 rows. We want to use a full join here because we aren’t sure of the country names are spelled the same in each dataframes. Using the <strong>filter( )</strong> function, we can filter out which alpha_3_codes are missing and we notice there is just one which is Kosovo.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-wrangling.html#cb64-1" aria-hidden="true" tabindex="-1"></a>country_ticket_meal_code <span class="ot">&lt;-</span> <span class="fu">full_join</span>(country_code_subset,travel_meal_tickets, <span class="at">by =</span> <span class="st">&quot;Country&quot;</span>)</span>
-<span id="cb64-2"><a href="data-wrangling.html#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-3"><a href="data-wrangling.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(country_ticket_meal_code,<span class="dv">3</span>)</span></code></pre></div>
+<p>We want to use our new subset of the country_codes as our base model and join the meal/ticket dataframe to this one. Since the country code has 249 rows and the meal/ticket one has 105 rows. We want to use a full join here because we aren’t sure of the country names are spelled the same in each dataframes.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-wrangling.html#cb66-1" aria-hidden="true" tabindex="-1"></a>country_ticket_meal_code <span class="ot">&lt;-</span> <span class="fu">full_join</span>(country_code_subset,travel_meal_tickets, <span class="at">by =</span> <span class="st">&quot;Country&quot;</span>)</span>
+<span id="cb66-2"><a href="data-wrangling.html#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="data-wrangling.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(country_ticket_meal_code,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##       Country country_code Meal_Inexpensive_Restaurant one_way_ticket_local
 ## 1 Afghanistan          AFG                          NA                   NA
 ## 2     Albania          ALB                        7.79                 0.52
 ## 3     Algeria          DZA                        2.96                 0.25</code></pre>
 <p>Using the <strong>filter( )</strong> function, we can filter out which alpha_3_codes are missing and we notice there is just one which is Kosovo.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-wrangling.html#cb68-1" aria-hidden="true" tabindex="-1"></a>country_ticket_meal_code <span class="sc">%&gt;%</span></span>
+<span id="cb68-2"><a href="data-wrangling.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(country_code))</span></code></pre></div>
+<pre><code>##                       Country country_code Meal_Inexpensive_Restaurant
+## 1 Kosovo (Disputed Territory)         &lt;NA&gt;                        5.87
+##   one_way_ticket_local
+## 1                 0.73</code></pre>
 <h3>
 Note
 </h3>
 <blockquote>
 <p>Kosovo is not country recognized by ISO 3166 standards.</p>
 </blockquote>
-<p>Finally we want to join our last database which is the from the world bank that contains the number of arrivals to the country from 1960 - 2021 however, we need to perform some data cleaning before we can combine them together. Having a look at our dataframe we see each columns for years has a <strong><em>X</em></strong> in front of it. We will want to rename that by using the <strong>rename_all( )</strong> which is part of the <strong>dplyr</strong> package.</p>
+<p>Finally, we want to join our last database which is the from the world bank that contains the number of arrivals to the country from 1960 - 2021 however, we need to perform some data cleaning before we can combine them together. Having a look at our dataframe we see each columns for years has a <strong><em>X</em></strong> in front of it. We will want to rename that by using the <strong>rename_all( )</strong> which is part of the <strong>dplyr</strong> package.</p>
 <h2>
 Note
 </h2>
 <blockquote>
 <p>The period <strong>(.)</strong> being used here is a special character here that means for this “For this current dataframe”</p>
 </blockquote>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-wrangling.html#cb66-1" aria-hidden="true" tabindex="-1"></a>arrival_clean <span class="ot">&lt;-</span> arrival <span class="sc">%&gt;%</span> </span>
-<span id="cb66-2"><a href="data-wrangling.html#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_all</span>(<span class="sc">~</span>stringr<span class="sc">::</span><span class="fu">str_replace</span>(.,<span class="st">&quot;^X&quot;</span>,<span class="st">&quot;&quot;</span>))</span>
-<span id="cb66-3"><a href="data-wrangling.html#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-4"><a href="data-wrangling.html#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(arrival,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-wrangling.html#cb70-1" aria-hidden="true" tabindex="-1"></a>arrival_clean <span class="ot">&lt;-</span> arrival <span class="sc">%&gt;%</span> </span>
+<span id="cb70-2"><a href="data-wrangling.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_all</span>(<span class="sc">~</span>stringr<span class="sc">::</span><span class="fu">str_replace</span>(.,<span class="st">&quot;^X&quot;</span>,<span class="st">&quot;&quot;</span>))</span>
+<span id="cb70-3"><a href="data-wrangling.html#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-4"><a href="data-wrangling.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(arrival,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##                       Country country_code X1960 X1961 X1962 X1963 X1964 X1965
 ## 1                       Aruba          ABW    NA    NA    NA    NA    NA    NA
 ## 2 Africa Eastern and Southern          AFE    NA    NA    NA    NA    NA    NA
@@ -494,7 +539,7 @@ Note
 ## 1  1863000  1897000  1951000    NA    NA
 ## 2 38258348 41189145 39826701    NA    NA
 ## 3       NA       NA       NA    NA    NA</code></pre>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-wrangling.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(arrival_clean,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-wrangling.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(arrival_clean,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##                       Country country_code 1960 1961 1962 1963 1964 1965 1966
 ## 1                       Aruba          ABW   NA   NA   NA   NA   NA   NA   NA
 ## 2 Africa Eastern and Southern          AFE   NA   NA   NA   NA   NA   NA   NA
@@ -529,10 +574,10 @@ Note
 <li><p>We can specify a specific range of dates using the range operator <strong>(:)</strong></p></li>
 </ul>
 <p>You can try either method. Remember to save your filtered dataframe to a new variable.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-wrangling.html#cb70-1" aria-hidden="true" tabindex="-1"></a>arrival_clean_subset <span class="ot">&lt;-</span> arrival_clean <span class="sc">%&gt;%</span></span>
-<span id="cb70-2"><a href="data-wrangling.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;Country&quot;</span>,<span class="st">&quot;country_code&quot;</span>, <span class="fu">where</span>(is.numeric)))</span>
-<span id="cb70-3"><a href="data-wrangling.html#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-4"><a href="data-wrangling.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(arrival_clean_subset,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-wrangling.html#cb74-1" aria-hidden="true" tabindex="-1"></a>arrival_clean_subset <span class="ot">&lt;-</span> arrival_clean <span class="sc">%&gt;%</span></span>
+<span id="cb74-2"><a href="data-wrangling.html#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;Country&quot;</span>,<span class="st">&quot;country_code&quot;</span>, <span class="fu">where</span>(is.numeric)))</span>
+<span id="cb74-3"><a href="data-wrangling.html#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="data-wrangling.html#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(arrival_clean_subset,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##                       Country country_code     1995     1996     1997     1998
 ## 1                       Aruba          ABW   912000   957000   947000   906000
 ## 2 Africa Eastern and Southern          AFE 11583545 13088654 13456246 14403852
@@ -549,11 +594,11 @@ Note
 ## 1  1832000  1758000  1863000  1897000  1951000   NA
 ## 2 35318681 37645888 38258348 41189145 39826701   NA
 ## 3       NA       NA       NA       NA       NA   NA</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-wrangling.html#cb72-1" aria-hidden="true" tabindex="-1"></a>arrival_clean <span class="sc">%&gt;%</span></span>
-<span id="cb72-2"><a href="data-wrangling.html#cb72-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(<span class="fu">c</span>(Country,country_code,<span class="st">&quot;1995&quot;</span><span class="sc">:</span><span class="st">&quot;2020&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="data-wrangling.html#cb76-1" aria-hidden="true" tabindex="-1"></a>arrival_clean <span class="sc">%&gt;%</span></span>
+<span id="cb76-2"><a href="data-wrangling.html#cb76-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(<span class="fu">c</span>(Country,country_code,<span class="st">&quot;1995&quot;</span><span class="sc">:</span><span class="st">&quot;2020&quot;</span>))</span></code></pre></div>
 <p>Now that we have all the dataframes ready to be combined we can decided to use the country code, the country name or both. Using the country code it self would be great but to be sure that we maximize the matching, we can use both country name and country code.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-wrangling.html#cb73-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(country_ticket_meal_code,arrival_clean_subset, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&#39;country_code&#39;</span><span class="ot">=</span><span class="st">&#39;country_code&#39;</span>, <span class="st">&#39;Country&#39;</span><span class="ot">=</span><span class="st">&#39;Country&#39;</span>))</span>
-<span id="cb73-2"><a href="data-wrangling.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(travel_full_clean,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-wrangling.html#cb77-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(country_ticket_meal_code,arrival_clean_subset, <span class="at">by=</span><span class="fu">c</span>(<span class="st">&#39;country_code&#39;</span><span class="ot">=</span><span class="st">&#39;country_code&#39;</span>, <span class="st">&#39;Country&#39;</span><span class="ot">=</span><span class="st">&#39;Country&#39;</span>))</span>
+<span id="cb77-2"><a href="data-wrangling.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(travel_full_clean,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##       Country country_code Meal_Inexpensive_Restaurant one_way_ticket_local
 ## 1 Afghanistan          AFG                          NA                   NA
 ## 2     Albania          ALB                        7.79                 0.52
@@ -582,7 +627,7 @@ Note
 <li><p>Find other sources. Sometimes the dataset you get is incomplete. You can also try to find other data sources to fill it in.</p></li>
 </ul>
 <p>In our cases we have 121 countries with missing values and 55 countries for full analysis. We can use the function <strong>complete.cases( )</strong> to check this.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-wrangling.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">complete.cases</span>(travel_full_clean))</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-wrangling.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">complete.cases</span>(travel_full_clean))</span></code></pre></div>
 <pre><code>## [1] 55</code></pre>
 <h3>
 Note
@@ -591,8 +636,8 @@ Note
 <p>The exclaimation mark <strong>(!)</strong> is a special character that is used when you want to say “is not”</p>
 </blockquote>
 <p>For this workshop we will only worry about the 55 countries that have complete rows of data. We can use the <strong>na.omit( )</strong> function in order to select all the rows with complete data.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-wrangling.html#cb77-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(travel_full_clean) </span>
-<span id="cb77-2"><a href="data-wrangling.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(travel_full_clean_subset,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-wrangling.html#cb81-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(travel_full_clean) </span>
+<span id="cb81-2"><a href="data-wrangling.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(travel_full_clean_subset,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##   Country country_code Meal_Inexpensive_Restaurant one_way_ticket_local   1995
 ## 2 Albania          ALB                        7.79                 0.52 304000
 ## 3 Algeria          DZA                        2.96                 0.25 520000

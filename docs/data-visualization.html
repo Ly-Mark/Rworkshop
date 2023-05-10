@@ -23,7 +23,7 @@
 <meta name="author" content="Dr. Na Li, Mark Ly" />
 
 
-<meta name="date" content="2023-05-08" />
+<meta name="date" content="2023-05-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">CHI R Workshop 2023 - Intro to R</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About the workshop</a>
@@ -185,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="data-structures.html"><a href="data-structures.html#dataframes"><i class="fa fa-check"></i><b>4.4</b> Dataframes</a>
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="data-structures.html"><a href="data-structures.html#creating-a-dataframe"><i class="fa fa-check"></i><b>4.4.1</b> Creating a dataframe</a></li>
-<li class="chapter" data-level="4.4.2" data-path="data-structures.html"><a href="data-structures.html#using-the-a-dataframe"><i class="fa fa-check"></i><b>4.4.2</b> Using the a dataframe</a></li>
+<li class="chapter" data-level="4.4.2" data-path="data-structures.html"><a href="data-structures.html#using-a-dataframe"><i class="fa fa-check"></i><b>4.4.2</b> Using a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a></li>
 </ul></li>
@@ -198,7 +198,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="r-packages.html"><a href="r-packages.html#r-markdown"><i class="fa fa-check"></i><b>5.2</b> R markdown</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="r-packages.html"><a href="r-packages.html#installing-r-markdown"><i class="fa fa-check"></i><b>5.2.1</b> Installing R Markdown</a></li>
-<li class="chapter" data-level="5.2.2" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>5.2.2</b> Using Packages</a></li>
+<li class="chapter" data-level="5.2.2" data-path="r-packages.html"><a href="r-packages.html#why-r-markdown"><i class="fa fa-check"></i><b>5.2.2</b> Why R Markdown</a></li>
+<li class="chapter" data-level="5.2.3" data-path="r-packages.html"><a href="r-packages.html#using-packages"><i class="fa fa-check"></i><b>5.2.3</b> Using Packages</a></li>
+<li class="chapter" data-level="5.2.4" data-path="r-packages.html"><a href="r-packages.html#documentation"><i class="fa fa-check"></i><b>5.2.4</b> Documentation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling</a>
@@ -232,6 +234,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.4" data-path="data-visualization.html"><a href="data-visualization.html#exporting-plots"><i class="fa fa-check"></i><b>7.2.4</b> Exporting plots</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="data-visualization.html"><a href="data-visualization.html#gtsummary"><i class="fa fa-check"></i><b>7.3</b> gtsummary</a></li>
+<li class="chapter" data-level="7.4" data-path="data-visualization.html"><a href="data-visualization.html#knitting"><i class="fa fa-check"></i><b>7.4</b> Knitting</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>8</b> Regression</a>
 <ul>
@@ -287,24 +290,24 @@ Intro to R Workshop</p></a>
 <div id="boxplots" class="section level3 hasAnchor" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Boxplots<a href="data-visualization.html#boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Boxplots are used to summarize the same 5 number summary as the <strong>summary( )</strong> function. They are also a great way to quickly detect outliers in your dataset. To create a basic boxplot with base R, we can use the <strong>boxplot( )</strong> function.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-visualization.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-visualization.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant)</span></code></pre></div>
 <p><img src="_main_files/figure-html/boxplot%20meals%20base-1.png" width="672" /></p>
 <p>With the basic boxplot we can quickly see that no outliers are present in our data and that our data is slight right skewed with the median is below the center of the boxplot. To label our boxplot, we can add the following arguments.</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="data-visualization.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant,</span>
-<span id="cb80-2"><a href="data-visualization.html#cb80-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Average price of resturant meals&quot;</span>, <span class="co"># Title of the graph</span></span>
-<span id="cb80-3"><a href="data-visualization.html#cb80-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="co"># x-axis label</span></span>
-<span id="cb80-4"><a href="data-visualization.html#cb80-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span> <span class="st">&quot;Dollar amount (CAD)&quot;</span>, <span class="co"># y-axis label</span></span>
-<span id="cb80-5"><a href="data-visualization.html#cb80-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;white&quot;</span>) <span class="co"># color of the boxplot</span></span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-visualization.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant,</span>
+<span id="cb84-2"><a href="data-visualization.html#cb84-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Average price of resturant meals&quot;</span>, <span class="co"># Title of the graph</span></span>
+<span id="cb84-3"><a href="data-visualization.html#cb84-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="co"># x-axis label</span></span>
+<span id="cb84-4"><a href="data-visualization.html#cb84-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span> <span class="st">&quot;Dollar amount (CAD)&quot;</span>, <span class="co"># y-axis label</span></span>
+<span id="cb84-5"><a href="data-visualization.html#cb84-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;white&quot;</span>) <span class="co"># color of the boxplot</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/boxplot%20with%20labels%20base-1.png" width="672" /></p>
 </div>
 <div id="histogram" class="section level3 hasAnchor" number="7.1.2">
 <h3><span class="header-section-number">7.1.2</span> Histogram<a href="data-visualization.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Histograms can show the how our data is distributed. We can use the <strong>hist( )</strong> function to do this.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-visualization.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant, </span>
-<span id="cb81-2"><a href="data-visualization.html#cb81-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks=</span> <span class="dv">30</span>, <span class="co"># number of breaks </span></span>
-<span id="cb81-3"><a href="data-visualization.html#cb81-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">6</span>),</span>
-<span id="cb81-4"><a href="data-visualization.html#cb81-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribution of Average meal cost (CAD)&quot;</span>,</span>
-<span id="cb81-5"><a href="data-visualization.html#cb81-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>) <span class="co"># y-axis limit</span></span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-visualization.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(travel_full_clean_subset<span class="sc">$</span>Meal_Inexpensive_Restaurant, </span>
+<span id="cb85-2"><a href="data-visualization.html#cb85-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks=</span> <span class="dv">30</span>, <span class="co"># number of breaks </span></span>
+<span id="cb85-3"><a href="data-visualization.html#cb85-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">6</span>),</span>
+<span id="cb85-4"><a href="data-visualization.html#cb85-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Distribution of Average meal cost (CAD)&quot;</span>,</span>
+<span id="cb85-5"><a href="data-visualization.html#cb85-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>) <span class="co"># y-axis limit</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/distribution%20of%20cost%20base-1.png" width="672" /></p>
 </div>
 <div id="scatterplots" class="section level3 hasAnchor" number="7.1.3">
@@ -317,25 +320,33 @@ Intro to R Workshop</p></a>
 <li><p>Rename our columns to meaningful columns</p></li>
 <li><p>Draw the scatterplot</p></li>
 </ul>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-visualization.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb82-2"><a href="data-visualization.html#cb82-2" aria-hidden="true" tabindex="-1"></a>sweden_travel <span class="ot">&lt;-</span> travel_full_clean_subset <span class="sc">%&gt;%</span></span>
-<span id="cb82-3"><a href="data-visualization.html#cb82-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country_code<span class="sc">==</span><span class="st">&quot;SWE&quot;</span> ) <span class="sc">%&gt;%</span></span>
-<span id="cb82-4"><a href="data-visualization.html#cb82-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;1995&quot;</span><span class="sc">:</span><span class="st">&quot;2020&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb82-5"><a href="data-visualization.html#cb82-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb82-6"><a href="data-visualization.html#cb82-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">years=</span> key,</span>
-<span id="cb82-7"><a href="data-visualization.html#cb82-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">arrivals=</span> value)</span>
-<span id="cb82-8"><a href="data-visualization.html#cb82-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-9"><a href="data-visualization.html#cb82-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sweden_travel<span class="sc">$</span>years, sweden_travel<span class="sc">$</span>arrivals<span class="sc">/</span><span class="dv">100000</span>,</span>
-<span id="cb82-10"><a href="data-visualization.html#cb82-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
-<span id="cb82-11"><a href="data-visualization.html#cb82-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>,</span>
-<span id="cb82-12"><a href="data-visualization.html#cb82-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Number of arrivals (x100,000)&quot;</span>) </span></code></pre></div>
-<p><img src="_main_files/figure-html/scatterplot%20base-1.png" width="672" /></p>
+<p>We will be using the <code>gather( )</code> function that is part of the <code>tidyr</code> package. This package helps us convert between different data formats.</p>
+<h3>
+Note
+</h3>
+<blockquote>
+<p>tidyr and dplyr are both part of the tidyverse set of packages. You can install both by using `install.packages(‘tidyverse’) and load then with library(tidyverse)</p>
+</blockquote>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data-visualization.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb86-2"><a href="data-visualization.html#cb86-2" aria-hidden="true" tabindex="-1"></a>sweden_travel <span class="ot">&lt;-</span> travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb86-3"><a href="data-visualization.html#cb86-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country_code<span class="sc">==</span><span class="st">&quot;SWE&quot;</span> ) <span class="sc">%&gt;%</span></span>
+<span id="cb86-4"><a href="data-visualization.html#cb86-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;1995&quot;</span><span class="sc">:</span><span class="st">&quot;2020&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb86-5"><a href="data-visualization.html#cb86-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>() <span class="sc">%&gt;%</span> <span class="co"># pivots the data</span></span>
+<span id="cb86-6"><a href="data-visualization.html#cb86-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">years=</span> key,</span>
+<span id="cb86-7"><a href="data-visualization.html#cb86-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">arrivals=</span> value)</span></code></pre></div>
+<p>Take note of the data types for each of the columns. Our years column are characters but we want to change that to a numerical format. To do this, we can use the <code>as.numeric ()</code> function on the specific column</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-visualization.html#cb87-1" aria-hidden="true" tabindex="-1"></a>sweden_travel<span class="sc">$</span>years <span class="ot">&lt;-</span><span class="fu">as.numeric</span>(sweden_travel<span class="sc">$</span>years)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-visualization.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sweden_travel<span class="sc">$</span>years, sweden_travel<span class="sc">$</span>arrivals<span class="sc">/</span><span class="dv">100000</span>,</span>
+<span id="cb88-2"><a href="data-visualization.html#cb88-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
+<span id="cb88-3"><a href="data-visualization.html#cb88-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Years&quot;</span>,</span>
+<span id="cb88-4"><a href="data-visualization.html#cb88-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">&quot;Number of arrivals (x100,000)&quot;</span>) </span></code></pre></div>
+<p><img src="_main_files/figure-html/Sweden%20scatterplot-1.png" width="672" /></p>
 <p>From the scatterplot, we see a steady increase in arrivals to sweeden over the years. We do see a few years between 2010, and 2015 with a high spike in arrivals which could indicate a few outliers in our data. To check we can run another boxplot on the arrivals data.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-visualization.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(sweden_travel<span class="sc">$</span>arrivals<span class="sc">/</span><span class="dv">100000</span>,</span>
-<span id="cb83-2"><a href="data-visualization.html#cb83-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Number of arrivals from 1995 - 2020 (Sweden)&quot;</span>, <span class="co"># Title of the graph</span></span>
-<span id="cb83-3"><a href="data-visualization.html#cb83-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="co"># x-axis label</span></span>
-<span id="cb83-4"><a href="data-visualization.html#cb83-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span> <span class="st">&quot;Number of arrivals (x100,000)&quot;</span>, <span class="co"># y-axis label</span></span>
-<span id="cb83-5"><a href="data-visualization.html#cb83-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;white&quot;</span>) <span class="co"># color of the boxplot)</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-visualization.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(sweden_travel<span class="sc">$</span>arrivals<span class="sc">/</span><span class="dv">100000</span>,</span>
+<span id="cb89-2"><a href="data-visualization.html#cb89-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Number of arrivals from 1995 - 2020 (Sweden)&quot;</span>, <span class="co"># Title of the graph</span></span>
+<span id="cb89-3"><a href="data-visualization.html#cb89-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="co"># x-axis label</span></span>
+<span id="cb89-4"><a href="data-visualization.html#cb89-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span> <span class="st">&quot;Number of arrivals (x100,000)&quot;</span>, <span class="co"># y-axis label</span></span>
+<span id="cb89-5"><a href="data-visualization.html#cb89-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;white&quot;</span>) <span class="co"># color of the boxplot)</span></span></code></pre></div>
 <p><img src="_main_files/figure-html/boxplot%20arrival%20base-1.png" width="672" /></p>
 <p>From the boxplot, we can see that there is at least 1 point that is an outlier in the data indicated by the circle above the maximum value</p>
 </div>
@@ -350,71 +361,71 @@ Note
 <p>You can refer to the <strong>ggplot2</strong> <a href="https://ggplot2.tidyverse.org/reference/index.html" class="uri">https://ggplot2.tidyverse.org/reference/index.html</a> to find all the possible plots that you can build with ggplot2</p>
 </blockquote>
 <p>First, we will need to install the package and then load the pack using the <strong>library( )</strong> function.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-visualization.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-visualization.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <div id="boxplot" class="section level3 hasAnchor" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Boxplot<a href="data-visualization.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The basic structure for using <strong>ggplot( )</strong> is</p>
 <p><strong>ggplot(data = x, aes(x = x-axis, y = y-axis)) + geom_typeOfPlot() </strong></p>
 <p>where <em>aes</em> stands for aesthetic. This defines what variables you want to plot. For our boxplot, we want look at the meal prices as a whole so we only need to declare the y-variable.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-visualization.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> travel_full_clean_subset, <span class="fu">aes</span>(<span class="at">y=</span>Meal_Inexpensive_Restaurant)) <span class="sc">+</span> </span>
-<span id="cb85-2"><a href="data-visualization.html#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-visualization.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> travel_full_clean_subset, <span class="fu">aes</span>(<span class="at">y=</span>Meal_Inexpensive_Restaurant)) <span class="sc">+</span> </span>
+<span id="cb91-2"><a href="data-visualization.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/boxplot%20ggplot2-1.png" width="672" /></p>
-<p>We can also rename our axis in a simliar way to our base R plot by using the <strong>labs( )</strong> argument</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data-visualization.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> travel_full_clean_subset, <span class="fu">aes</span>(<span class="at">y=</span>Meal_Inexpensive_Restaurant)) <span class="sc">+</span> </span>
-<span id="cb86-2"><a href="data-visualization.html#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb86-3"><a href="data-visualization.html#cb86-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Average price of resturant meals&quot;</span>,</span>
-<span id="cb86-4"><a href="data-visualization.html#cb86-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>, </span>
-<span id="cb86-5"><a href="data-visualization.html#cb86-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Dollar amount (CAD)&quot;</span>)</span></code></pre></div>
+<p>We can also rename our axis in a simliar way to our base R plot by using the <strong>labs( )</strong> argument.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-visualization.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> travel_full_clean_subset, <span class="fu">aes</span>(<span class="at">y=</span>Meal_Inexpensive_Restaurant)) <span class="sc">+</span> </span>
+<span id="cb92-2"><a href="data-visualization.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb92-3"><a href="data-visualization.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Average price of resturant meals&quot;</span>,</span>
+<span id="cb92-4"><a href="data-visualization.html#cb92-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>, </span>
+<span id="cb92-5"><a href="data-visualization.html#cb92-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Dollar amount (CAD)&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/boxplot%20ggplot2%20clean-1.png" width="672" /></p>
 <p>From here, we can customize the look of our boxplot with other arguments.</p>
 </div>
 <div id="histogram-1" class="section level3 hasAnchor" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> Histogram<a href="data-visualization.html#histogram-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can do the same with our histogram. Instead of using <strong>geom_boxplot( )</strong> we will use <strong>geom_histogram( )</strong></p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-visualization.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> travel_full_clean_subset, <span class="fu">aes</span>(<span class="at">x=</span>Meal_Inexpensive_Restaurant)) <span class="sc">+</span> </span>
-<span id="cb87-2"><a href="data-visualization.html#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">30</span>) <span class="sc">+</span></span>
-<span id="cb87-3"><a href="data-visualization.html#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Distribution of Average meal cost (CAD)&quot;</span>,</span>
-<span id="cb87-4"><a href="data-visualization.html#cb87-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;Frequency&quot;</span>,</span>
-<span id="cb87-5"><a href="data-visualization.html#cb87-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-visualization.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> travel_full_clean_subset, <span class="fu">aes</span>(<span class="at">x=</span>Meal_Inexpensive_Restaurant)) <span class="sc">+</span> </span>
+<span id="cb93-2"><a href="data-visualization.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb93-3"><a href="data-visualization.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Distribution of Average meal cost (CAD)&quot;</span>,</span>
+<span id="cb93-4"><a href="data-visualization.html#cb93-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;Frequency&quot;</span>,</span>
+<span id="cb93-5"><a href="data-visualization.html#cb93-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/distribution%20of%20cost%20ggplot2-1.png" width="672" /></p>
 </div>
 <div id="scatterplot" class="section level3 hasAnchor" number="7.2.3">
 <h3><span class="header-section-number">7.2.3</span> Scatterplot<a href="data-visualization.html#scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Similarly with the scatterplot, we can use <strong>geom_point( )</strong></p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-visualization.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">x=</span>years, <span class="at">y =</span> arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
-<span id="cb88-2"><a href="data-visualization.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb88-3"><a href="data-visualization.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
-<span id="cb88-4"><a href="data-visualization.html#cb88-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">x=</span><span class="st">&quot;Years&quot;</span>,</span>
-<span id="cb88-5"><a href="data-visualization.html#cb88-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span><span class="st">&quot;Number of arrivals (x100,000)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-visualization.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">x=</span>years, <span class="at">y =</span> arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
+<span id="cb94-2"><a href="data-visualization.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb94-3"><a href="data-visualization.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
+<span id="cb94-4"><a href="data-visualization.html#cb94-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">x=</span><span class="st">&quot;Years&quot;</span>,</span>
+<span id="cb94-5"><a href="data-visualization.html#cb94-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span><span class="st">&quot;Number of arrivals (x100,000)&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/scatter%20ggplot2%20base-1.png" width="672" /></p>
 <p>We can see that the scatterplot has the same trend but looks a little different. We can easily adjust the graph so it matches our previous one.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-visualization.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">x=</span>years, <span class="at">y =</span> arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
-<span id="cb89-2"><a href="data-visualization.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">1</span>,</span>
-<span id="cb89-3"><a href="data-visualization.html#cb89-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb89-4"><a href="data-visualization.html#cb89-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
-<span id="cb89-5"><a href="data-visualization.html#cb89-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">x=</span><span class="st">&quot;Years&quot;</span>,</span>
-<span id="cb89-6"><a href="data-visualization.html#cb89-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span><span class="st">&quot;Number of arrivals (x100,000)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb89-7"><a href="data-visualization.html#cb89-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">check.overlap =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
-<span id="cb89-8"><a href="data-visualization.html#cb89-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-visualization.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">x=</span>years, <span class="at">y =</span> arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
+<span id="cb95-2"><a href="data-visualization.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">1</span>,</span>
+<span id="cb95-3"><a href="data-visualization.html#cb95-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb95-4"><a href="data-visualization.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
+<span id="cb95-5"><a href="data-visualization.html#cb95-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">x=</span><span class="st">&quot;Years&quot;</span>,</span>
+<span id="cb95-6"><a href="data-visualization.html#cb95-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">y=</span><span class="st">&quot;Number of arrivals (x100,000)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb95-7"><a href="data-visualization.html#cb95-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">check.overlap =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
+<span id="cb95-8"><a href="data-visualization.html#cb95-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/scatter%20ggplot2%20clean-1.png" width="672" /></p>
 <p>By adding a few arguments we can create clean and meaningful graphs using <strong>ggplot2</strong></p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-visualization.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">y=</span>arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
-<span id="cb90-2"><a href="data-visualization.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">outlier.shape =</span> <span class="dv">1</span>, <span class="at">outlier.size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb90-3"><a href="data-visualization.html#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
-<span id="cb90-4"><a href="data-visualization.html#cb90-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>, </span>
-<span id="cb90-5"><a href="data-visualization.html#cb90-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Arrivals&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-visualization.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">y=</span>arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
+<span id="cb96-2"><a href="data-visualization.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">outlier.shape =</span> <span class="dv">1</span>, <span class="at">outlier.size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb96-3"><a href="data-visualization.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
+<span id="cb96-4"><a href="data-visualization.html#cb96-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>, </span>
+<span id="cb96-5"><a href="data-visualization.html#cb96-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Arrivals&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/boxplot%20travel%20outlier%20ggplot2-1.png" width="672" /></p>
 </div>
 <div id="exporting-plots" class="section level3 hasAnchor" number="7.2.4">
 <h3><span class="header-section-number">7.2.4</span> Exporting plots<a href="data-visualization.html#exporting-plots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Once you are finished with creating your desired graph, you can export the file as a pdf or other vector image formats for journals. Let’s use our last boxplot on the number of arrivals as a example. First we need to save the boxplot as a variable.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-visualization.html#cb91-1" aria-hidden="true" tabindex="-1"></a>boxplot_arrivals_swe <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">y=</span>arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
-<span id="cb91-2"><a href="data-visualization.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">outlier.shape =</span> <span class="dv">1</span>, <span class="at">outlier.size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb91-3"><a href="data-visualization.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
-<span id="cb91-4"><a href="data-visualization.html#cb91-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>, </span>
-<span id="cb91-5"><a href="data-visualization.html#cb91-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Arrivals&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-visualization.html#cb97-1" aria-hidden="true" tabindex="-1"></a>boxplot_arrivals_swe <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> sweden_travel, <span class="fu">aes</span>(<span class="at">y=</span>arrivals<span class="sc">/</span><span class="dv">100000</span>)) <span class="sc">+</span> </span>
+<span id="cb97-2"><a href="data-visualization.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">outlier.shape =</span> <span class="dv">1</span>, <span class="at">outlier.size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb97-3"><a href="data-visualization.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Number of Travellers from 1995 to 2020 (Sweden)&quot;</span>,</span>
+<span id="cb97-4"><a href="data-visualization.html#cb97-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;&quot;</span>, </span>
+<span id="cb97-5"><a href="data-visualization.html#cb97-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Arrivals&quot;</span>)</span></code></pre></div>
 <p>Next, we will use the <strong>ggsave( )</strong> function and specify the location, the format, and the height and width we want to save the image as.</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-visualization.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;/Users/markly/boxplot_swe_arrival.pdf&quot;</span>, <span class="at">plot =</span> boxplot_arrivals_swe, <span class="at">device =</span> <span class="st">&quot;pdf&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">6</span>, <span class="at">dpi=</span><span class="dv">150</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-visualization.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;/Users/markly/boxplot_swe_arrival.pdf&quot;</span>, <span class="at">plot =</span> boxplot_arrivals_swe, <span class="at">device =</span> <span class="st">&quot;pdf&quot;</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">6</span>, <span class="at">dpi=</span><span class="dv">150</span>)</span></code></pre></div>
 <h3>
 Note:
 </h3>
@@ -429,24 +440,23 @@ Note:
 <div id="gtsummary" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> gtsummary<a href="data-visualization.html#gtsummary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Another powerful package that helps with data visulizuation is <strong>gtsummary</strong> which can quickly generate summary tables. We will need to install the package and load the package using the <strong>library( )</strong> function.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-visualization.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span></code></pre></div>
-<pre><code>## #BlackLivesMatter</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-visualization.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span></code></pre></div>
 <h2>
 Try
 </h2>
 <blockquote>
 <p>Try installing the <strong>gtsummary</strong> package</p>
 </blockquote>
-<p>Let’s say we are interested in summarizing the meal and ticket costs in a table. First, we will need to subset that from our dataset and then pass that into the <strong>tbl_summary()</strong> function.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-visualization.html#cb95-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
-<span id="cb95-2"><a href="data-visualization.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local)) <span class="sc">%&gt;%</span></span>
-<span id="cb95-3"><a href="data-visualization.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
-<div id="ayvohvyarb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<p>Let’s say we are interested in summarizing the meal and ticket costs in a table. First, we will need to subset that from our dataset and then pass that into the <strong>tbl_summary( )</strong> function.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-visualization.html#cb100-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb100-2"><a href="data-visualization.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local)) <span class="sc">%&gt;%</span></span>
+<span id="cb100-3"><a href="data-visualization.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
+<div id="icfkcjwktk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ayvohvyarb .gt_table {
+#icfkcjwktk .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -471,7 +481,7 @@ Try
   border-left-color: #D3D3D3;
 }
 
-#ayvohvyarb .gt_heading {
+#icfkcjwktk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -483,12 +493,12 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#ayvohvyarb .gt_caption {
+#icfkcjwktk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ayvohvyarb .gt_title {
+#icfkcjwktk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -500,7 +510,7 @@ Try
   border-bottom-width: 0;
 }
 
-#ayvohvyarb .gt_subtitle {
+#icfkcjwktk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -512,13 +522,13 @@ Try
   border-top-width: 0;
 }
 
-#ayvohvyarb .gt_bottom_border {
+#icfkcjwktk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ayvohvyarb .gt_col_headings {
+#icfkcjwktk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -533,7 +543,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#ayvohvyarb .gt_col_heading {
+#icfkcjwktk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -553,7 +563,7 @@ Try
   overflow-x: hidden;
 }
 
-#ayvohvyarb .gt_column_spanner_outer {
+#icfkcjwktk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -565,15 +575,15 @@ Try
   padding-right: 4px;
 }
 
-#ayvohvyarb .gt_column_spanner_outer:first-child {
+#icfkcjwktk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ayvohvyarb .gt_column_spanner_outer:last-child {
+#icfkcjwktk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ayvohvyarb .gt_column_spanner {
+#icfkcjwktk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -585,7 +595,7 @@ Try
   width: 100%;
 }
 
-#ayvohvyarb .gt_group_heading {
+#icfkcjwktk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -611,7 +621,7 @@ Try
   text-align: left;
 }
 
-#ayvohvyarb .gt_empty_group_heading {
+#icfkcjwktk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -626,15 +636,15 @@ Try
   vertical-align: middle;
 }
 
-#ayvohvyarb .gt_from_md > :first-child {
+#icfkcjwktk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ayvohvyarb .gt_from_md > :last-child {
+#icfkcjwktk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ayvohvyarb .gt_row {
+#icfkcjwktk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -653,7 +663,7 @@ Try
   overflow-x: hidden;
 }
 
-#ayvohvyarb .gt_stub {
+#icfkcjwktk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -666,7 +676,7 @@ Try
   padding-right: 5px;
 }
 
-#ayvohvyarb .gt_stub_row_group {
+#icfkcjwktk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -680,11 +690,11 @@ Try
   vertical-align: top;
 }
 
-#ayvohvyarb .gt_row_group_first td {
+#icfkcjwktk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ayvohvyarb .gt_summary_row {
+#icfkcjwktk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -694,16 +704,16 @@ Try
   padding-right: 5px;
 }
 
-#ayvohvyarb .gt_first_summary_row {
+#icfkcjwktk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ayvohvyarb .gt_first_summary_row.thick {
+#icfkcjwktk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ayvohvyarb .gt_last_summary_row {
+#icfkcjwktk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -713,7 +723,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#ayvohvyarb .gt_grand_summary_row {
+#icfkcjwktk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -723,7 +733,7 @@ Try
   padding-right: 5px;
 }
 
-#ayvohvyarb .gt_first_grand_summary_row {
+#icfkcjwktk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -733,11 +743,11 @@ Try
   border-top-color: #D3D3D3;
 }
 
-#ayvohvyarb .gt_striped {
+#icfkcjwktk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ayvohvyarb .gt_table_body {
+#icfkcjwktk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -746,7 +756,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#ayvohvyarb .gt_footnotes {
+#icfkcjwktk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -760,7 +770,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#ayvohvyarb .gt_footnote {
+#icfkcjwktk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -769,7 +779,7 @@ Try
   padding-right: 5px;
 }
 
-#ayvohvyarb .gt_sourcenotes {
+#icfkcjwktk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -783,7 +793,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#ayvohvyarb .gt_sourcenote {
+#icfkcjwktk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -791,64 +801,64 @@ Try
   padding-right: 5px;
 }
 
-#ayvohvyarb .gt_left {
+#icfkcjwktk .gt_left {
   text-align: left;
 }
 
-#ayvohvyarb .gt_center {
+#icfkcjwktk .gt_center {
   text-align: center;
 }
 
-#ayvohvyarb .gt_right {
+#icfkcjwktk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ayvohvyarb .gt_font_normal {
+#icfkcjwktk .gt_font_normal {
   font-weight: normal;
 }
 
-#ayvohvyarb .gt_font_bold {
+#icfkcjwktk .gt_font_bold {
   font-weight: bold;
 }
 
-#ayvohvyarb .gt_font_italic {
+#icfkcjwktk .gt_font_italic {
   font-style: italic;
 }
 
-#ayvohvyarb .gt_super {
+#icfkcjwktk .gt_super {
   font-size: 65%;
 }
 
-#ayvohvyarb .gt_footnote_marks {
+#icfkcjwktk .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#ayvohvyarb .gt_asterisk {
+#icfkcjwktk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ayvohvyarb .gt_indent_1 {
+#icfkcjwktk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ayvohvyarb .gt_indent_2 {
+#icfkcjwktk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ayvohvyarb .gt_indent_3 {
+#icfkcjwktk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ayvohvyarb .gt_indent_4 {
+#icfkcjwktk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ayvohvyarb .gt_indent_5 {
+#icfkcjwktk .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -875,18 +885,18 @@ Try
 </table>
 </div>
 <p>This produced a summary table of all the meals and ticket information giving us the <strong>median</strong> and <strong>IQR</strong> without any additional steps. We can customize this table a bit further by adding a few arguments.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-visualization.html#cb96-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
-<span id="cb96-2"><a href="data-visualization.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local)) <span class="sc">%&gt;%</span></span>
-<span id="cb96-3"><a href="data-visualization.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">label =</span> <span class="fu">list</span>(<span class="st">&quot;Meal_Inexpensive_Restaurant&quot;</span><span class="sc">~</span><span class="st">&quot;Meal Price&quot;</span>,</span>
-<span id="cb96-4"><a href="data-visualization.html#cb96-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;one_way_ticket_local&quot;</span><span class="sc">~</span><span class="st">&quot;One-way Ticket Price&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb96-5"><a href="data-visualization.html#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">&quot;**Variable**&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
-<span id="cb96-6"><a href="data-visualization.html#cb96-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() </span></code></pre></div>
-<div id="iqvdikdldn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-visualization.html#cb101-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb101-2"><a href="data-visualization.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local)) <span class="sc">%&gt;%</span></span>
+<span id="cb101-3"><a href="data-visualization.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">label =</span> <span class="fu">list</span>(<span class="st">&quot;Meal_Inexpensive_Restaurant&quot;</span><span class="sc">~</span><span class="st">&quot;Meal Price&quot;</span>,</span>
+<span id="cb101-4"><a href="data-visualization.html#cb101-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;one_way_ticket_local&quot;</span><span class="sc">~</span><span class="st">&quot;One-way Ticket Price&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb101-5"><a href="data-visualization.html#cb101-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">&quot;**Variable**&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
+<span id="cb101-6"><a href="data-visualization.html#cb101-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() </span></code></pre></div>
+<div id="lwergkokjh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#iqvdikdldn .gt_table {
+#lwergkokjh .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -911,7 +921,7 @@ Try
   border-left-color: #D3D3D3;
 }
 
-#iqvdikdldn .gt_heading {
+#lwergkokjh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -923,12 +933,12 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#iqvdikdldn .gt_caption {
+#lwergkokjh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#iqvdikdldn .gt_title {
+#lwergkokjh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -940,7 +950,7 @@ Try
   border-bottom-width: 0;
 }
 
-#iqvdikdldn .gt_subtitle {
+#lwergkokjh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -952,13 +962,13 @@ Try
   border-top-width: 0;
 }
 
-#iqvdikdldn .gt_bottom_border {
+#lwergkokjh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#iqvdikdldn .gt_col_headings {
+#lwergkokjh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -973,7 +983,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#iqvdikdldn .gt_col_heading {
+#lwergkokjh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -993,7 +1003,7 @@ Try
   overflow-x: hidden;
 }
 
-#iqvdikdldn .gt_column_spanner_outer {
+#lwergkokjh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1005,15 +1015,15 @@ Try
   padding-right: 4px;
 }
 
-#iqvdikdldn .gt_column_spanner_outer:first-child {
+#lwergkokjh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#iqvdikdldn .gt_column_spanner_outer:last-child {
+#lwergkokjh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#iqvdikdldn .gt_column_spanner {
+#lwergkokjh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1025,7 +1035,7 @@ Try
   width: 100%;
 }
 
-#iqvdikdldn .gt_group_heading {
+#lwergkokjh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1051,7 +1061,7 @@ Try
   text-align: left;
 }
 
-#iqvdikdldn .gt_empty_group_heading {
+#lwergkokjh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1066,15 +1076,15 @@ Try
   vertical-align: middle;
 }
 
-#iqvdikdldn .gt_from_md > :first-child {
+#lwergkokjh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#iqvdikdldn .gt_from_md > :last-child {
+#lwergkokjh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#iqvdikdldn .gt_row {
+#lwergkokjh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1093,7 +1103,7 @@ Try
   overflow-x: hidden;
 }
 
-#iqvdikdldn .gt_stub {
+#lwergkokjh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1106,7 +1116,7 @@ Try
   padding-right: 5px;
 }
 
-#iqvdikdldn .gt_stub_row_group {
+#lwergkokjh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1120,11 +1130,11 @@ Try
   vertical-align: top;
 }
 
-#iqvdikdldn .gt_row_group_first td {
+#lwergkokjh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#iqvdikdldn .gt_summary_row {
+#lwergkokjh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1134,16 +1144,16 @@ Try
   padding-right: 5px;
 }
 
-#iqvdikdldn .gt_first_summary_row {
+#lwergkokjh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#iqvdikdldn .gt_first_summary_row.thick {
+#lwergkokjh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#iqvdikdldn .gt_last_summary_row {
+#lwergkokjh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1153,7 +1163,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#iqvdikdldn .gt_grand_summary_row {
+#lwergkokjh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1163,7 +1173,7 @@ Try
   padding-right: 5px;
 }
 
-#iqvdikdldn .gt_first_grand_summary_row {
+#lwergkokjh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1173,11 +1183,11 @@ Try
   border-top-color: #D3D3D3;
 }
 
-#iqvdikdldn .gt_striped {
+#lwergkokjh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#iqvdikdldn .gt_table_body {
+#lwergkokjh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1186,7 +1196,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#iqvdikdldn .gt_footnotes {
+#lwergkokjh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1200,7 +1210,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#iqvdikdldn .gt_footnote {
+#lwergkokjh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1209,7 +1219,7 @@ Try
   padding-right: 5px;
 }
 
-#iqvdikdldn .gt_sourcenotes {
+#lwergkokjh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1223,7 +1233,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#iqvdikdldn .gt_sourcenote {
+#lwergkokjh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1231,64 +1241,64 @@ Try
   padding-right: 5px;
 }
 
-#iqvdikdldn .gt_left {
+#lwergkokjh .gt_left {
   text-align: left;
 }
 
-#iqvdikdldn .gt_center {
+#lwergkokjh .gt_center {
   text-align: center;
 }
 
-#iqvdikdldn .gt_right {
+#lwergkokjh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#iqvdikdldn .gt_font_normal {
+#lwergkokjh .gt_font_normal {
   font-weight: normal;
 }
 
-#iqvdikdldn .gt_font_bold {
+#lwergkokjh .gt_font_bold {
   font-weight: bold;
 }
 
-#iqvdikdldn .gt_font_italic {
+#lwergkokjh .gt_font_italic {
   font-style: italic;
 }
 
-#iqvdikdldn .gt_super {
+#lwergkokjh .gt_super {
   font-size: 65%;
 }
 
-#iqvdikdldn .gt_footnote_marks {
+#lwergkokjh .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#iqvdikdldn .gt_asterisk {
+#lwergkokjh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#iqvdikdldn .gt_indent_1 {
+#lwergkokjh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#iqvdikdldn .gt_indent_2 {
+#lwergkokjh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#iqvdikdldn .gt_indent_3 {
+#lwergkokjh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#iqvdikdldn .gt_indent_4 {
+#lwergkokjh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#iqvdikdldn .gt_indent_5 {
+#lwergkokjh .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1315,28 +1325,28 @@ Try
 </table>
 </div>
 <p><strong>gtsummary</strong> is also great for separating and summarizing groups in the same table. We can add region information to our data set using a left join. After saving our new dataframe, we can select only the variables needed, region, meal price, and ticket price, and apply the <strong>gtsummary( )</strong> function to output a table based on region.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-visualization.html#cb97-1" aria-hidden="true" tabindex="-1"></a>region<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/csv_region.csv&quot;</span>)</span>
-<span id="cb97-2"><a href="data-visualization.html#cb97-2" aria-hidden="true" tabindex="-1"></a>region_select <span class="ot">&lt;-</span>region <span class="sc">%&gt;%</span></span>
-<span id="cb97-3"><a href="data-visualization.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(alpha<span class="fl">.3</span>,region)) <span class="sc">%&gt;%</span></span>
-<span id="cb97-4"><a href="data-visualization.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">country_code =</span> alpha<span class="fl">.3</span>)</span>
-<span id="cb97-5"><a href="data-visualization.html#cb97-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-6"><a href="data-visualization.html#cb97-6" aria-hidden="true" tabindex="-1"></a>travel_region <span class="ot">&lt;-</span> travel_full_clean_subset <span class="sc">%&gt;%</span></span>
-<span id="cb97-7"><a href="data-visualization.html#cb97-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb97-8"><a href="data-visualization.html#cb97-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(.,region_select,<span class="at">by=</span><span class="st">&quot;country_code&quot;</span>)</span>
-<span id="cb97-9"><a href="data-visualization.html#cb97-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-10"><a href="data-visualization.html#cb97-10" aria-hidden="true" tabindex="-1"></a>travel_region <span class="sc">%&gt;%</span> </span>
-<span id="cb97-11"><a href="data-visualization.html#cb97-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Country,country_code))<span class="sc">%&gt;%</span></span>
-<span id="cb97-12"><a href="data-visualization.html#cb97-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>region,</span>
-<span id="cb97-13"><a href="data-visualization.html#cb97-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="fu">list</span>(<span class="st">&quot;Meal_Inexpensive_Restaurant&quot;</span><span class="sc">~</span><span class="st">&quot;Meal Price&quot;</span>,</span>
-<span id="cb97-14"><a href="data-visualization.html#cb97-14" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;one_way_ticket_local&quot;</span><span class="sc">~</span><span class="st">&quot;One-way Ticket Price&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb97-15"><a href="data-visualization.html#cb97-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">&quot;**Variable**&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
-<span id="cb97-16"><a href="data-visualization.html#cb97-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>()</span></code></pre></div>
-<div id="izymeiayro" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-visualization.html#cb102-1" aria-hidden="true" tabindex="-1"></a>region<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/csv_region.csv&quot;</span>)</span>
+<span id="cb102-2"><a href="data-visualization.html#cb102-2" aria-hidden="true" tabindex="-1"></a>region_select <span class="ot">&lt;-</span>region <span class="sc">%&gt;%</span></span>
+<span id="cb102-3"><a href="data-visualization.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(alpha<span class="fl">.3</span>,region)) <span class="sc">%&gt;%</span></span>
+<span id="cb102-4"><a href="data-visualization.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">country_code =</span> alpha<span class="fl">.3</span>)</span>
+<span id="cb102-5"><a href="data-visualization.html#cb102-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-6"><a href="data-visualization.html#cb102-6" aria-hidden="true" tabindex="-1"></a>travel_region <span class="ot">&lt;-</span> travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb102-7"><a href="data-visualization.html#cb102-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb102-8"><a href="data-visualization.html#cb102-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(.,region_select,<span class="at">by=</span><span class="st">&quot;country_code&quot;</span>)</span>
+<span id="cb102-9"><a href="data-visualization.html#cb102-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-10"><a href="data-visualization.html#cb102-10" aria-hidden="true" tabindex="-1"></a>travel_region <span class="sc">%&gt;%</span> </span>
+<span id="cb102-11"><a href="data-visualization.html#cb102-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Country,country_code))<span class="sc">%&gt;%</span></span>
+<span id="cb102-12"><a href="data-visualization.html#cb102-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>region,</span>
+<span id="cb102-13"><a href="data-visualization.html#cb102-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="fu">list</span>(<span class="st">&quot;Meal_Inexpensive_Restaurant&quot;</span><span class="sc">~</span><span class="st">&quot;Meal Price&quot;</span>,</span>
+<span id="cb102-14"><a href="data-visualization.html#cb102-14" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;one_way_ticket_local&quot;</span><span class="sc">~</span><span class="st">&quot;One-way Ticket Price&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb102-15"><a href="data-visualization.html#cb102-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">&quot;**Variable**&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
+<span id="cb102-16"><a href="data-visualization.html#cb102-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>()</span></code></pre></div>
+<div id="wfgbbayzgn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#izymeiayro .gt_table {
+#wfgbbayzgn .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1361,7 +1371,7 @@ Try
   border-left-color: #D3D3D3;
 }
 
-#izymeiayro .gt_heading {
+#wfgbbayzgn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1373,12 +1383,12 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#izymeiayro .gt_caption {
+#wfgbbayzgn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#izymeiayro .gt_title {
+#wfgbbayzgn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1390,7 +1400,7 @@ Try
   border-bottom-width: 0;
 }
 
-#izymeiayro .gt_subtitle {
+#wfgbbayzgn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1402,13 +1412,13 @@ Try
   border-top-width: 0;
 }
 
-#izymeiayro .gt_bottom_border {
+#wfgbbayzgn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#izymeiayro .gt_col_headings {
+#wfgbbayzgn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1423,7 +1433,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#izymeiayro .gt_col_heading {
+#wfgbbayzgn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1443,7 +1453,7 @@ Try
   overflow-x: hidden;
 }
 
-#izymeiayro .gt_column_spanner_outer {
+#wfgbbayzgn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1455,15 +1465,15 @@ Try
   padding-right: 4px;
 }
 
-#izymeiayro .gt_column_spanner_outer:first-child {
+#wfgbbayzgn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#izymeiayro .gt_column_spanner_outer:last-child {
+#wfgbbayzgn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#izymeiayro .gt_column_spanner {
+#wfgbbayzgn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1475,7 +1485,7 @@ Try
   width: 100%;
 }
 
-#izymeiayro .gt_group_heading {
+#wfgbbayzgn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1501,7 +1511,7 @@ Try
   text-align: left;
 }
 
-#izymeiayro .gt_empty_group_heading {
+#wfgbbayzgn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1516,15 +1526,15 @@ Try
   vertical-align: middle;
 }
 
-#izymeiayro .gt_from_md > :first-child {
+#wfgbbayzgn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#izymeiayro .gt_from_md > :last-child {
+#wfgbbayzgn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#izymeiayro .gt_row {
+#wfgbbayzgn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1543,7 +1553,7 @@ Try
   overflow-x: hidden;
 }
 
-#izymeiayro .gt_stub {
+#wfgbbayzgn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1556,7 +1566,7 @@ Try
   padding-right: 5px;
 }
 
-#izymeiayro .gt_stub_row_group {
+#wfgbbayzgn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1570,11 +1580,11 @@ Try
   vertical-align: top;
 }
 
-#izymeiayro .gt_row_group_first td {
+#wfgbbayzgn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#izymeiayro .gt_summary_row {
+#wfgbbayzgn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1584,16 +1594,16 @@ Try
   padding-right: 5px;
 }
 
-#izymeiayro .gt_first_summary_row {
+#wfgbbayzgn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#izymeiayro .gt_first_summary_row.thick {
+#wfgbbayzgn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#izymeiayro .gt_last_summary_row {
+#wfgbbayzgn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1603,7 +1613,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#izymeiayro .gt_grand_summary_row {
+#wfgbbayzgn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1613,7 +1623,7 @@ Try
   padding-right: 5px;
 }
 
-#izymeiayro .gt_first_grand_summary_row {
+#wfgbbayzgn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1623,11 +1633,11 @@ Try
   border-top-color: #D3D3D3;
 }
 
-#izymeiayro .gt_striped {
+#wfgbbayzgn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#izymeiayro .gt_table_body {
+#wfgbbayzgn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1636,7 +1646,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#izymeiayro .gt_footnotes {
+#wfgbbayzgn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1650,7 +1660,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#izymeiayro .gt_footnote {
+#wfgbbayzgn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1659,7 +1669,7 @@ Try
   padding-right: 5px;
 }
 
-#izymeiayro .gt_sourcenotes {
+#wfgbbayzgn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1673,7 +1683,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#izymeiayro .gt_sourcenote {
+#wfgbbayzgn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1681,64 +1691,64 @@ Try
   padding-right: 5px;
 }
 
-#izymeiayro .gt_left {
+#wfgbbayzgn .gt_left {
   text-align: left;
 }
 
-#izymeiayro .gt_center {
+#wfgbbayzgn .gt_center {
   text-align: center;
 }
 
-#izymeiayro .gt_right {
+#wfgbbayzgn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#izymeiayro .gt_font_normal {
+#wfgbbayzgn .gt_font_normal {
   font-weight: normal;
 }
 
-#izymeiayro .gt_font_bold {
+#wfgbbayzgn .gt_font_bold {
   font-weight: bold;
 }
 
-#izymeiayro .gt_font_italic {
+#wfgbbayzgn .gt_font_italic {
   font-style: italic;
 }
 
-#izymeiayro .gt_super {
+#wfgbbayzgn .gt_super {
   font-size: 65%;
 }
 
-#izymeiayro .gt_footnote_marks {
+#wfgbbayzgn .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#izymeiayro .gt_asterisk {
+#wfgbbayzgn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#izymeiayro .gt_indent_1 {
+#wfgbbayzgn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#izymeiayro .gt_indent_2 {
+#wfgbbayzgn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#izymeiayro .gt_indent_3 {
+#wfgbbayzgn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#izymeiayro .gt_indent_4 {
+#wfgbbayzgn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#izymeiayro .gt_indent_5 {
+#wfgbbayzgn .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1776,492 +1786,25 @@ Try
   </tfoot>
 </table>
 </div>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-visualization.html#cb98-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
-<span id="cb98-2"><a href="data-visualization.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(.,region_select,<span class="at">by=</span><span class="st">&quot;country_code&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb98-3"><a href="data-visualization.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local,<span class="st">&quot;2015&quot;</span><span class="sc">:</span><span class="st">&quot;2020&quot;</span>,region)) <span class="sc">%&gt;%</span></span>
-<span id="cb98-4"><a href="data-visualization.html#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>region)</span></code></pre></div>
-<div id="ihkgecpjgm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
-}
-
-#ihkgecpjgm .gt_table {
-  display: table;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#ihkgecpjgm .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ihkgecpjgm .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#ihkgecpjgm .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#ihkgecpjgm .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#ihkgecpjgm .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ihkgecpjgm .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#ihkgecpjgm .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#ihkgecpjgm .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#ihkgecpjgm .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#ihkgecpjgm .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#ihkgecpjgm .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#ihkgecpjgm .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#ihkgecpjgm .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#ihkgecpjgm .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#ihkgecpjgm .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#ihkgecpjgm .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#ihkgecpjgm .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ihkgecpjgm .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#ihkgecpjgm .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#ihkgecpjgm .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ihkgecpjgm .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#ihkgecpjgm .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#ihkgecpjgm .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ihkgecpjgm .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ihkgecpjgm .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#ihkgecpjgm .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#ihkgecpjgm .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#ihkgecpjgm .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ihkgecpjgm .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ihkgecpjgm .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#ihkgecpjgm .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#ihkgecpjgm .gt_left {
-  text-align: left;
-}
-
-#ihkgecpjgm .gt_center {
-  text-align: center;
-}
-
-#ihkgecpjgm .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#ihkgecpjgm .gt_font_normal {
-  font-weight: normal;
-}
-
-#ihkgecpjgm .gt_font_bold {
-  font-weight: bold;
-}
-
-#ihkgecpjgm .gt_font_italic {
-  font-style: italic;
-}
-
-#ihkgecpjgm .gt_super {
-  font-size: 65%;
-}
-
-#ihkgecpjgm .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
-  font-size: 75%;
-  vertical-align: 0.4em;
-}
-
-#ihkgecpjgm .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#ihkgecpjgm .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#ihkgecpjgm .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#ihkgecpjgm .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#ihkgecpjgm .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#ihkgecpjgm .gt_indent_5 {
-  text-indent: 25px;
-}
-</style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Africa&lt;/strong&gt;, N = 6&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Africa</strong>, N = 6<sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Americas&lt;/strong&gt;, N = 10&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Americas</strong>, N = 10<sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Asia&lt;/strong&gt;, N = 14&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Asia</strong>, N = 14<sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Europe&lt;/strong&gt;, N = 23&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Europe</strong>, N = 23<sup class="gt_footnote_marks">1</sup></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Oceania&lt;/strong&gt;, N = 2&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>Oceania</strong>, N = 2<sup class="gt_footnote_marks">1</sup></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="label" class="gt_row gt_left">Meal_Inexpensive_Restaurant</td>
-<td headers="stat_1" class="gt_row gt_center">5 (4, 8)</td>
-<td headers="stat_2" class="gt_row gt_center">10 (6, 12)</td>
-<td headers="stat_3" class="gt_row gt_center">6 (3, 10)</td>
-<td headers="stat_4" class="gt_row gt_center">16 (12, 22)</td>
-<td headers="stat_5" class="gt_row gt_center">22 (21, 22)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">one_way_ticket_local</td>
-<td headers="stat_1" class="gt_row gt_center">0.49 (0.33, 1.01)</td>
-<td headers="stat_2" class="gt_row gt_center">0.85 (0.76, 1.29)</td>
-<td headers="stat_3" class="gt_row gt_center">0.49 (0.35, 0.93)</td>
-<td headers="stat_4" class="gt_row gt_center">2.20 (1.29, 4.20)</td>
-<td headers="stat_5" class="gt_row gt_center">3.46 (3.18, 3.75)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">2015</td>
-<td headers="stat_1" class="gt_row gt_center">3,534,500 (1,308,000, 9,246,250)</td>
-<td headers="stat_2" class="gt_row gt_center">3,531,500 (2,639,500, 5,859,500)</td>
-<td headers="stat_3" class="gt_row gt_center">6,151,000 (2,706,750, 14,025,375)</td>
-<td headers="stat_4" class="gt_row gt_center">9,317,000 (3,576,500, 30,849,000)</td>
-<td headers="stat_5" class="gt_row gt_center">5,289,000 (4,209,000, 6,369,000)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">2016</td>
-<td headers="stat_1" class="gt_row gt_center">3,881,500 (1,490,000, 9,438,750)</td>
-<td headers="stat_2" class="gt_row gt_center">3,756,000 (2,585,250, 6,327,500)</td>
-<td headers="stat_3" class="gt_row gt_center">6,511,000 (2,745,750, 15,182,000)</td>
-<td headers="stat_4" class="gt_row gt_center">10,223,000 (4,066,500, 31,838,000)</td>
-<td headers="stat_5" class="gt_row gt_center">5,881,500 (4,687,750, 7,075,250)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">2017</td>
-<td headers="stat_1" class="gt_row gt_center">4,751,500 (1,641,000, 10,418,000)</td>
-<td headers="stat_2" class="gt_row gt_center">4,166,000 (2,695,500, 6,703,750)</td>
-<td headers="stat_3" class="gt_row gt_center">7,014,000 (3,164,000, 16,578,750)</td>
-<td headers="stat_4" class="gt_row gt_center">10,926,000 (4,554,500, 33,456,000)</td>
-<td headers="stat_5" class="gt_row gt_center">6,269,000 (4,996,000, 7,542,000)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">2018</td>
-<td headers="stat_1" class="gt_row gt_center">5,478,000 (1,737,500, 11,441,500)</td>
-<td headers="stat_2" class="gt_row gt_center">4,289,500 (2,693,500, 6,762,500)</td>
-<td headers="stat_3" class="gt_row gt_center">7,855,500 (3,368,000, 17,833,500)</td>
-<td headers="stat_4" class="gt_row gt_center">11,720,000 (5,056,500, 34,848,500)</td>
-<td headers="stat_5" class="gt_row gt_center">6,552,000 (5,205,000, 7,899,000)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">2019</td>
-<td headers="stat_1" class="gt_row gt_center">5,900,000 (1,656,250, 12,189,000)</td>
-<td headers="stat_2" class="gt_row gt_center">4,382,000 (2,761,500, 6,895,250)</td>
-<td headers="stat_3" class="gt_row gt_center">8,413,000 (3,717,750, 18,839,250)</td>
-<td headers="stat_4" class="gt_row gt_center">12,552,000 (5,290,500, 35,723,500)</td>
-<td headers="stat_5" class="gt_row gt_center">6,677,000 (5,282,500, 8,071,500)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">2020</td>
-<td headers="stat_1" class="gt_row gt_center">1,301,500 (536,250, 2,604,500)</td>
-<td headers="stat_2" class="gt_row gt_center">1,362,850 (771,875, 3,598,500)</td>
-<td headers="stat_3" class="gt_row gt_center">1,837,000 (907,000, 3,999,000)</td>
-<td headers="stat_4" class="gt_row gt_center">3,382,000 (1,306,500, 11,775,000)</td>
-<td headers="stat_5" class="gt_row gt_center">1,412,000 (1,204,000, 1,620,000)</td></tr>
-  </tbody>
-  
-  <tfoot class="gt_footnotes">
-    <tr>
-      <td class="gt_footnote" colspan="6"><sup class="gt_footnote_marks">1</sup> Median (IQR)</td>
-    </tr>
-  </tfoot>
-</table>
-</div>
 <p>With both <strong>ggplot2</strong> and <strong>gtsummary</strong>, we have lots of tools to use to display and communicate our data.</p>
+</div>
+<div id="knitting" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Knitting<a href="data-visualization.html#knitting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that we have explored our data, we want to generate a report with our findings. To do this, we will use the knit button located at the top of the RStudio interface.</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-31"></span>
+<img src="images/7.0knitbutton.png" alt="knit button" width="596" />
+<p class="caption">
+Figure 7.1: knit button
+</p>
+</div>
+<p>Before, we start we should save our work. Select the <code>knit to word</code> option and wait for the file to compile.</p>
+<p>We can adjust how the word file at the top of the rmd file. Once the word file is generated, we can make adjustments to tables, text and, figures.</p>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-32"></span>
+<img src="images/7.1adjustingword.png" alt="adjust document" width="795" />
+<p class="caption">
+Figure 7.2: adjust document
+</p>
+</div>
 
 </div>
 </div>

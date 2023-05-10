@@ -77,8 +77,6 @@ swe_model <- lm(arrivals~years,data=sweden_travel)
 swe_model
 ```
 
-
-
 ### Interpretation of results
 
 We can print out a summary of our model using the **summary( )** function. This will give us information on the intercept, standard error, p-value, test-statistic, $r^2$ value.

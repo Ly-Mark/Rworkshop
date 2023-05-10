@@ -21,6 +21,17 @@ fig:unnamed-chunk-19
 fig:unnamed-chunk-20
 fig:unnamed-chunk-21
 fig:unnamed-chunk-22
+fig:unnamed-chunk-23
+fig:unnamed-chunk-24
+fig:unnamed-chunk-25
+fig:unnamed-chunk-26
+fig:unnamed-chunk-27
+fig:unnamed-chunk-28
+fig:unnamed-chunk-29
+fig:unnamed-chunk-30
+fig:unnamed-chunk-31
+fig:unnamed-chunk-32
+fig:unnamed-chunk-33
 about-the-workshop
 audience
 learning-objectives
@@ -58,7 +69,7 @@ selecting-rows
 multiple-selections
 dataframes
 creating-a-dataframe
-using-the-a-dataframe
+using-a-dataframe
 manipulating-data
 subsetting-data
 filtering-data
@@ -68,8 +79,10 @@ r-packages-1
 installing-packages
 r-markdown
 installing-r-markdown
+why-r-markdown
 using-packages
 loading-packages
+documentation
 data-wrangling
 dplyr
 pipe-function
@@ -90,6 +103,7 @@ histogram-1
 scatterplot
 exporting-plots
 gtsummary
+knitting
 regression
 linear-regression
 assumptions-of-linear-regression

@@ -261,3 +261,19 @@ travel_region %>%
 ```
 
 With both **ggplot2** and **gtsummary**, we have lots of tools to use to display and communicate our data.  
+
+## Knitting
+
+Now that we have explored our data, we want to generate a report with our findings. To do this, we will use the knit button located at the top of the RStudio interface. 
+
+```{r fig.cap=paste("knit button"), fig.width=5, fig.height=5, echo=FALSE}
+knitr::include_graphics("images/7.0knitbutton.png")
+``` 
+
+Before, we start we should save our work. Select the `knit to word` option and wait for the file to compile. 
+
+We can adjust how the word file at the top of the rmd file. Once the word file is generated, we can make adjustments to tables, text and, figures.
+
+```{r fig.cap=paste("adjust document"), fig.width=5, fig.height=5, echo=FALSE}
+knitr::include_graphics("images/7.1adjustingword.png")
+``` 
