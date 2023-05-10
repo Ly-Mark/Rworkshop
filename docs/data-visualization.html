@@ -441,6 +441,7 @@ Note:
 <h2><span class="header-section-number">7.3</span> gtsummary<a href="data-visualization.html#gtsummary" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Another powerful package that helps with data visulizuation is <strong>gtsummary</strong> which can quickly generate summary tables. We will need to install the package and load the package using the <strong>library( )</strong> function.</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-visualization.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span></code></pre></div>
+<pre><code>## #StandWithUkraine</code></pre>
 <h2>
 Try
 </h2>
@@ -448,15 +449,15 @@ Try
 <p>Try installing the <strong>gtsummary</strong> package</p>
 </blockquote>
 <p>Let’s say we are interested in summarizing the meal and ticket costs in a table. First, we will need to subset that from our dataset and then pass that into the <strong>tbl_summary( )</strong> function.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-visualization.html#cb100-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
-<span id="cb100-2"><a href="data-visualization.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local)) <span class="sc">%&gt;%</span></span>
-<span id="cb100-3"><a href="data-visualization.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
-<div id="icfkcjwktk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-visualization.html#cb101-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb101-2"><a href="data-visualization.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local)) <span class="sc">%&gt;%</span></span>
+<span id="cb101-3"><a href="data-visualization.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
+<div id="nvrdxjwsht" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#icfkcjwktk .gt_table {
+#nvrdxjwsht .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -481,7 +482,7 @@ Try
   border-left-color: #D3D3D3;
 }
 
-#icfkcjwktk .gt_heading {
+#nvrdxjwsht .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -493,12 +494,12 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#icfkcjwktk .gt_caption {
+#nvrdxjwsht .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#icfkcjwktk .gt_title {
+#nvrdxjwsht .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -510,7 +511,7 @@ Try
   border-bottom-width: 0;
 }
 
-#icfkcjwktk .gt_subtitle {
+#nvrdxjwsht .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -522,13 +523,13 @@ Try
   border-top-width: 0;
 }
 
-#icfkcjwktk .gt_bottom_border {
+#nvrdxjwsht .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#icfkcjwktk .gt_col_headings {
+#nvrdxjwsht .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -543,7 +544,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#icfkcjwktk .gt_col_heading {
+#nvrdxjwsht .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -563,7 +564,7 @@ Try
   overflow-x: hidden;
 }
 
-#icfkcjwktk .gt_column_spanner_outer {
+#nvrdxjwsht .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -575,15 +576,15 @@ Try
   padding-right: 4px;
 }
 
-#icfkcjwktk .gt_column_spanner_outer:first-child {
+#nvrdxjwsht .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#icfkcjwktk .gt_column_spanner_outer:last-child {
+#nvrdxjwsht .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#icfkcjwktk .gt_column_spanner {
+#nvrdxjwsht .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -595,7 +596,7 @@ Try
   width: 100%;
 }
 
-#icfkcjwktk .gt_group_heading {
+#nvrdxjwsht .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -621,7 +622,7 @@ Try
   text-align: left;
 }
 
-#icfkcjwktk .gt_empty_group_heading {
+#nvrdxjwsht .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -636,15 +637,15 @@ Try
   vertical-align: middle;
 }
 
-#icfkcjwktk .gt_from_md > :first-child {
+#nvrdxjwsht .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#icfkcjwktk .gt_from_md > :last-child {
+#nvrdxjwsht .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#icfkcjwktk .gt_row {
+#nvrdxjwsht .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -663,7 +664,7 @@ Try
   overflow-x: hidden;
 }
 
-#icfkcjwktk .gt_stub {
+#nvrdxjwsht .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -676,7 +677,7 @@ Try
   padding-right: 5px;
 }
 
-#icfkcjwktk .gt_stub_row_group {
+#nvrdxjwsht .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -690,11 +691,11 @@ Try
   vertical-align: top;
 }
 
-#icfkcjwktk .gt_row_group_first td {
+#nvrdxjwsht .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#icfkcjwktk .gt_summary_row {
+#nvrdxjwsht .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -704,16 +705,16 @@ Try
   padding-right: 5px;
 }
 
-#icfkcjwktk .gt_first_summary_row {
+#nvrdxjwsht .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#icfkcjwktk .gt_first_summary_row.thick {
+#nvrdxjwsht .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#icfkcjwktk .gt_last_summary_row {
+#nvrdxjwsht .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -723,7 +724,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#icfkcjwktk .gt_grand_summary_row {
+#nvrdxjwsht .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -733,7 +734,7 @@ Try
   padding-right: 5px;
 }
 
-#icfkcjwktk .gt_first_grand_summary_row {
+#nvrdxjwsht .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -743,11 +744,11 @@ Try
   border-top-color: #D3D3D3;
 }
 
-#icfkcjwktk .gt_striped {
+#nvrdxjwsht .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#icfkcjwktk .gt_table_body {
+#nvrdxjwsht .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -756,7 +757,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#icfkcjwktk .gt_footnotes {
+#nvrdxjwsht .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -770,7 +771,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#icfkcjwktk .gt_footnote {
+#nvrdxjwsht .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -779,7 +780,7 @@ Try
   padding-right: 5px;
 }
 
-#icfkcjwktk .gt_sourcenotes {
+#nvrdxjwsht .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -793,7 +794,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#icfkcjwktk .gt_sourcenote {
+#nvrdxjwsht .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -801,64 +802,64 @@ Try
   padding-right: 5px;
 }
 
-#icfkcjwktk .gt_left {
+#nvrdxjwsht .gt_left {
   text-align: left;
 }
 
-#icfkcjwktk .gt_center {
+#nvrdxjwsht .gt_center {
   text-align: center;
 }
 
-#icfkcjwktk .gt_right {
+#nvrdxjwsht .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#icfkcjwktk .gt_font_normal {
+#nvrdxjwsht .gt_font_normal {
   font-weight: normal;
 }
 
-#icfkcjwktk .gt_font_bold {
+#nvrdxjwsht .gt_font_bold {
   font-weight: bold;
 }
 
-#icfkcjwktk .gt_font_italic {
+#nvrdxjwsht .gt_font_italic {
   font-style: italic;
 }
 
-#icfkcjwktk .gt_super {
+#nvrdxjwsht .gt_super {
   font-size: 65%;
 }
 
-#icfkcjwktk .gt_footnote_marks {
+#nvrdxjwsht .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#icfkcjwktk .gt_asterisk {
+#nvrdxjwsht .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#icfkcjwktk .gt_indent_1 {
+#nvrdxjwsht .gt_indent_1 {
   text-indent: 5px;
 }
 
-#icfkcjwktk .gt_indent_2 {
+#nvrdxjwsht .gt_indent_2 {
   text-indent: 10px;
 }
 
-#icfkcjwktk .gt_indent_3 {
+#nvrdxjwsht .gt_indent_3 {
   text-indent: 15px;
 }
 
-#icfkcjwktk .gt_indent_4 {
+#nvrdxjwsht .gt_indent_4 {
   text-indent: 20px;
 }
 
-#icfkcjwktk .gt_indent_5 {
+#nvrdxjwsht .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -885,18 +886,18 @@ Try
 </table>
 </div>
 <p>This produced a summary table of all the meals and ticket information giving us the <strong>median</strong> and <strong>IQR</strong> without any additional steps. We can customize this table a bit further by adding a few arguments.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-visualization.html#cb101-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
-<span id="cb101-2"><a href="data-visualization.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local)) <span class="sc">%&gt;%</span></span>
-<span id="cb101-3"><a href="data-visualization.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">label =</span> <span class="fu">list</span>(<span class="st">&quot;Meal_Inexpensive_Restaurant&quot;</span><span class="sc">~</span><span class="st">&quot;Meal Price&quot;</span>,</span>
-<span id="cb101-4"><a href="data-visualization.html#cb101-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;one_way_ticket_local&quot;</span><span class="sc">~</span><span class="st">&quot;One-way Ticket Price&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb101-5"><a href="data-visualization.html#cb101-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">&quot;**Variable**&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
-<span id="cb101-6"><a href="data-visualization.html#cb101-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() </span></code></pre></div>
-<div id="lwergkokjh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-visualization.html#cb102-1" aria-hidden="true" tabindex="-1"></a>travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb102-2"><a href="data-visualization.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(Meal_Inexpensive_Restaurant,one_way_ticket_local)) <span class="sc">%&gt;%</span></span>
+<span id="cb102-3"><a href="data-visualization.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">label =</span> <span class="fu">list</span>(<span class="st">&quot;Meal_Inexpensive_Restaurant&quot;</span><span class="sc">~</span><span class="st">&quot;Meal Price&quot;</span>,</span>
+<span id="cb102-4"><a href="data-visualization.html#cb102-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;one_way_ticket_local&quot;</span><span class="sc">~</span><span class="st">&quot;One-way Ticket Price&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb102-5"><a href="data-visualization.html#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">&quot;**Variable**&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
+<span id="cb102-6"><a href="data-visualization.html#cb102-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() </span></code></pre></div>
+<div id="wrwgmcguti" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#lwergkokjh .gt_table {
+#wrwgmcguti .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -921,7 +922,7 @@ Try
   border-left-color: #D3D3D3;
 }
 
-#lwergkokjh .gt_heading {
+#wrwgmcguti .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -933,12 +934,12 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#lwergkokjh .gt_caption {
+#wrwgmcguti .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lwergkokjh .gt_title {
+#wrwgmcguti .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -950,7 +951,7 @@ Try
   border-bottom-width: 0;
 }
 
-#lwergkokjh .gt_subtitle {
+#wrwgmcguti .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -962,13 +963,13 @@ Try
   border-top-width: 0;
 }
 
-#lwergkokjh .gt_bottom_border {
+#wrwgmcguti .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lwergkokjh .gt_col_headings {
+#wrwgmcguti .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -983,7 +984,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#lwergkokjh .gt_col_heading {
+#wrwgmcguti .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1003,7 +1004,7 @@ Try
   overflow-x: hidden;
 }
 
-#lwergkokjh .gt_column_spanner_outer {
+#wrwgmcguti .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1015,15 +1016,15 @@ Try
   padding-right: 4px;
 }
 
-#lwergkokjh .gt_column_spanner_outer:first-child {
+#wrwgmcguti .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lwergkokjh .gt_column_spanner_outer:last-child {
+#wrwgmcguti .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lwergkokjh .gt_column_spanner {
+#wrwgmcguti .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1035,7 +1036,7 @@ Try
   width: 100%;
 }
 
-#lwergkokjh .gt_group_heading {
+#wrwgmcguti .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1061,7 +1062,7 @@ Try
   text-align: left;
 }
 
-#lwergkokjh .gt_empty_group_heading {
+#wrwgmcguti .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1076,15 +1077,15 @@ Try
   vertical-align: middle;
 }
 
-#lwergkokjh .gt_from_md > :first-child {
+#wrwgmcguti .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lwergkokjh .gt_from_md > :last-child {
+#wrwgmcguti .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lwergkokjh .gt_row {
+#wrwgmcguti .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1103,7 +1104,7 @@ Try
   overflow-x: hidden;
 }
 
-#lwergkokjh .gt_stub {
+#wrwgmcguti .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1116,7 +1117,7 @@ Try
   padding-right: 5px;
 }
 
-#lwergkokjh .gt_stub_row_group {
+#wrwgmcguti .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1130,11 +1131,11 @@ Try
   vertical-align: top;
 }
 
-#lwergkokjh .gt_row_group_first td {
+#wrwgmcguti .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lwergkokjh .gt_summary_row {
+#wrwgmcguti .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1144,16 +1145,16 @@ Try
   padding-right: 5px;
 }
 
-#lwergkokjh .gt_first_summary_row {
+#wrwgmcguti .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lwergkokjh .gt_first_summary_row.thick {
+#wrwgmcguti .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lwergkokjh .gt_last_summary_row {
+#wrwgmcguti .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1163,7 +1164,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#lwergkokjh .gt_grand_summary_row {
+#wrwgmcguti .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1173,7 +1174,7 @@ Try
   padding-right: 5px;
 }
 
-#lwergkokjh .gt_first_grand_summary_row {
+#wrwgmcguti .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1183,11 +1184,11 @@ Try
   border-top-color: #D3D3D3;
 }
 
-#lwergkokjh .gt_striped {
+#wrwgmcguti .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lwergkokjh .gt_table_body {
+#wrwgmcguti .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1196,7 +1197,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#lwergkokjh .gt_footnotes {
+#wrwgmcguti .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1210,7 +1211,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#lwergkokjh .gt_footnote {
+#wrwgmcguti .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1219,7 +1220,7 @@ Try
   padding-right: 5px;
 }
 
-#lwergkokjh .gt_sourcenotes {
+#wrwgmcguti .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1233,7 +1234,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#lwergkokjh .gt_sourcenote {
+#wrwgmcguti .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1241,64 +1242,64 @@ Try
   padding-right: 5px;
 }
 
-#lwergkokjh .gt_left {
+#wrwgmcguti .gt_left {
   text-align: left;
 }
 
-#lwergkokjh .gt_center {
+#wrwgmcguti .gt_center {
   text-align: center;
 }
 
-#lwergkokjh .gt_right {
+#wrwgmcguti .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lwergkokjh .gt_font_normal {
+#wrwgmcguti .gt_font_normal {
   font-weight: normal;
 }
 
-#lwergkokjh .gt_font_bold {
+#wrwgmcguti .gt_font_bold {
   font-weight: bold;
 }
 
-#lwergkokjh .gt_font_italic {
+#wrwgmcguti .gt_font_italic {
   font-style: italic;
 }
 
-#lwergkokjh .gt_super {
+#wrwgmcguti .gt_super {
   font-size: 65%;
 }
 
-#lwergkokjh .gt_footnote_marks {
+#wrwgmcguti .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#lwergkokjh .gt_asterisk {
+#wrwgmcguti .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lwergkokjh .gt_indent_1 {
+#wrwgmcguti .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lwergkokjh .gt_indent_2 {
+#wrwgmcguti .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lwergkokjh .gt_indent_3 {
+#wrwgmcguti .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lwergkokjh .gt_indent_4 {
+#wrwgmcguti .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lwergkokjh .gt_indent_5 {
+#wrwgmcguti .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -1325,28 +1326,28 @@ Try
 </table>
 </div>
 <p><strong>gtsummary</strong> is also great for separating and summarizing groups in the same table. We can add region information to our data set using a left join. After saving our new dataframe, we can select only the variables needed, region, meal price, and ticket price, and apply the <strong>gtsummary( )</strong> function to output a table based on region.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-visualization.html#cb102-1" aria-hidden="true" tabindex="-1"></a>region<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/csv_region.csv&quot;</span>)</span>
-<span id="cb102-2"><a href="data-visualization.html#cb102-2" aria-hidden="true" tabindex="-1"></a>region_select <span class="ot">&lt;-</span>region <span class="sc">%&gt;%</span></span>
-<span id="cb102-3"><a href="data-visualization.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(alpha<span class="fl">.3</span>,region)) <span class="sc">%&gt;%</span></span>
-<span id="cb102-4"><a href="data-visualization.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">country_code =</span> alpha<span class="fl">.3</span>)</span>
-<span id="cb102-5"><a href="data-visualization.html#cb102-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-6"><a href="data-visualization.html#cb102-6" aria-hidden="true" tabindex="-1"></a>travel_region <span class="ot">&lt;-</span> travel_full_clean_subset <span class="sc">%&gt;%</span></span>
-<span id="cb102-7"><a href="data-visualization.html#cb102-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb102-8"><a href="data-visualization.html#cb102-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(.,region_select,<span class="at">by=</span><span class="st">&quot;country_code&quot;</span>)</span>
-<span id="cb102-9"><a href="data-visualization.html#cb102-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-10"><a href="data-visualization.html#cb102-10" aria-hidden="true" tabindex="-1"></a>travel_region <span class="sc">%&gt;%</span> </span>
-<span id="cb102-11"><a href="data-visualization.html#cb102-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Country,country_code))<span class="sc">%&gt;%</span></span>
-<span id="cb102-12"><a href="data-visualization.html#cb102-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>region,</span>
-<span id="cb102-13"><a href="data-visualization.html#cb102-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="fu">list</span>(<span class="st">&quot;Meal_Inexpensive_Restaurant&quot;</span><span class="sc">~</span><span class="st">&quot;Meal Price&quot;</span>,</span>
-<span id="cb102-14"><a href="data-visualization.html#cb102-14" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;one_way_ticket_local&quot;</span><span class="sc">~</span><span class="st">&quot;One-way Ticket Price&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb102-15"><a href="data-visualization.html#cb102-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">&quot;**Variable**&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
-<span id="cb102-16"><a href="data-visualization.html#cb102-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>()</span></code></pre></div>
-<div id="wfgbbayzgn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-visualization.html#cb103-1" aria-hidden="true" tabindex="-1"></a>region<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/csv_region.csv&quot;</span>)</span>
+<span id="cb103-2"><a href="data-visualization.html#cb103-2" aria-hidden="true" tabindex="-1"></a>region_select <span class="ot">&lt;-</span>region <span class="sc">%&gt;%</span></span>
+<span id="cb103-3"><a href="data-visualization.html#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(alpha<span class="fl">.3</span>,region)) <span class="sc">%&gt;%</span></span>
+<span id="cb103-4"><a href="data-visualization.html#cb103-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">country_code =</span> alpha<span class="fl">.3</span>)</span>
+<span id="cb103-5"><a href="data-visualization.html#cb103-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-6"><a href="data-visualization.html#cb103-6" aria-hidden="true" tabindex="-1"></a>travel_region <span class="ot">&lt;-</span> travel_full_clean_subset <span class="sc">%&gt;%</span></span>
+<span id="cb103-7"><a href="data-visualization.html#cb103-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb103-8"><a href="data-visualization.html#cb103-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(.,region_select,<span class="at">by=</span><span class="st">&quot;country_code&quot;</span>)</span>
+<span id="cb103-9"><a href="data-visualization.html#cb103-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-10"><a href="data-visualization.html#cb103-10" aria-hidden="true" tabindex="-1"></a>travel_region <span class="sc">%&gt;%</span> </span>
+<span id="cb103-11"><a href="data-visualization.html#cb103-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(Country,country_code))<span class="sc">%&gt;%</span></span>
+<span id="cb103-12"><a href="data-visualization.html#cb103-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">by=</span>region,</span>
+<span id="cb103-13"><a href="data-visualization.html#cb103-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">label =</span> <span class="fu">list</span>(<span class="st">&quot;Meal_Inexpensive_Restaurant&quot;</span><span class="sc">~</span><span class="st">&quot;Meal Price&quot;</span>,</span>
+<span id="cb103-14"><a href="data-visualization.html#cb103-14" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;one_way_ticket_local&quot;</span><span class="sc">~</span><span class="st">&quot;One-way Ticket Price&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb103-15"><a href="data-visualization.html#cb103-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">&quot;**Variable**&quot;</span>) <span class="sc">%&gt;%</span> <span class="co"># update the column header</span></span>
+<span id="cb103-16"><a href="data-visualization.html#cb103-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>()</span></code></pre></div>
+<div id="knoztkshlc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#wfgbbayzgn .gt_table {
+#knoztkshlc .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1371,7 +1372,7 @@ Try
   border-left-color: #D3D3D3;
 }
 
-#wfgbbayzgn .gt_heading {
+#knoztkshlc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1383,12 +1384,12 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#wfgbbayzgn .gt_caption {
+#knoztkshlc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wfgbbayzgn .gt_title {
+#knoztkshlc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1400,7 +1401,7 @@ Try
   border-bottom-width: 0;
 }
 
-#wfgbbayzgn .gt_subtitle {
+#knoztkshlc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1412,13 +1413,13 @@ Try
   border-top-width: 0;
 }
 
-#wfgbbayzgn .gt_bottom_border {
+#knoztkshlc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wfgbbayzgn .gt_col_headings {
+#knoztkshlc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1433,7 +1434,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#wfgbbayzgn .gt_col_heading {
+#knoztkshlc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1453,7 +1454,7 @@ Try
   overflow-x: hidden;
 }
 
-#wfgbbayzgn .gt_column_spanner_outer {
+#knoztkshlc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1465,15 +1466,15 @@ Try
   padding-right: 4px;
 }
 
-#wfgbbayzgn .gt_column_spanner_outer:first-child {
+#knoztkshlc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wfgbbayzgn .gt_column_spanner_outer:last-child {
+#knoztkshlc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wfgbbayzgn .gt_column_spanner {
+#knoztkshlc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1485,7 +1486,7 @@ Try
   width: 100%;
 }
 
-#wfgbbayzgn .gt_group_heading {
+#knoztkshlc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1511,7 +1512,7 @@ Try
   text-align: left;
 }
 
-#wfgbbayzgn .gt_empty_group_heading {
+#knoztkshlc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1526,15 +1527,15 @@ Try
   vertical-align: middle;
 }
 
-#wfgbbayzgn .gt_from_md > :first-child {
+#knoztkshlc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wfgbbayzgn .gt_from_md > :last-child {
+#knoztkshlc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wfgbbayzgn .gt_row {
+#knoztkshlc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1553,7 +1554,7 @@ Try
   overflow-x: hidden;
 }
 
-#wfgbbayzgn .gt_stub {
+#knoztkshlc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1566,7 +1567,7 @@ Try
   padding-right: 5px;
 }
 
-#wfgbbayzgn .gt_stub_row_group {
+#knoztkshlc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1580,11 +1581,11 @@ Try
   vertical-align: top;
 }
 
-#wfgbbayzgn .gt_row_group_first td {
+#knoztkshlc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wfgbbayzgn .gt_summary_row {
+#knoztkshlc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1594,16 +1595,16 @@ Try
   padding-right: 5px;
 }
 
-#wfgbbayzgn .gt_first_summary_row {
+#knoztkshlc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wfgbbayzgn .gt_first_summary_row.thick {
+#knoztkshlc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wfgbbayzgn .gt_last_summary_row {
+#knoztkshlc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1613,7 +1614,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#wfgbbayzgn .gt_grand_summary_row {
+#knoztkshlc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1623,7 +1624,7 @@ Try
   padding-right: 5px;
 }
 
-#wfgbbayzgn .gt_first_grand_summary_row {
+#knoztkshlc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1633,11 +1634,11 @@ Try
   border-top-color: #D3D3D3;
 }
 
-#wfgbbayzgn .gt_striped {
+#knoztkshlc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wfgbbayzgn .gt_table_body {
+#knoztkshlc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1646,7 +1647,7 @@ Try
   border-bottom-color: #D3D3D3;
 }
 
-#wfgbbayzgn .gt_footnotes {
+#knoztkshlc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1660,7 +1661,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#wfgbbayzgn .gt_footnote {
+#knoztkshlc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -1669,7 +1670,7 @@ Try
   padding-right: 5px;
 }
 
-#wfgbbayzgn .gt_sourcenotes {
+#knoztkshlc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1683,7 +1684,7 @@ Try
   border-right-color: #D3D3D3;
 }
 
-#wfgbbayzgn .gt_sourcenote {
+#knoztkshlc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1691,64 +1692,64 @@ Try
   padding-right: 5px;
 }
 
-#wfgbbayzgn .gt_left {
+#knoztkshlc .gt_left {
   text-align: left;
 }
 
-#wfgbbayzgn .gt_center {
+#knoztkshlc .gt_center {
   text-align: center;
 }
 
-#wfgbbayzgn .gt_right {
+#knoztkshlc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wfgbbayzgn .gt_font_normal {
+#knoztkshlc .gt_font_normal {
   font-weight: normal;
 }
 
-#wfgbbayzgn .gt_font_bold {
+#knoztkshlc .gt_font_bold {
   font-weight: bold;
 }
 
-#wfgbbayzgn .gt_font_italic {
+#knoztkshlc .gt_font_italic {
   font-style: italic;
 }
 
-#wfgbbayzgn .gt_super {
+#knoztkshlc .gt_super {
   font-size: 65%;
 }
 
-#wfgbbayzgn .gt_footnote_marks {
+#knoztkshlc .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#wfgbbayzgn .gt_asterisk {
+#knoztkshlc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wfgbbayzgn .gt_indent_1 {
+#knoztkshlc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wfgbbayzgn .gt_indent_2 {
+#knoztkshlc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wfgbbayzgn .gt_indent_3 {
+#knoztkshlc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wfgbbayzgn .gt_indent_4 {
+#knoztkshlc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wfgbbayzgn .gt_indent_5 {
+#knoztkshlc .gt_indent_5 {
   text-indent: 25px;
 }
 </style>

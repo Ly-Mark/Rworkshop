@@ -485,16 +485,16 @@ Try
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-structures.html#cb21-1" aria-hidden="true" tabindex="-1"></a>packing_matrix[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>##             My_Luggage Travler_3
 ## Shoes                2         5
-## Shirts               6         3
-## Pants                3         1
-## Electronics          4         3
-## Toiletries           2         2</code></pre>
+## Shirts               6         4
+## Pants                3         7
+## Electronics          4         4
+## Toiletries           2         3</code></pre>
 <p>We can also index a certain range instead of selecting specific rows or columns. Let’s say we want to check the what each person packed for shoes, shirts and pants. We could index using a <code>vector</code> by putting all 3 numbers or we can use a <code>colon</code> <em>:</em> to check the range.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-structures.html#cb23-1" aria-hidden="true" tabindex="-1"></a>packing_matrix[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,]</span></code></pre></div>
 <pre><code>##        My_Luggage Traveler_2 Travler_3
 ## Shoes           2          6         5
-## Shirts          6          6         3
-## Pants           3          1         1</code></pre>
+## Shirts          6          8         4
+## Pants           3          1         7</code></pre>
 </div>
 </div>
 </div>
