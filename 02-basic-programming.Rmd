@@ -2,7 +2,7 @@
 
 Now that we set-up our **R Markdown** file we can start exploring what we can do with **R** 
 
-The examples will be shown on **R Desktop** but will work the same if you are using **R Cloud**. Differences will be highlighted if they occur later on in the workshop. 
+The examples will be shown on **R Desktop** but will work the same if you are using **R Cloud**.
 
 In this section, we will learn about some simple coding operations you can perform with **R**, learn about different data types and, how to create and manipulate variables.
 

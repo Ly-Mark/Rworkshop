@@ -2,7 +2,7 @@
 
 ## R Packages
 
-Packages are a collection of functions that extend the functionality of R. They are tools that help with data analysis, modelling, data visualization.  Some of the most common packages in R is **ggplot2** for data visualization, **dplyr** for data wrangling/manipulation and *caret* for machine learning. 
+Packages are a collection of functions that extend the functionality of R. They are tools that help with data analysis, modelling, data visualization.  Some of the most common packages in R is **ggplot2** for data visualization, **dplyr** for data wrangling/manipulation and **caret** for machine learning. 
 
 ### Installing Packages
 
@@ -17,7 +17,7 @@ To use packages we will have the the **install.packages( )** function and put in
 
 > You can install multiple packages are the same time if you put then in a vector and before using the **install.packages( )** function.
 
-> i.e., install.packages(c('dplyr','ggplot2'))
+> i.e., install.packages(c('dplyr','ggplot2','tinytex'))
 
 
 ## R markdown
