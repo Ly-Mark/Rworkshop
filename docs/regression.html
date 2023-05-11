@@ -23,7 +23,7 @@
 <meta name="author" content="Dr. Na Li, Mark Ly" />
 
 
-<meta name="date" content="2023-05-10" />
+<meta name="date" content="2023-05-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -337,8 +337,8 @@ Note:
 <blockquote>
 <p>The years variable in our dataframe is a <em>character</em>. We need to convert it to a numeric to perform the linear regression.</p>
 </blockquote>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="regression.html#cb104-1" aria-hidden="true" tabindex="-1"></a>swe_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(arrivals<span class="sc">~</span>years,<span class="at">data=</span>sweden_travel)</span>
-<span id="cb104-2"><a href="regression.html#cb104-2" aria-hidden="true" tabindex="-1"></a>swe_model</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="regression.html#cb103-1" aria-hidden="true" tabindex="-1"></a>swe_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(arrivals<span class="sc">~</span>years,<span class="at">data=</span>sweden_travel)</span>
+<span id="cb103-2"><a href="regression.html#cb103-2" aria-hidden="true" tabindex="-1"></a>swe_model</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = arrivals ~ years, data = sweden_travel)
@@ -350,7 +350,7 @@ Note:
 <div id="interpretation-of-results" class="section level3 hasAnchor" number="8.1.4">
 <h3><span class="header-section-number">8.1.4</span> Interpretation of results<a href="regression.html#interpretation-of-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can print out a summary of our model using the <strong>summary( )</strong> function. This will give us information on the intercept, standard error, p-value, test-statistic, <span class="math inline">\(r^2\)</span> value.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="regression.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(swe_model)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="regression.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(swe_model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = arrivals ~ years, data = sweden_travel)
@@ -389,13 +389,13 @@ In writen form, we would say</p>
 <li><p><strong>Scale-Location</strong> - Used to check homogeneity of variance.</p></li>
 <li><p><strong>Residuals vs Leverage</strong> - Used to check for influential cases or extreme values that might influence the regression results.</p></li>
 </ul>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="regression.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swe_model,<span class="at">which=</span>(<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="regression.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swe_model,<span class="at">which=</span>(<span class="dv">1</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/lm%20resdiual%20vs%20fitted%20plots-1.png" width="672" /></p>
 <p>If our linearity assumption is met, we should see no pattern and the red line show be fairly flat. In our model, we see that this is the case with a few points cluster of points that lie above the line.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="regression.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swe_model,<span class="at">which=</span>(<span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="regression.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swe_model,<span class="at">which=</span>(<span class="dv">2</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/lm%20normal%20q-q%20plots-1.png" width="672" /></p>
 <p>For our normality assumption we can use the second plot, the Normal Q-Q plot. what we expect to see is a 45 degree line and most of the points should lie on this line. For our model this does not seem to hold true as our points are closer to a 10-20 degree slope.</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="regression.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swe_model,<span class="at">which=</span>(<span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="regression.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swe_model,<span class="at">which=</span>(<span class="dv">3</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/lm%20scale-location%20plots-1.png" width="672" /></p>
 <p>To check our assumption of constant variance we can use the third plot, the scale-location plot. What we want to see here are points scattered randomly and the red line to be close to horizontal. However, what we see is there is a pattern and that indicates that the constant variance assumption does not hold true for this model. What we can try to do is transform our y variable using:</p>
 <ul>
@@ -403,8 +403,8 @@ In writen form, we would say</p>
 <li><p>Square Root transformation</p></li>
 <li><p>Cube Root transformation</p></li>
 </ul>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="regression.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb111-2"><a href="regression.html#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swe_model, <span class="at">which=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="regression.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb110-2"><a href="regression.html#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(swe_model, <span class="at">which=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>))</span></code></pre></div>
 <p><img src="_main_files/figure-html/lm%20leverage-1.png" width="672" /></p>
 <p>The last plot is the Residuals vs leverage plot. Leverage refers to to the extent where our coefficients would change if we removed an observation from the data set. Points that have high leverage would noticeably change our coefficients. If a point falls outside of the red dashed line, cook’s distance, it is considered to be a influential point and requires further investigation. For our model, we don’t have any points that are influential.</p>
 </div>
