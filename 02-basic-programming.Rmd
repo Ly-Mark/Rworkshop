@@ -1,7 +1,6 @@
 # Basics
 
 Now that we set-up our **R Markdown** file we can start exploring what we can do with **R** 
-
 The examples will be shown on **R Desktop** but will work the same if you are using **R Cloud**.
 
 In this section, we will learn about some simple coding operations you can perform with **R**, learn about different data types and, how to create and manipulate variables.
@@ -16,6 +15,8 @@ All the basic arithmetic operators can be done in using **R** which includes
 * Division: `/`
 * Exponentiation: `^`
 * Modulo: `%%`
+
+<h3> Note </h3>
 
 Modulo is an operation that will return the remainder of the division. For example;
 
@@ -48,7 +49,7 @@ To use the **R Markdown** file we will need to create a **_Code Chunk_**. For **
 
 To create a code chunk you can go to the top and find `Code` and then click on `Insert Chunk`. 
 
-<h3> NOTE </h3>
+<h3> Note </h3>
 
 For Mac users the shortcut for inserting a code chunk is:
 

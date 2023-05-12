@@ -40,7 +40,7 @@ By the end of the workshop, participants will be able to:
 
 4. Manipulate a data set to create meaningful tables and figures
 
-5. Perform some common statistical analysis 
+5. Generate a report inside R studio
 
 6. Learn about some other advanced capabilities that R has to offer. 
 

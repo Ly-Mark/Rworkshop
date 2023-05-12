@@ -2,13 +2,13 @@
 
 So far we've learned some basics of what you can do in *R* and *R Studio* including the creation and storage of variables. When processing data sets, we need to use data structures for processing, retrieving and storing data. These data structures are 
 
-* **Vectors**: Elements of the same type
+* **Vectors**: Stores elements of the same type
 
-* **Lists**: Contains elements of different types. Can contain store numerical values, strings and characters all together.
+* **Lists**: Stores elements of different types. Can contain store numerical values, strings and characters all together.
 
-* **Matrices**: arranged in a 2d layout with rows and columns. s
+* **Matrices**: Stores elements arranged in a 2d layout with rows and columns.
 
-* **Data frames**: a 2d table-like structure where each column can have a different data type.
+* **Data frames**: A 2d table-like structure where each column can have a different data type.
 
 * **Factors**: Used to categorize the data and store it in levels. 
 
@@ -82,7 +82,10 @@ Try accessing the pants section in our luggage list.
 Let's say you need to add another packing cube but this time it has all your toiletries. To do this you need try the following:
 
 ```{r add to end of list, results='hide'}
-luggage_list[[length(luggage_list)+1]] <- c("Toothbrush", "Toothpaste","Floss")
+
+toiletries_vector <- c("Toothbrush", "Toothpaste","Floss")
+luggage_list <- c(luggage_list,list(toiletries_vector))
+
 ```
 
 If we were to check our list again, we can see that our new toiletry vector has been added to the end of the list.

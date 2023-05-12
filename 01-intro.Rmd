@@ -14,7 +14,9 @@ Both the desktop and cloud version will be able to produce the same results and 
 
 To get started we want to download both **R**, the programming language, and **R studio** the IDE.
 
-You can get both from a quick Google search or from the website. <https://posit.co/download/rstudio-desktop/>
+You can get both from a quick Google search or from the website.
+
+<https://posit.co/download/rstudio-desktop/>
 
 ```{r fig.cap=paste("Download screen for R and RStudio"), echo=FALSE}
 knitr::include_graphics("images/2.1rdownload.png")
@@ -31,7 +33,7 @@ knitr::include_graphics("images/2.3rstudio.png")
 
 Every time we want to work on something new, we should make a `New Project` to keep things organized. This will be a folder where all your code and output will be stored. 
 
-To create a new project we will go to ``File -> New Project`
+To create a new project we will go to `File -> New Project`
 
 ```{r fig.cap=paste("New"), echo=FALSE}
 knitr::include_graphics("images/2.10newproject.png")
@@ -70,13 +72,13 @@ Once you hit `OK`, you should see a tab at the top that says `Untitled1` and you
 knitr::include_graphics("images/2.5newrmdfile.png")
 ```
 
-1. Source - Places where most of the coding happens. The source can look different depending the type of file you are working with (.rmd, .R, .MD). Any dataset you want to view will also show up in this window. 
+1. **Source** - Places where most of the coding happens. The source can look different depending the type of file you are working with (.rmd, .R, .MD). Any dataset you want to view will also show up in this window. 
 
-2. Environment/History - This is were you can find any stored variables (objects), imported scripts, loaded databases that are defined in memory. The history tab will contain a history of all the R commands that you have executed in this session
+2. **Environment/History** - This is were you can find any stored variables (objects), imported scripts, loaded databases that are defined in memory. The history tab will contain a history of all the R commands that you have executed in this session
 
-3. Console/Terminal - This is were the commands that are written in the source window are actually executed and started to run. This would be the same if you were to use R using a command line instead of an IDE. You can run and enter in commands and scripts in this window, but they will be executed as soon as you hit `ENTER/RETURN`. Can be used to quickly check a snip of code, do some basic calculations or install some packages. Runtime errors will also show up in this window which can be useful when you are debugging. 
+3. **Console/Terminal** - This is were the commands that are written in the source window are actually executed and started to run. This would be the same if you were to use R using a command line instead of an IDE. You can run and enter in commands and scripts in this window, but they will be executed as soon as you hit `ENTER/RETURN`. Can be used to quickly check a snip of code, do some basic calculations or install some packages. Runtime errors will also show up in this window which can be useful when you are debugging. 
 
-4. Files/Plots/Pkgs/Help/Viewer - This is more a directory window where you can cycle between files, plots, packages, help, and Viewer. 
+4. **Files/Plots/Pkgs/Help/Viewer** - This is more a directory window where you can cycle between files, plots, packages, help, and Viewer. 
 
 ## Getting Started (Cloud)
 
